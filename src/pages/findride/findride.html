@@ -1,18 +1,45 @@
-<!--
-  Generated template for the FindridePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>findride</ion-title>
+    <ion-title>findRide</ion-title>
   </ion-navbar>
 
 </ion-header>
 
+<ion-content  *ngIf="ridesAvailable==false">
 
-<ion-content padding>
+  <ion-searchbar [(ngModel)]="findfrom" placeholder="From" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"
+    class="from" #frindfrom></ion-searchbar>
+
+  <ion-searchbar [(ngModel)]="findto" placeholder="Destination" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"
+    class="toAddress" #destination></ion-searchbar>
+  <div id="maps" #map></div>
+  <button ion-button block (click)="findRide()" color="primary">Find Ride</button>
+
+ 
+
 
 </ion-content>
+
+<ion-content id="findRide" *ngIf="ridesAvailable">
+
+    <ion-list >
+
+        <ion-item-sliding #item>
+          <ion-item>
+            Item
+          </ion-item>
+          <ion-item-options side="left">
+            <button ion-button (click)="favorite(item)">Favorite</button>
+            <button ion-button color="danger" (click)="share(item)">Share</button>
+          </ion-item-options>
+    
+          <ion-item-options side="right">
+            <button ion-button (click)="unread(item)">Unread</button>
+          </ion-item-options>
+        </ion-item-sliding>
+        
+      </ion-list>
+  
+</ion-content>
+

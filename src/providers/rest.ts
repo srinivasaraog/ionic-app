@@ -19,12 +19,22 @@ export class Rest {
   private loginUrl = 'http://localhost:3000/api/login';
   private signupUrl = 'http://localhost:3000/api/signup';
   private offerRideUrl = 'http://localhost:3000/api/offerRide';
+  private findRideUrl = 'http://localhost:3000/api/offerRide';
 
 
 
 
   constructor(public http: Http) {}
-  
+  findRide(rideDetails): Observable<string[]> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+   let options = new RequestOptions({ headers: headers });
+   let body = rideDetails;
+    return this.http.get(this.findRideUrl,body)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
+
   offerRide(rideDetails): Observable<string[]> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
    let options = new RequestOptions({ headers: headers });
