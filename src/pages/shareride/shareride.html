@@ -13,6 +13,17 @@
   
     <ion-searchbar [(ngModel)]="Destination"  placeholder="Destination" autocorrect="off" autocapitalize="off" spellcheck="off"
       type="text" class="destinationaddress" #to></ion-searchbar>
+      <ion-item>
+      <ion-label>Date</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" [min]="minDate" [(ngModel)]="selectedDate">select Date</ion-datetime>
+       </ion-item>
+       <ion-item>
+        <ion-label>Time</ion-label>
+          <ion-datetime displayFormat="h:mm A"  [(ngModel)]="selectedTime">select time</ion-datetime>
+           
+         </ion-item>
+
     <div id="map" #map></div>
     <button ion-button block (click)="offerRide()" color="primary">Offer a Ride</button>
+    
   </ion-content>

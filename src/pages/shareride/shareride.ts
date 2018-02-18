@@ -33,10 +33,19 @@ export class ShareridePage {
   public address: any;
   from: any;
   to: any;
+  selectedDate: any;
+  selectedTime:any;
+  minDate: any;
 
   constructor(private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone, public rest: Rest, public navCtrl: NavController, public navParams: NavParams) {
 
+
+  }
+  ionViewDidLoad() {
+    
+    
+    console.log("share ride");
 
   }
 
@@ -60,12 +69,16 @@ export class ShareridePage {
     this.rideDetails = {};
     this.fromAddress = "";
     this.Destination = '';
+    this.minDate='';
+    this.selectedTime='';
+    this.selectedDate='';
+
 
 
     //create search FormControl
     this.searchControl = new FormControl();
-
-
+    
+    this.minDate = new Date().toJSON().split('T')[0];
     //set current position
     this.setCurrentPosition();
     //load Places Autocomplete
@@ -173,6 +186,8 @@ export class ShareridePage {
       this.rideDetails.id = sessionStorage.getItem("userId");
       this.rideDetails.from = this.from;
       this.rideDetails.to = this.to;
+      this.rideDetails.date=this.selectedDate;
+      this.rideDetails.time=this.selectedTime;
 
       this.rest.offerRide(this.rideDetails).subscribe(
         response => this.navigator(response),
