@@ -41,7 +41,7 @@ export class Rest {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     let body = rideDetails;
-    return this.http.get(this.findRideUrl, body)
+    return this.http.post(this.findRideUrl, body)
       .map(this.extractData)
       .catch(this.handleError);
   }
