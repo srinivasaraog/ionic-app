@@ -1,10 +1,10 @@
-import { Component,NgZone, OnInit,ViewChild,ElementRef } from '@angular/core';
+import { Component, NgZone, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
-import { NavController,NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { FormControl } from "@angular/forms";
 import { MapsAPILoader } from '@agm/core';
 import { Rest } from '../../providers/rest';
-import {} from '@types/googlemaps';
+import { } from '@types/googlemaps';
 import { YourridePage } from '../yourride/yourride';
 
 
@@ -22,7 +22,7 @@ declare var google;
   templateUrl: 'shareride.html',
 })
 export class ShareridePage {
-  rideDetails:any;
+  rideDetails: any;
   map: any;
   Destination: any;
   fromAddress: any;
@@ -33,9 +33,9 @@ export class ShareridePage {
   public address: any;
   from: any;
   to: any;
- 
+
   constructor(private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone,public rest: Rest,public navCtrl: NavController, public navParams: NavParams) {
+    private ngZone: NgZone, public rest: Rest, public navCtrl: NavController, public navParams: NavParams) {
 
 
   }
@@ -57,7 +57,9 @@ export class ShareridePage {
     this.address = "";
     this.from = {};
     this.to = {};
-    this.rideDetails={};
+    this.rideDetails = {};
+    this.fromAddress = "";
+    this.Destination = '';
 
 
     //create search FormControl
@@ -165,23 +167,24 @@ export class ShareridePage {
     });
   }
 
-  
-  offerRide(){
-    if(this.from.address && this.to.address){
-      this.rideDetails.from=this.from;
-      this.rideDetails.to=this.to;
+
+  offerRide() {
+    if (this.from.address && this.to.address) {
+      this.rideDetails.id = sessionStorage.getItem("userId");
+      this.rideDetails.from = this.from;
+      this.rideDetails.to = this.to;
 
       this.rest.offerRide(this.rideDetails).subscribe(
         response => this.navigator(response),
-        err=>      console.log(err)
+        err => console.log(err)
 
-       );
+      );
     }
   }
 
-  navigator(res){
+  navigator(res) {
 
-    if(res.status===200)
-    this.navCtrl.push(YourridePage);
+    if (res.status === 200)
+      this.navCtrl.push(YourridePage);
   }
 }

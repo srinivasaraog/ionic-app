@@ -1,6 +1,6 @@
-import { Component,NgZone, OnInit, ViewChild, ElementRef, OnChanges } from '@angular/core';
+import { Component, NgZone, OnInit, ViewChild, ElementRef, OnChanges } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
-import { NavController,NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { FormControl } from "@angular/forms";
 import { MapsAPILoader } from '@agm/core';
 import { Rest } from '../../providers/rest';
@@ -20,18 +20,20 @@ export class FindridePage {
   public searchControl: FormControl;
   public zoom: number;
   public address: any;
+  findfrom: any;
+  findto: any;
   from: any;
   to: any;
-  ridesAvailable:boolean=false;
+  ridesAvailable: boolean = false;
 
   constructor(private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone,public rest: Rest) {
+    private ngZone: NgZone, public rest: Rest) {
 
 
   }
 
   @ViewChild('map') mapElement: ElementRef;
-  
+
   ngOnInit() {
 
     //set google maps defaults
@@ -41,6 +43,8 @@ export class FindridePage {
     this.address = "";
     this.from = {};
     this.to = {};
+    this.findfrom = '';
+    this.findto = '';
 
 
     //create search FormControl
@@ -147,16 +151,16 @@ export class FindridePage {
       }
     });
   }
-  
 
 
-  findRide(){
-    console.log(".....findRide",this.from);
-    if(this.from.address && this.to.address){
-      this.ridesAvailable=true;
-      console.log(".....ridesAvailable",this.ridesAvailable);
+
+  findRide() {
+    console.log(".....findRide", this.from);
+    if (this.from.address && this.to.address) {
+      this.ridesAvailable = true;
+      console.log(".....ridesAvailable", this.ridesAvailable);
     }
   }
-  
+
 
 }

@@ -13,6 +13,14 @@
 </ion-header>
 
 
-<ion-content padding>
-
-</ion-content>
+<ion-content text-center class="vertical-align-content">
+    <ion-grid >
+          <ion-row>
+                <ion-col *ngFor="let item of data">
+                      <h3 text-uppercase no-padding no-margin>{{item.from.address}}</h3>
+                      
+                      <h3 no-padding no-margin>{{item.to.address}}</h3>
+                </ion-col>
+          </ion-row>
+    </ion-grid>
+   </ion-content>

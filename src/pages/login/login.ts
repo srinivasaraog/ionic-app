@@ -17,11 +17,11 @@ import { HomePage } from '../home/home';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  userDetails={
-    email:'',
-    password:''
+  userDetails = {
+    email: '',
+    password: ''
   };
-  constructor(public navCtrl: NavController, public navParams: NavParams,public rest: Rest) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public rest: Rest) {
   }
 
   ionViewDidLoad() {
@@ -29,24 +29,26 @@ export class LoginPage {
 
 
   }
-  login(email,pwd){
-  
-  this.userDetails.email=email;
-  this.userDetails.password=pwd;
-  this.rest.getloginStatus(this.userDetails).subscribe(
-   response =>this.loginSucess(response),
-   err=> console.log(err)
-  );
+  login(email, pwd) {
 
-  // this.navCtrl.push(HomePage);
- }
-loginSucess(response){
-  if(response.sucess){
-     this.navCtrl.push(HomePage);
-  }else{
-    console.log(response);
+    this.userDetails.email = email;
+    this.userDetails.password = pwd;
+    this.rest.getloginStatus(this.userDetails).subscribe(
+      response => this.loginSucess(response),
+      err => console.log(err)
+    );
+
+    // this.navCtrl.push(HomePage);
   }
-}
+  loginSucess(response) {
+    if (response.sucess) {
+      let userId = response.userId;
+      sessionStorage.setItem("userId", userId);
+      this.navCtrl.push(HomePage);
+    } else {
+      console.log(response);
+    }
+  }
 
 
 }

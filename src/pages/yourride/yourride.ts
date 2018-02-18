@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
-import { NavController,NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
+import { Rest } from '../../providers/rest';
 
 /**
  * Generated class for the YourridePage page.
@@ -14,12 +15,26 @@ import { NavController,NavParams } from 'ionic-angular';
   templateUrl: 'yourride.html',
 })
 export class YourridePage {
+  yourRideDetails: any = {
+    userId: ""
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  };
+  data: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public rest: Rest) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad YourridePage');
+    let userId = sessionStorage.getItem("userId");
+    this.yourRideDetails = {
+      userId: userId
+
+    }
+    this.rest.getYourRideDetails(this.yourRideDetails).subscribe(
+      response => this.data = response,
+      err => console.log(err)
+
+    );
   }
 
 }
