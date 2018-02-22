@@ -16,11 +16,19 @@
 <ion-content text-center class="vertical-align-content">
     <ion-grid >
           <ion-row>
-                <ion-col *ngFor="let item of data">
-                      <h3 text-uppercase no-padding no-margin>{{item.from.address}}</h3>
+              <div *ngIf="!isValid">
+                  <h3 text-uppercase no-padding no-margin>No Rides Availble please Schedule a Ride</h3>
+              </div>
+              
+              <div *ngIf="isValid">
+                  <ion-col *ngFor="let item of profile">
+                      <ion-col *ngFor="let subitem of item"> 
+                      <h3 no-padding no-margin>{{subitem.from.address}}</h3>
                       <h3 no-padding no-margin>to</h3>
-                      <h3 no-padding no-margin>{{item.to.address}}</h3>
+                      <h3 no-padding no-margin>{{subitem.to.address}}</h3>
+                    </ion-col>
                 </ion-col>
+              </div>
           </ion-row>
     </ion-grid>
-   </ion-content>
+   </ion-content>  

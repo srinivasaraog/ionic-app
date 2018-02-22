@@ -6,6 +6,7 @@ import { MapsAPILoader } from '@agm/core';
 import { Rest } from '../../providers/rest';
 import { } from '@types/googlemaps';
 import { YourridePage } from '../yourride/yourride';
+import { AlertController } from 'ionic-angular';
 
 
 declare var google;
@@ -36,9 +37,10 @@ export class ShareridePage {
   selectedDate: any;
   selectedTime:any;
   minDate: any;
+  update:boolean=false;
 
   constructor(private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone, public rest: Rest, public navCtrl: NavController, public navParams: NavParams) {
+    private ngZone: NgZone, public rest: Rest, public navCtrl: NavController, public navParams: NavParams,public alertCtrl:AlertController) {
 
 
   }
@@ -199,7 +201,33 @@ export class ShareridePage {
 
   navigator(res) {
 
-    if (res.status === 200)
+    if (res.status === 200){
       this.navCtrl.push(YourridePage);
+    }else if(res.status === 409){
+         //this.update=true;
+         let alert = this.alertCtrl.create({
+          title: 'Update Address',
+          message: 'You have already exisitng ride for this date. Do you want to update this address?',
+          buttons: [
+            {
+              text: 'Cancel',
+              role: 'cancel',
+              handler: () => {
+                console.log('Cancel clicked');
+              }
+            },
+            {
+              text: 'Update',
+              handler: () => {
+                console.log('update address clicked');
+                
+
+              }
+            }
+          ]
+        });
+        alert.present();
+    }
+      
   }
 }
