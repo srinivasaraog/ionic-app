@@ -13,16 +13,34 @@
 </ion-header>
 
 <ion-content padding id="login">
- <ion-list>
-     <ion-item>
-         <ion-input  type="email" value="" [(ngModel)]="email" placeholder="Email"></ion-input>
-     </ion-item>
-     <ion-item>
+ <form [formGroup]="authForm" (ngSubmit)="onSubmit(authForm.value)">
+        <ion-item [ngClass]="{'error-border':!authForm.controls.email.valid && authForm.controls.email.touched}">
+            <ion-label floating>E-Mail</ion-label>
+            <ion-input formControlName="email" type="text"></ion-input>
+        </ion-item>
+  
 
-         <ion-input  type="password"  value="" [(ngModel)]="password" placeholder="password"></ion-input>
-     </ion-item>
+          <p class="item-md" *ngIf="authForm.controls.email.hasError('required') && authForm.controls.email.touched">
+              <span>Email field is required!</span>
+          </p>
+          <p class="item-md" *ngIf="authForm.controls.email.hasError('pattern') && authForm.controls.email.touched">
+              <span>Enter a valid email address</span>
+          </p>
 
-     <button ion-button block  (click)="login(email,password)" color="primary">LOGIN</button>
-
- </ion-list>
+        <ion-item [ngClass]="{'error-border':!authForm.controls.password.valid && authForm.controls.password.touched}">
+            <ion-label floating>Password</ion-label>
+            <ion-input formControlName="password" type="password"></ion-input>
+        </ion-item>
+        <p class="item-md" *ngIf="authForm.controls.password.hasError('required') && authForm.controls.password.touched">
+            <span>Sorry, field password is required!</span>
+        </p>
+        <p class="item-md" *ngIf="authForm.controls.password.hasError('minlength') && authForm.controls.password.touched">
+            <span>Sorry, minimum password length is 8!</span>
+        </p>                
+  
+        <button ion-button full color="primary" [disabled]="!authForm.valid" style="margin-top: 20px;" type="submit">SIGN IN</button>
+        <p *ngIf="userNotExists">
+            <span>Please not exists, Please SIGN UP</span>
+        </p>    
+    </form>
 </ion-content>
