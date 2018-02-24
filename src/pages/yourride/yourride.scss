@@ -1,9 +1,16 @@
 page-yourride {
  
- .vertical-align-content > *
-{
-     display: flex!important;
-     align-content: center!important;
-     align-items: center!important;
-}
+    .details{
+
+        width: 100%;
+        
+    }
+    .flex-row{
+        display: flex;
+        flex-direction: row;
+    }
+    .profile{
+        padding-right: 10px;
+        padding-top: 10px;
+    }
 }

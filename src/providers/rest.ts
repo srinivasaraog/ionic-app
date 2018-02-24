@@ -21,12 +21,23 @@ export class Rest {
   private offerRideUrl = 'http://localhost:3000/api/offerRide';
   private findRideUrl = 'http://localhost:3000/api/findRide';
   private getYourRideDetailsUrl = 'http://localhost:3000/api/yourride';
+  private updateRideDetailsUrl = 'http://localhost:3000/api/updateyourride';
 
 
 
 
 
   constructor(public http: Http) { }
+  updateRide(yourRideDetails): Observable<string[]> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    let body = yourRideDetails;
+
+    return this.http.post(this.updateRideDetailsUrl, body)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
   getYourRideDetails(yourRideDetails): Observable<string[]> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });

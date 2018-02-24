@@ -1,12 +1,13 @@
 import { Component, NgZone, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
-import { NavController, NavParams } from 'ionic-angular';
+import { IonicPage,  NavController, NavParams } from 'ionic-angular';
+import { AlertController, Events, App } from 'ionic-angular';
+
 import { FormControl } from "@angular/forms";
 import { MapsAPILoader } from '@agm/core';
 import { Rest } from '../../providers/rest';
 import { } from '@types/googlemaps';
 import { YourridePage } from '../yourride/yourride';
-import { AlertController } from 'ionic-angular';
+
 
 
 declare var google;
@@ -35,18 +36,27 @@ export class ShareridePage {
   from: any;
   to: any;
   selectedDate: any;
-  selectedTime:any;
+  selectedTime: any;
   minDate: any;
-  update:boolean=false;
+  update: boolean = false;
+  yourRideDetails: any = {
+    userId: ""
+
+  };
+  yourideInfo: any;
+  isRideAvailable: boolean = false;
+
 
   constructor(private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone, public rest: Rest, public navCtrl: NavController, public navParams: NavParams,public alertCtrl:AlertController) {
+    private ngZone: NgZone, public rest: Rest, public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, private events: Events) {
+     
 
-
+    
   }
+ 
   ionViewDidLoad() {
-    
-    
+
+
     console.log("share ride");
 
   }
@@ -71,15 +81,15 @@ export class ShareridePage {
     this.rideDetails = {};
     this.fromAddress = "";
     this.Destination = '';
-    this.minDate='';
-    this.selectedTime='';
-    this.selectedDate='';
+    this.minDate = '';
+    this.selectedTime = '';
+    this.selectedDate = '';
 
 
 
     //create search FormControl
     this.searchControl = new FormControl();
-    
+
     this.minDate = new Date().toJSON().split('T')[0];
     //set current position
     this.setCurrentPosition();
@@ -134,9 +144,28 @@ export class ShareridePage {
 
 
     });
+
+
+    console.log('ionViewDidLoad YourridePage');
+    let userId = sessionStorage.getItem("userId");
+    this.yourRideDetails = {
+      userId: userId
+
+    }
+    this.rest.getYourRideDetails(this.yourRideDetails).subscribe(
+      response => this.parse(response),
+      err => console.log(err)
+
+    );
   }
 
+//after call back
+  parse(response) {
 
+    this.yourideInfo = response ? response.offerride : '';
+    console.log("yourride", response);
+   
+  }
 
 
 
@@ -184,12 +213,34 @@ export class ShareridePage {
 
 
   offerRide() {
-    if (this.from.address && this.to.address) {
-      this.rideDetails.id = sessionStorage.getItem("userId");
+    let availableRides: any = [];
+    let userId = sessionStorage.getItem("userId");
+    if (this.yourideInfo) {
+
+      for (let i = 0; i < this.yourideInfo.length; i++) {
+
+        let date = this.yourideInfo[i].profile[0] ? this.yourideInfo[i].profile[0].date : '';
+        if (date === this.selectedDate) {
+
+          this.isRideAvailable = true;
+          console.log("inside....", this.isRideAvailable);
+          this.prompt();
+
+        }
+      }
+
+
+
+    }
+
+
+    if (!this.isRideAvailable && this.from.address && this.to.address) {
+      console.log("rest call.....")
+      this.rideDetails.id = userId;
       this.rideDetails.from = this.from;
       this.rideDetails.to = this.to;
-      this.rideDetails.date=this.selectedDate;
-      this.rideDetails.time=this.selectedTime;
+      this.rideDetails.date = this.selectedDate;
+      this.rideDetails.time = this.selectedTime;
 
       this.rest.offerRide(this.rideDetails).subscribe(
         response => this.navigator(response),
@@ -201,33 +252,49 @@ export class ShareridePage {
 
   navigator(res) {
 
-    if (res.status === 200){
+    if (res.status === 200) {
       this.navCtrl.push(YourridePage);
-    }else if(res.status === 409){
-         //this.update=true;
-         let alert = this.alertCtrl.create({
-          title: 'Update Address',
-          message: 'You have already exisitng ride for this date. Do you want to update this address?',
-          buttons: [
-            {
-              text: 'Cancel',
-              role: 'cancel',
-              handler: () => {
-                console.log('Cancel clicked');
-              }
-            },
-            {
-              text: 'Update',
-              handler: () => {
-                console.log('update address clicked');
-                
-
-              }
-            }
-          ]
-        });
-        alert.present();
     }
-      
+
+  }
+
+  prompt() {
+
+    let alert = this.alertCtrl.create({
+      title: 'Update Address',
+      message: 'You have already exisitng ride for this date. Do you want to update this address?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+            this.isRideAvailable = false;
+          }
+        },
+        {
+          text: 'Update',
+          handler: () => {
+            console.log('update address clicked');
+            
+            let userId = sessionStorage.getItem("userId");
+            this.rideDetails.id = userId;
+            this.rideDetails.from = this.from;
+            this.rideDetails.to = this.to;
+            this.rideDetails.date = this.selectedDate;
+            this.rideDetails.time = this.selectedTime;
+            this.rest.updateRide(this.rideDetails).subscribe(
+              response =>{ this.navigator(response),this.isRideAvailable = false},
+              err => console.log(err)
+
+            );
+
+
+          }
+        }
+      ]
+    });
+    alert.present();
+
   }
 }

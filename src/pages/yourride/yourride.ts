@@ -1,7 +1,9 @@
-import { Component,OnInit } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component, OnInit } from '@angular/core';
+import {IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Events } from 'ionic-angular';
 import { Rest } from '../../providers/rest';
+import { ShareridePage } from '../shareride/shareride';
+import { car } from '../../assets/icon/car';
 
 
 /**
@@ -14,25 +16,28 @@ import { Rest } from '../../providers/rest';
 @Component({
   selector: 'page-yourride',
   templateUrl: 'yourride.html',
-  
+
 })
 export class YourridePage {
-  yourRideDetails: any = {
-    userId: ""
-
-  };
-  data:any;
-  isValid:boolean=false;
-  ridesAvailable=[];
-  profile:any=[];
-  constructor(public navCtrl: NavController, public navParams: NavParams, public rest: Rest) {
+ 
+  data: any;
+  isValid: boolean = false;
+  ridesAvailable = [];
+  profile: any = [];
+  rideDetails:any=[];
+  yourRideDetails={
+    userId:''
+  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public rest: Rest,private events: Events) {
+  
   }
 
   ionViewDidLoad() {
-   
+
   }
-  ngOnInit(){
+  ngOnInit() {
     console.log('ionViewDidLoad YourridePage');
+    
     let userId = sessionStorage.getItem("userId");
     this.yourRideDetails = {
       userId: userId
@@ -43,26 +48,34 @@ export class YourridePage {
       err => console.log(err)
 
     );
+
+    this.events.subscribe('yourideInfo',(rideDetails) => {
+      console.log("youride page......",rideDetails)
+           this.rideDetails= rideDetails;
+      });
+      this.parse(this.rideDetails);
   }
-  parse(response){
-    if(response.status===200){
-      this.isValid=response.offerride? true:false;
-     if(this.isValid){
-      this.data=response.offerride;
-      
-     for(let i=0;i < this.data.length;i++){
-      
-           this.profile.push(this.data[i].profile);
-          //  for(let j=0; j < this.profile.length;j++){
-          //    this.ridesAvailable=this.profile[j];
-          //  }
-     }   
-      console.log("hello", this.profile)
-     } 
-    
+  parse(response) {
+    if (response.status === 200) {
+      this.isValid = response.offerride ? true : false;
+      if (this.isValid) {
+        this.data = response.offerride;
+
+        for (let i = 0; i < this.data.length; i++) {
+          this.profile.push(this.data[i].profile);
+
+        }
+        console.log("hello", this.profile)
+      }
+
     }
-     
-    
+
+
+  }
+
+  updateRide(event){
+   console.log("inside update ride",event);
+   this.navCtrl.push(ShareridePage);
   }
 
 

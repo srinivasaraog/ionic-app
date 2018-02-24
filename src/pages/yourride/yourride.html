@@ -14,21 +14,47 @@
 
 
 <ion-content text-center class="vertical-align-content">
-    <ion-grid >
-          <ion-row>
-              <div *ngIf="!isValid">
-                  <h3 text-uppercase no-padding no-margin>No Rides Availble please Schedule a Ride</h3>
-              </div>
-              
-              <div *ngIf="isValid">
-                  <ion-col *ngFor="let item of profile">
-                      <ion-col *ngFor="let subitem of item"> 
-                      <h3 no-padding no-margin>{{subitem.from.address}}</h3>
-                      <h3 no-padding no-margin>to</h3>
-                      <h3 no-padding no-margin>{{subitem.to.address}}</h3>
-                    </ion-col>
-                </ion-col>
-              </div>
-          </ion-row>
-    </ion-grid>
-   </ion-content>  
+  <ion-list *ngIf="!isValid">
+    <ion-item-sliding #slidingNoRideItem>
+      <ion-item>
+        <h3 text-uppercase no-padding no-margin>No Rides Availble please Schedule a Ride</h3>
+      </ion-item>
+      <ion-item-options>
+        <button ion-button (click)="schedule(slidingNoRideItem)">Share</button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+
+
+  
+  <ion-list >
+    <ion-item-sliding *ngFor="let item of profile">
+       
+      <ion-item class="details" *ngFor="let subitem of item">
+          <div class="flex-row">
+         <div >
+            <ion-avatar class="profile" item-start>
+                <img src="../assets/icon/car.jpg">
+              </ion-avatar>
+         </div> 
+         <div>
+        <h3>{{subitem.from.address}}</h3>
+        <h3>to</h3>
+        <h3>{{subitem.to.address}}</h3>
+         </div>
+         </div>
+      </ion-item>
+   
+      <ion-item-options side="right">
+        <button ion-button color="primary" (click)="updateRide(event)">
+          <ion-icon name="car"></ion-icon>
+          updateRide
+        </button>
+      </ion-item-options>
+   
+    </ion-item-sliding>
+  </ion-list>
+
+
+</ion-content>
