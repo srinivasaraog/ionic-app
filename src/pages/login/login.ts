@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Rest } from '../../providers/rest';
 //import { OfferRidePage } from '../offerride/offerride';
 import { HomePage } from '../home/home';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 /**
  * Generated class for the LoginPage page.
@@ -17,11 +17,14 @@ import { HomePage } from '../home/home';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  userDetails = {
-    email: '',
-    password: ''
-  };
-  constructor(public navCtrl: NavController, public navParams: NavParams, public rest: Rest) {
+
+  authForm: FormGroup;
+  userNotExists: boolean = false;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public rest: Rest, public formBuilder: FormBuilder) {
+        this.authForm = formBuilder.group({
+            email: ['', Validators.compose([Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'), Validators.minLength(8), Validators.maxLength(30)])],
+            password: ['', Validators.compose([Validators.required, Validators.minLength(8)])]
+        });
   }
 
   ionViewDidLoad() {
@@ -29,23 +32,27 @@ export class LoginPage {
 
 
   }
-  login(email, pwd) {
 
-    this.userDetails.email = email;
-    this.userDetails.password = pwd;
-    this.rest.getloginStatus(this.userDetails).subscribe(
-      response => this.loginSucess(response),
-      err => console.log(err)
-    );
 
     
-  }
+  
+  onSubmit(value: any): void {
+        if(this.authForm.valid) {
+           this.rest.getloginStatus(value).subscribe(
+            response => this.loginSucess(response),
+            err => console.log(err)
+          );
+        }
+    }
+
   loginSucess(response) {
     if (response.sucess) {
       let userId = response.userId;
       sessionStorage.setItem("userId", userId);
       this.navCtrl.push(HomePage);
-    } else {
+    } else if (response.message.indexOf("user doesnot exist") >= 0){
+      this.userNotExists = true;
+    }else {
       console.log(response);
     }
   }

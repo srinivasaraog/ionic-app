@@ -14,16 +14,13 @@
 
 
 <ion-content text-center class="vertical-align-content">
-  <ion-list *ngIf="!isValid">
-    <ion-item-sliding #slidingNoRideItem>
-      <ion-item>
-        <h3 text-uppercase no-padding no-margin>No Rides Availble please Schedule a Ride</h3>
-      </ion-item>
-      <ion-item-options>
-        <button ion-button (click)="schedule(slidingNoRideItem)">Share</button>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
+  <div class= "align" *ngIf="!isValid">
+    
+      
+        <h4 text-uppercase no-padding no-margin>No Rides Availble please Schedule a Ride</h4>
+     
+     
+    </div>
 
 
 

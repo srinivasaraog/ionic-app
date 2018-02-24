@@ -13,4 +13,10 @@ page-yourride {
         padding-right: 10px;
         padding-top: 10px;
     }
+    .align{
+        display: flex ;
+        justify-content: center ;
+        align-items: center ;
+        height: 100%;
+    }
 }
