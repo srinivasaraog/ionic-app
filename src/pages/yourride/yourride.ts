@@ -26,7 +26,13 @@ export class YourridePage {
   profile: any = [];
   rideDetails:any=[];
   yourRideDetails={
-    userId:''
+    userId:'',
+   
+  }
+  deleterideDetails={
+    userId:'',
+    date:'',
+    time:''
   }
   constructor(public navCtrl: NavController, public navParams: NavParams, public rest: Rest,private events: Events) {
   
@@ -49,14 +55,15 @@ export class YourridePage {
 
     );
 
-    this.events.subscribe('yourideInfo',(rideDetails) => {
-      console.log("youride page......",rideDetails)
-           this.rideDetails= rideDetails;
-      });
-      this.parse(this.rideDetails);
+    // this.events.subscribe('yourideInfo',(rideDetails) => {
+    //   console.log("youride page......",rideDetails)
+    //        this.rideDetails= rideDetails;
+    //   });
+      // this.parse(this.rideDetails);
   }
   parse(response) {
     if (response.status === 200) {
+      this.profile=[];
       this.isValid = response.offerride ? true : false;
       if (this.isValid) {
         this.data = response.offerride;
@@ -76,6 +83,23 @@ export class YourridePage {
   updateRide(event){
    console.log("inside update ride",event);
    this.navCtrl.push(ShareridePage);
+  }
+
+  deleteRide(event){
+   
+    let userId = sessionStorage.getItem("userId");
+    //this.profile=[];
+    this.deleterideDetails = {
+      userId: userId,
+      date:event[0].date,
+      time:event[0].time
+
+    }
+    this.rest.deleteRide(this.deleterideDetails).subscribe(
+      response => {this.parse(response)},
+      err => console.log(err)
+
+    );
   }
 
 

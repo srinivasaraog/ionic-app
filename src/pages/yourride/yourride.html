@@ -44,11 +44,16 @@
       </ion-item>
    
       <ion-item-options side="right">
-        <button ion-button color="primary" (click)="updateRide(event)">
+        <button ion-button color="primary" (click)="updateRide(item)">
           <ion-icon name="car"></ion-icon>
-          updateRide
+          Update Ride
+        </button>
+        <button ion-button color="danger" (click)="deleteRide(item)">
+          <ion-icon name="trash"></ion-icon>
+          Delete Ride
         </button>
       </ion-item-options>
+      >
    
     </ion-item-sliding>
   </ion-list>

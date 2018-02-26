@@ -25,6 +25,11 @@ export class FindridePage {
   from: any;
   to: any;
   ridesAvailable: boolean = false;
+  distance:any='';
+  rideDetails:any=[];
+  selectedDate:any='';
+  isRideAvailable:boolean=false;
+  minDate:any;
 
   constructor(private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone, public rest: Rest) {
@@ -47,10 +52,11 @@ export class FindridePage {
     this.findto = '';
 
 
+
     //create search FormControl
     this.searchControl = new FormControl();
 
-
+    this.minDate = new Date().toJSON().split('T')[0];
     //set current position
     this.setCurrentPosition();
     //load Places Autocomplete
@@ -124,6 +130,15 @@ export class FindridePage {
     }
   }
 
+  calculateDistance(l1,l2) {
+
+    var p1 = new google.maps.LatLng(l1.latitude, l1.longitude);
+    var p2 = new google.maps.LatLng(l2.latitude, l2.longitude);
+
+     
+      this.distance= (google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 1000).toFixed(2);
+    
+  }
 
   calculateAndDisplayRoute() {
 
@@ -138,6 +153,7 @@ export class FindridePage {
     });
     this.setCurrentPosition()
     directionsDisplay.setMap(this.map);
+    this.calculateDistance(this.from,this.to);
     directionsService.route({
       origin: this.from.address,
       destination: this.to.address,
@@ -152,13 +168,42 @@ export class FindridePage {
     });
   }
 
+  navigator(res) {
+    
+    if (res.status === 200) {
+      this.isRideAvailable=true;
+    }else if(res.status===409){
+     
+    }
 
+  }
 
   findRide() {
-    console.log(".....findRide", this.from);
+  //   console.log(".....findRide", this.from);
+  //   if (this.from.address && this.to.address) {
+  //     this.ridesAvailable = true;
+  //     console.log(".....ridesAvailable", this.ridesAvailable);
+  //   }
+
+
+
+
+    console.log("inside find ride function")
+    let availableRides: any = [];
+    
+
     if (this.from.address && this.to.address) {
-      this.ridesAvailable = true;
-      console.log(".....ridesAvailable", this.ridesAvailable);
+      console.log("rest call.....")
+      
+      this.rideDetails.from = this.from;
+      this.rideDetails.to = this.to;
+      this.rideDetails.date = this.selectedDate;
+    
+      this.rest.findRide(this.rideDetails).subscribe(
+        response => this.navigator(response),
+        err => console.log(err)
+
+      );
     }
   }
 

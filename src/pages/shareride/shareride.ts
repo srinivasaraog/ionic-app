@@ -45,6 +45,7 @@ export class ShareridePage {
   };
   yourideInfo: any;
   isRideAvailable: boolean = false;
+  distance:any='';
 
 
   constructor(private mapsAPILoader: MapsAPILoader,
@@ -152,20 +153,9 @@ export class ShareridePage {
       userId: userId
 
     }
-    this.rest.getYourRideDetails(this.yourRideDetails).subscribe(
-      response => this.parse(response),
-      err => console.log(err)
-
-    );
-  }
-
-//after call back
-  parse(response) {
-
-    this.yourideInfo = response ? response.offerride : '';
-    console.log("yourride", response);
    
   }
+
 
 
 
@@ -182,7 +172,15 @@ export class ShareridePage {
       });
     }
   }
+  calculateDistance(l1,l2) {
 
+    var p1 = new google.maps.LatLng(l1.latitude, l1.longitude);
+    var p2 = new google.maps.LatLng(l2.latitude, l2.longitude);
+
+     
+      this.distance= (google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 1000).toFixed(2);
+    
+  }
 
   calculateAndDisplayRoute() {
 
@@ -196,6 +194,7 @@ export class ShareridePage {
       center: { lat: 41.85, lng: -87.65 }
     });
     this.setCurrentPosition()
+    this.calculateDistance(this.from,this.to);
     directionsDisplay.setMap(this.map);
     directionsService.route({
       origin: this.from.address,
@@ -213,34 +212,18 @@ export class ShareridePage {
 
 
   offerRide() {
+    console.log("inside offer ride function")
     let availableRides: any = [];
     let userId = sessionStorage.getItem("userId");
-    if (this.yourideInfo) {
 
-      for (let i = 0; i < this.yourideInfo.length; i++) {
-
-        let date = this.yourideInfo[i].profile[0] ? this.yourideInfo[i].profile[0].date : '';
-        if (date === this.selectedDate) {
-
-          this.isRideAvailable = true;
-          console.log("inside....", this.isRideAvailable);
-          this.prompt();
-
-        }
-      }
-
-
-
-    }
-
-
-    if (!this.isRideAvailable && this.from.address && this.to.address) {
+    if (this.from.address && this.to.address) {
       console.log("rest call.....")
       this.rideDetails.id = userId;
       this.rideDetails.from = this.from;
       this.rideDetails.to = this.to;
       this.rideDetails.date = this.selectedDate;
       this.rideDetails.time = this.selectedTime;
+      this.rideDetails.distance=this.distance;
 
       this.rest.offerRide(this.rideDetails).subscribe(
         response => this.navigator(response),
@@ -249,11 +232,22 @@ export class ShareridePage {
       );
     }
   }
-
+  clearInput(){
+    console.log("clear all fields.......")
+    this.rideDetails.from = '';
+      this.rideDetails.to ='';
+      this.rideDetails.date = '';
+      this.rideDetails.time = '';
+  }
   navigator(res) {
+    this.clearInput();
 
     if (res.status === 200) {
+
       this.navCtrl.push(YourridePage);
+    }else if(res.status===409){
+      //this.isRideAvailable=true;
+      this.prompt();
     }
 
   }

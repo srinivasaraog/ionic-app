@@ -19,15 +19,26 @@ export class Rest {
   private loginUrl = 'http://localhost:3000/api/login';
   private signupUrl = 'http://localhost:3000/api/signup';
   private offerRideUrl = 'http://localhost:3000/api/offerRide';
-  private findRideUrl = 'http://localhost:3000/api/findRide';
+  private findRideUrl = 'http://localhost:3000/api/findride';
   private getYourRideDetailsUrl = 'http://localhost:3000/api/yourride';
   private updateRideDetailsUrl = 'http://localhost:3000/api/updateyourride';
-
+  private deleteRideDetails = 'http://localhost:3000/api/deleteRide'
 
 
 
 
   constructor(public http: Http) { }
+
+  deleteRide(yourRideDetails): Observable<string[]> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let body = yourRideDetails;
+
+    let options = new RequestOptions({ headers: headers,body:body });
+    
+    return this.http.delete(this.deleteRideDetails, options)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
   updateRide(yourRideDetails): Observable<string[]> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
@@ -50,8 +61,8 @@ export class Rest {
 
   findRide(rideDetails): Observable<string[]> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
     let body = rideDetails;
+    let options = new RequestOptions({ headers: headers,body:body });
     return this.http.post(this.findRideUrl, body)
       .map(this.extractData)
       .catch(this.handleError);

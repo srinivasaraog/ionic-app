@@ -13,6 +13,10 @@
 
   <ion-searchbar [(ngModel)]="findto" placeholder="Destination" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"
     class="toAddress" #destination></ion-searchbar>
+    <ion-item>
+      <ion-label>Date</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" [min]="minDate" [(ngModel)]="selectedDate">select Date</ion-datetime>
+       </ion-item>
   <div id="maps" #map></div>
   <button ion-button block (click)="findRide()" color="primary">Find Ride</button>
 
