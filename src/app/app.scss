@@ -14,3 +14,16 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.color{
+    background-color:#00AFF5;
+    text-align: center;
+    //font-weight: bold;
+    font-size: 3em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.profile{
+    font-size:5em;
+   
+    padding-right: 10px;
+}

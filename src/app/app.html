@@ -1,1 +1,18 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu   [content]="mycontent">
+    <ion-header class="color">Ride share</ion-header>
+    <ion-content>
+      <ion-list>
+         <ion-item> <ion-icon class="profile" ios="ios-contact-outline" md="md-contact"></ion-icon>profile</ion-item>
+         <ion-item><ion-icon class="" ios="ios-contact-outline" md="md-contact"></ion-icon> Address</ion-item>
+         <ion-item> <i class="icon ion-cash"></i>pricing & payments</ion-item>
+         <ion-item><ion-icon class="" ios="ios-contact-outline" md="md-contact"></ion-icon> support</ion-item>
+         <ion-item><ion-icon class="" ios="ios-contact-outline" md="md-contact"></ion-icon> Feedback</ion-item>
+         <ion-item><ion-icon class="" ios="ios-contact-outline" md="md-contact"></ion-icon> logout</ion-item>
+      
+      </ion-list>
+      
+    </ion-content>
+  </ion-menu>
+
+
+<ion-nav #mycontent [root]="rootPage"></ion-nav>
