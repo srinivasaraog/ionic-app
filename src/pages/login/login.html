@@ -21,10 +21,10 @@
   
 
           <p class="item-md" *ngIf="authForm.controls.email.hasError('required') && authForm.controls.email.touched">
-              <span>Email field is required!</span>
+              <span class="error">Email field is required!</span>
           </p>
           <p class="item-md" *ngIf="authForm.controls.email.hasError('pattern') && authForm.controls.email.touched">
-              <span>Enter a valid email address</span>
+              <span class="error">Enter a valid email address</span>
           </p>
 
         <ion-item [ngClass]="{'error-border':!authForm.controls.password.valid && authForm.controls.password.touched}">
@@ -32,15 +32,19 @@
             <ion-input formControlName="password" type="password"></ion-input>
         </ion-item>
         <p class="item-md" *ngIf="authForm.controls.password.hasError('required') && authForm.controls.password.touched">
-            <span>Sorry, field password is required!</span>
+            <span class="error"> Sorry, field password is required!</span>
         </p>
         <p class="item-md" *ngIf="authForm.controls.password.hasError('minlength') && authForm.controls.password.touched">
-            <span>Sorry, minimum password length is 8!</span>
-        </p>                
+            <span class="error">Sorry, minimum password length is 8!</span>
+        </p> 
+        <p class="item-md" *ngIf="isValid && authForm.controls.password.touched">
+            <span class="error">Please enter a correct password</span>
+        </p> 
+                     
   
         <button ion-button full color="primary" [disabled]="!authForm.valid" style="margin-top: 20px;" type="submit">SIGN IN</button>
         <p *ngIf="userNotExists">
-            <span>Please not exists, Please SIGN UP</span>
+            <span class="error">User not exists,please sign up !</span>
         </p>    
     </form>
 </ion-content>

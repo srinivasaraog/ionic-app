@@ -20,6 +20,7 @@ export class LoginPage {
 
   authForm: FormGroup;
   userNotExists: boolean = false;
+  isValid:boolean=false;
   constructor(public navCtrl: NavController, public navParams: NavParams, public rest: Rest, public formBuilder: FormBuilder) {
         this.authForm = formBuilder.group({
             email: ['', Validators.compose([Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'), Validators.minLength(8), Validators.maxLength(30)])],
@@ -52,8 +53,9 @@ export class LoginPage {
       this.navCtrl.push(HomePage);
     } else if (response.message.indexOf("user doesnot exist") >= 0){
       this.userNotExists = true;
-    }else {
-      console.log(response);
+      this.isValid = false;
+    }else if(response.message.indexOf("Invalid password") >= 0) {
+      this.isValid = true;
     }
   }
 

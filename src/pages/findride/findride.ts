@@ -14,11 +14,11 @@ declare var google;
 })
 export class FindridePage {
 
-  map: any;
+  maps: any;
   public latitude: number;
   public longitude: number;
   public searchControl: FormControl;
-  public zoom: number;
+  public zoom: number; 
   public address: any;
   findfrom: any;
   findto: any;
@@ -26,18 +26,23 @@ export class FindridePage {
   to: any;
   ridesAvailable: boolean = false;
   distance:any='';
-  rideDetails:any=[];
+  rideDetails:any={};
+  profile:any=[]
+  
   selectedDate:any='';
   isRideAvailable:boolean=false;
   minDate:any;
-
+  isValid:boolean=false;
+  data:any=[];
+  isRideSelected:boolean=false;
+  selectedRide:any={};
   constructor(private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone, public rest: Rest) {
 
 
   }
 
-  @ViewChild('map') mapElement: ElementRef;
+  @ViewChild('maps') mapElement: ElementRef;
 
   ngOnInit() {
 
@@ -147,12 +152,12 @@ export class FindridePage {
     console.log(".............", directionsService)
     console.log(".............", this.from.address)
     console.log(".............", this.to.address)
-    this.map = new google.maps.Map(this.mapElement.nativeElement, {
+    this.maps = new google.maps.Map(this.mapElement.nativeElement, {
       zoom: 10,
       center: { lat: 41.85, lng: -87.65 }
     });
     this.setCurrentPosition()
-    directionsDisplay.setMap(this.map);
+    directionsDisplay.setMap(this.maps);
     this.calculateDistance(this.from,this.to);
     directionsService.route({
       origin: this.from.address,
@@ -171,7 +176,19 @@ export class FindridePage {
   navigator(res) {
     
     if (res.status === 200) {
+      console.log("inside navigator")
       this.isRideAvailable=true;
+      this.profile=[];
+      this.isValid = res.findride ? true : false;
+      if (this.isValid) {
+        this.data = res.findride;
+
+        for (let i = 0; i < this.data.length; i++) {
+          this.profile.push(this.data[i].profile);
+
+        }
+        console.log("hello", this.profile)
+      }
     }else if(res.status===409){
      
     }
@@ -204,6 +221,15 @@ export class FindridePage {
         err => console.log(err)
 
       );
+    }
+  }
+
+
+  rideSelcted(event){
+    console.log(event)
+    this.isRideSelected=event? true:false;
+    if(this.isRideSelected){
+       this.selectedRide= event
     }
   }
 

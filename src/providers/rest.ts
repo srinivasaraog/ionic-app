@@ -60,10 +60,11 @@ export class Rest {
   }
 
   findRide(rideDetails): Observable<string[]> {
-    let headers = new Headers({ 'Content-Type': 'application/json' });
+   // let headers = new Headers({ 'Content-Type': 'application/json' });
     let body = rideDetails;
-    let options = new RequestOptions({ headers: headers,body:body });
-    return this.http.post(this.findRideUrl, body)
+    console.log("req params",rideDetails)
+    //let options = new RequestOptions({ headers: headers,body:body });
+    return this.http.post(this.findRideUrl,body )
       .map(this.extractData)
       .catch(this.handleError);
   }
