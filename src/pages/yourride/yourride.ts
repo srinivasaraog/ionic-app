@@ -27,6 +27,7 @@ export class YourridePage {
   rideDetails:any=[];
   yourRideDetails={
     userId:'',
+    date:''
    
   }
   deleterideDetails={
@@ -46,7 +47,8 @@ export class YourridePage {
     
     let userId = sessionStorage.getItem("userId");
     this.yourRideDetails = {
-      userId: userId
+      userId: userId,
+      date:new Date().toJSON().split('T')[0]
 
     }
     this.rest.getYourRideDetails(this.yourRideDetails).subscribe(

@@ -1,6 +1,7 @@
 import { Component, NgZone, OnInit, ViewChild, ElementRef, OnChanges } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
 import { NavController, NavParams } from 'ionic-angular';
+import { AlertController, Events, App } from 'ionic-angular';
 import { FormControl } from "@angular/forms";
 import { MapsAPILoader } from '@agm/core';
 import { Rest } from '../../providers/rest';
@@ -37,7 +38,7 @@ export class FindridePage {
   isRideSelected:boolean=false;
   selectedRide:any={};
   constructor(private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone, public rest: Rest) {
+    private ngZone: NgZone, public rest: Rest,public alertCtrl: AlertController) {
 
 
   }
@@ -173,9 +174,39 @@ export class FindridePage {
     });
   }
 
+
+  prompt() {
+
+    let alert = this.alertCtrl.create({
+      title: 'Change Address',
+      message: 'No rides Available for this address',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+            //this.isRideAvailable = false;
+          }
+        },
+        {
+          text: 'Update',
+          handler: () => {
+            console.log('update address clicked');
+          
+
+
+          }
+        }
+      ]
+    });
+    alert.present();
+
+  }
+
   navigator(res) {
     
-    if (res.status === 200) {
+    if (res.status === 200 && res.findride) {
       console.log("inside navigator")
       this.isRideAvailable=true;
       this.profile=[];
@@ -189,6 +220,10 @@ export class FindridePage {
         }
         console.log("hello", this.profile)
       }
+    }else if(res.status===200 && res.message){
+      this.isRideAvailable=false;
+      this.prompt();
+
     }else if(res.status===409){
      
     }
