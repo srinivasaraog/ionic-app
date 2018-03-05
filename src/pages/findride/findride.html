@@ -20,7 +20,17 @@
       <ion-label>Date</ion-label>
         <ion-datetime displayFormat="MM/DD/YYYY" [min]="minDate" [(ngModel)]="selectedDate">select Date</ion-datetime>
        </ion-item>
- 
+       <ion-item>
+          <ion-label><img width="40px" height="40px" src="../assets/icon/seat.svg"/></ion-label>
+          
+          <ion-select [(ngModel)]="seatsRequired" end>
+              <ion-option value="1">1</ion-option>
+              <ion-option value="2">2</ion-option>
+              <ion-option value="3">3</ion-option>
+              <ion-option value="4">4</ion-option>
+            </ion-select>
+         
+       </ion-item>
   <button ion-button block (click)="findRide()" color="primary">Find Ride</button>
 
   </div>
@@ -41,6 +51,9 @@
         <h3>{{subitem.from.address}}</h3>
         <h3>to</h3>
         <h3>{{subitem.to.address}}</h3>
+        <h3>{{subitem.date}}</h3>
+        <h3>{{subitem.seatsAvailable}} seats Avaialable</h3>
+
          </div>
          </div>
         </div>
@@ -66,12 +79,15 @@
            <div class="flex-row font"><label color="primary">Date:</label>    <span>{{selectedRide.date}}</span></div>
            <div class="flex-row  font"><label color="primary">Time:</label>    <span>{{selectedRide.time}}</span></div>
            <div class="flex-row font"><label color="primary">Distance(KM):</label>    <span>{{selectedRide.distance}} Km</span></div>
+           <div class="flex-row font"><label color="primary">seats</label>    <span>{{selectedRide.seatsAvailable}}</span></div>
           
              
          </div>  
     
-        <button ion-button block class="text-center" (click)="confirmRide()">Confirmride</button>
+        <button ion-button block class="text-center" (click)="confirmRide(selectedRide)">Confirmride</button>
    </div>
+
+ 
 
 
 </ion-content>

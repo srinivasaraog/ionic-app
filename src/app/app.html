@@ -17,21 +17,27 @@
   <ion-menu  side="right" [content]="content">
      
                     <ion-header class="color">Ride share</ion-header>
-                    
+
                       <ion-content>
                             <div class="top">
                         <!-- Segment in content -->
-                        <ion-segment [(ngModel)]="relationship" color="primary">
+                        <ion-segment [(ngModel)]="relationship" color="primary" (click)="notification()">
                           <ion-segment-button value="friends">
                             Notifications
                           </ion-segment-button>
-                          <ion-segment-button value="enemies">
+                          
+                          <ion-segment-button value="enemies" (click)="rideHistory()">
                             Rides History
                           </ion-segment-button>
+                          
                         </ion-segment>
+                        
+                        <page-ridehistory *ngIf="isrideHistoryAvailable"></page-ridehistory>
                        </div>
+                       <page-notification *ngIf="isNotificationAvailable"></page-notification>
+                       
                       </ion-content>
-                    
+                      
      
       </ion-menu>
 

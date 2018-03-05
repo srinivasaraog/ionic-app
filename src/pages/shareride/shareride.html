@@ -27,8 +27,20 @@
            
          </ion-item>
 
-   
+         <ion-item>
+            <ion-label><img width="40px" height="40px" src="../assets/icon/seat.svg"/></ion-label>
+            
+            <ion-select [(ngModel)]="seatsAvailable" end>
+                <ion-option value="1">1</ion-option>
+                <ion-option value="2">2</ion-option>
+                <ion-option value="3">3</ion-option>
+                <ion-option value="4">4</ion-option>
+              </ion-select>
+           
+         </ion-item>
     <button ion-button block (click)="offerRide()" color="primary">Offer a Ride</button>
+    
+    <!-- <ion-img  src="../assets/icon/seat.svg"> seats available</ion-img> -->
     <div id="map" #map></div>
     
   </ion-content>

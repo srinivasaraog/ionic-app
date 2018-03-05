@@ -16,6 +16,7 @@
  <form [formGroup]="authForm" (ngSubmit)="onSubmit(authForm.value)">
         <ion-item [ngClass]="{'error-border':!authForm.controls.email.valid && authForm.controls.email.touched}">
             <ion-label floating>E-Mail</ion-label>
+            <ion-icon name="email"></ion-icon>
             <ion-input formControlName="email" type="text"></ion-input>
         </ion-item>
   
@@ -29,6 +30,7 @@
 
         <ion-item [ngClass]="{'error-border':!authForm.controls.password.valid && authForm.controls.password.touched}">
             <ion-label floating>Password</ion-label>
+            <ion-icon name="lock"></ion-icon>
             <ion-input formControlName="password" type="password"></ion-input>
         </ion-item>
         <p class="item-md" *ngIf="authForm.controls.password.hasError('required') && authForm.controls.password.touched">

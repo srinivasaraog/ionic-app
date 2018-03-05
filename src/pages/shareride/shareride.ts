@@ -7,6 +7,7 @@ import { MapsAPILoader } from '@agm/core';
 import { Rest } from '../../providers/rest';
 import { } from '@types/googlemaps';
 import { YourridePage } from '../yourride/yourride';
+import { LoginPage } from '../login/login';
 
 
 
@@ -43,6 +44,7 @@ export class ShareridePage {
     userId: ""
 
   };
+  seatsAvailable:any="";
   yourideInfo: any;
   isRideAvailable: boolean = false;
   distance:any='';
@@ -215,7 +217,10 @@ export class ShareridePage {
     console.log("inside offer ride function")
     let availableRides: any = [];
     let userId = sessionStorage.getItem("userId");
-
+    if(!sessionStorage.getItem("userId")){
+      this.navCtrl.push(LoginPage);
+      return;
+    }
     if (this.from.address && this.to.address) {
       console.log("rest call.....")
       this.rideDetails.id = userId;
@@ -224,6 +229,7 @@ export class ShareridePage {
       this.rideDetails.date = this.selectedDate;
       this.rideDetails.time = this.selectedTime;
       this.rideDetails.distance=this.distance;
+      this.rideDetails.seatsAvailable=this.seatsAvailable;
 
       this.rest.offerRide(this.rideDetails).subscribe(
         response => this.navigator(response),
@@ -277,6 +283,7 @@ export class ShareridePage {
             this.rideDetails.to = this.to;
             this.rideDetails.date = this.selectedDate;
             this.rideDetails.time = this.selectedTime;
+            this.rideDetails.seatsAvailable=this.seatsAvailable;
             this.rest.updateRide(this.rideDetails).subscribe(
               response =>{ this.navigator(response),this.isRideAvailable = false},
               err => console.log(err)

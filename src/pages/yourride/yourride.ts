@@ -4,6 +4,7 @@ import { Events } from 'ionic-angular';
 import { Rest } from '../../providers/rest';
 import { ShareridePage } from '../shareride/shareride';
 import { car } from '../../assets/icon/car';
+import { LoginPage } from '../login/login';
 
 
 /**
@@ -51,12 +52,16 @@ export class YourridePage {
       date:new Date().toJSON().split('T')[0]
 
     }
+    if(!userId){
+      this.navCtrl.push(LoginPage);
+      return;
+    }
     this.rest.getYourRideDetails(this.yourRideDetails).subscribe(
       response => this.parse(response),
       err => console.log(err)
 
     );
-
+   
     // this.events.subscribe('yourideInfo',(rideDetails) => {
     //   console.log("youride page......",rideDetails)
     //        this.rideDetails= rideDetails;
@@ -64,6 +69,7 @@ export class YourridePage {
       // this.parse(this.rideDetails);
   }
   parse(response) {
+    
     if (response.status === 200) {
       this.profile=[];
       this.isValid = response.offerride ? true : false;

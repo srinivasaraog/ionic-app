@@ -22,12 +22,44 @@ export class Rest {
   private findRideUrl = 'http://localhost:3000/api/findride';
   private getYourRideDetailsUrl = 'http://localhost:3000/api/yourride';
   private updateRideDetailsUrl = 'http://localhost:3000/api/updateyourride';
-  private deleteRideDetails = 'http://localhost:3000/api/deleteRide'
-
+  private deleteRideDetails = 'http://localhost:3000/api/deleteRide' 
+  private ridehistory = 'http://localhost:3000/api/ridehistory';
+  private confirmRideUrl = 'http://localhost:3000/api/confirmride'
+  private notificationsUrl = 'http://localhost:3000/api/notifications'
 
 
 
   constructor(public http: Http) { }
+
+
+  getNotifications(yourRideDetails): Observable<string[]> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    let body = yourRideDetails;
+
+    return this.http.post(this.notificationsUrl, body)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+  confirmRide(yourRideDetails): Observable<string[]> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    let body = yourRideDetails;
+
+    return this.http.post(this.confirmRideUrl, body)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  getRideHistory(yourRideDetails): Observable<string[]> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    let body = yourRideDetails;
+
+    return this.http.post(this.ridehistory, body)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
 
   deleteRide(yourRideDetails): Observable<string[]> {
     let headers = new Headers({ 'Content-Type': 'application/json' });

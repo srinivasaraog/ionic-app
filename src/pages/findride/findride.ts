@@ -6,6 +6,8 @@ import { FormControl } from "@angular/forms";
 import { MapsAPILoader } from '@agm/core';
 import { Rest } from '../../providers/rest';
 import { } from '@types/googlemaps';
+import { LoginPage } from '../login/login';
+import { YourridePage } from '../yourride/yourride';
 
 declare var google;
 @IonicPage()
@@ -37,8 +39,10 @@ export class FindridePage {
   data:any=[];
   isRideSelected:boolean=false;
   selectedRide:any={};
+  seatsRequired:any="";
+  isRideConfirmed:boolean=false;
   constructor(private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone, public rest: Rest,public alertCtrl: AlertController) {
+    private ngZone: NgZone, public rest: Rest,public alertCtrl: AlertController,public navCtrl:NavController) {
 
 
   }
@@ -231,25 +235,21 @@ export class FindridePage {
   }
 
   findRide() {
-  //   console.log(".....findRide", this.from);
-  //   if (this.from.address && this.to.address) {
-  //     this.ridesAvailable = true;
-  //     console.log(".....ridesAvailable", this.ridesAvailable);
-  //   }
-
-
-
-
     console.log("inside find ride function")
     let availableRides: any = [];
     
-
+    if(!sessionStorage.getItem("userId")){
+      this.navCtrl.push(LoginPage);
+      return;
+    }
     if (this.from.address && this.to.address) {
       console.log("rest call.....")
       
       this.rideDetails.from = this.from;
       this.rideDetails.to = this.to;
       this.rideDetails.date = this.selectedDate;
+      this.rideDetails.distance=this.distance;
+      this.rideDetails.seatsRequired=this.seatsRequired;
     
       this.rest.findRide(this.rideDetails).subscribe(
         response => this.navigator(response),
@@ -268,5 +268,44 @@ export class FindridePage {
     }
   }
 
+ 
+  confirmRide(selectedRide){
+   console.log(selectedRide);
+  
+   this.rideDetails=selectedRide;
+   this.rideDetails.userId=sessionStorage.getItem("userId");
+   this.rideDetails.seatsRequired=this.seatsRequired;
+   this.rest.confirmRide(this.rideDetails).subscribe(
+    response => this.confirmResponse(response),
+    err => console.log(err)
 
+  );
+  }
+  confirmResponse(res){
+
+    if(res.status===200 && res.offerride.nModified===1){
+      this.presentAlert()
+
+    }
+    
+  }
+
+  presentAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Ride Confirmation Sent to Driver',
+      subTitle: 'Once Driver accepted will notify you',
+      buttons: [
+        
+        {
+          text: 'OK',
+          handler: () => {
+            console.log('OK  clicked');
+            this.navCtrl.push(YourridePage);
+
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
 }

@@ -1,0 +1,61 @@
+<!--
+  Generated template for the RidehistoryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--
+  Generated template for the YourridePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+ 
+  
+  <ion-content text-center class="vertical-align-content">
+    <div class= "align" *ngIf="!isValid">
+      
+        
+          <h4 text-uppercase no-padding no-margin>No Rides Availble please Schedule a Ride</h4>
+       
+       
+      </div>
+  
+  
+  
+    
+    <ion-list >
+      <ion-item-sliding *ngFor="let item of profile">
+         
+        <ion-item class="details" *ngFor="let subitem of item">
+            <div class="flex-row">
+           <div >
+              <ion-avatar class="profile" item-start>
+                  <img src="../assets/icon/car.jpg">
+                </ion-avatar>
+           </div> 
+           <div>
+          <h3>{{subitem.from.address}}</h3>
+          <h3>to</h3>
+          <h3>{{subitem.to.address}}</h3>
+           </div>
+           </div>
+        </ion-item>
+     
+        <ion-item-options side="right">
+          <button ion-button color="primary" (click)="updateRide(item)">
+            <ion-icon name="car"></ion-icon>
+            Update Ride
+          </button>
+          <button ion-button color="danger" (click)="deleteRide(item)">
+            <ion-icon name="trash"></ion-icon>
+            Delete Ride
+          </button>
+        </ion-item-options>
+        
+     
+      </ion-item-sliding>
+    </ion-list>
+  
+  
+  </ion-content>
