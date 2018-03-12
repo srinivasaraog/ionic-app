@@ -36,6 +36,7 @@ export class YourridePage {
     date:'',
     time:''
   }
+  imageUrl:string="";
   constructor(public navCtrl: NavController, public navParams: NavParams, public rest: Rest,private events: Events) {
   
   }
@@ -73,6 +74,7 @@ export class YourridePage {
     if (response.status === 200) {
       this.profile=[];
       this.isValid = response.offerride ? true : false;
+      this.imageUrl=response.user?response.user:"";
       if (this.isValid) {
         this.data = response.offerride;
 

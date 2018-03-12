@@ -2,16 +2,14 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
-import { MyApp } from './app.component';import { ImagePicker } from '@ionic-native/image-picker';
-import { Crop } from '@ionic-native/crop';
-import { Camera } from '@ionic-native/camera';
-
+import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Rest } from '../providers/rest';
 import { RidehistoryPageModule } from '../pages/ridehistory/ridehistory.module';
 import { NotificationPageModule } from '../pages/notification/notification.module';
+import {ProfilePageModule} from '../pages/profile/profile.module';
 
 
 @NgModule({
@@ -26,7 +24,8 @@ import { NotificationPageModule } from '../pages/notification/notification.modul
     }),
     HttpModule,
     RidehistoryPageModule,
-    NotificationPageModule
+    NotificationPageModule,
+    ProfilePageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

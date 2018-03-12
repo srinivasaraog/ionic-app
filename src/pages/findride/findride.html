@@ -1,99 +1,130 @@
 <ion-header>
-  
+
   <ion-navbar>
-      <ion-icon id="menu" ios="ios-contact-outline" md="md-contact" menuToggle="left"></ion-icon>
-      <ion-title>findRide</ion-title>
-      <ion-icon  id="menu" ios="ios-notifications-outline" md="md-notifications" menuToggle="right" end></ion-icon>
+    <ion-icon id="menu" ios="ios-contact-outline" md="md-contact" menuToggle="left"></ion-icon>
+    <ion-title>findRide</ion-title>
+    <ion-icon id="menu" ios="ios-notifications-outline" md="md-notifications" menuToggle="right" end></ion-icon>
   </ion-navbar>
 
 </ion-header>
 
-<ion-content >
-  <div  *ngIf="!isRideAvailable">
+<ion-content>
+  <div *ngIf="!isRideAvailable">
 
-  <ion-searchbar [(ngModel)]="findfrom" placeholder="From" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"
-    class="from" #frindfrom></ion-searchbar>
+    <ion-searchbar [(ngModel)]="findfrom" placeholder="From" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"
+      class="from" #frindfrom></ion-searchbar>
 
-  <ion-searchbar [(ngModel)]="findto" placeholder="Destination" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"
-    class="toAddress" #destination></ion-searchbar>
+    <ion-searchbar [(ngModel)]="findto" placeholder="Destination" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"
+      class="toAddress" #destination></ion-searchbar>
     <ion-item>
       <ion-label>Date</ion-label>
-        <ion-datetime displayFormat="MM/DD/YYYY" [min]="minDate" [(ngModel)]="selectedDate">select Date</ion-datetime>
-       </ion-item>
-       <ion-item>
-          <ion-label><img width="40px" height="40px" src="../assets/icon/seat.svg"/></ion-label>
-          
-          <ion-select [(ngModel)]="seatsRequired" end>
-              <ion-label>Select  Seats required</ion-label>
-              <ion-option value="1">1</ion-option> 
-              <ion-option value="2">2</ion-option>
-              <ion-option value="3">3</ion-option>
-              <ion-option value="4">4</ion-option>
-              
-            </ion-select>
-         
-       </ion-item>
-  <button ion-button block (click)="findRide()" color="primary">Find Ride</button>
+      <ion-datetime displayFormat="MM/DD/YYYY" [min]="minDate" [(ngModel)]="selectedDate">select Date</ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <img width="40px" height="40px" src="../assets/icon/seat.svg" />
+      </ion-label>
+
+      <ion-select [(ngModel)]="seatsRequired" end>
+        <ion-label>Select Seats required</ion-label>
+        <ion-option value="1">1</ion-option>
+        <ion-option value="2">2</ion-option>
+        <ion-option value="3">3</ion-option>
+        <ion-option value="4">4</ion-option>
+
+      </ion-select>
+
+    </ion-item>
+    <button ion-button block (click)="findRide()" color="primary">Find Ride</button>
 
   </div>
-  <div id="maps" #maps  *ngIf="!isRideAvailable"></div>
+  <div id="maps" #maps *ngIf="!isRideAvailable"></div>
 
   <ion-list *ngIf="isRideAvailable && !isRideSelected">
     <ion-item *ngFor="let item of profile">
-       
+
       <div class="details" *ngFor="let subitem of item" (click)="rideSelcted(subitem)">
 
-          <div class="flex-row">
-         <div >
-            <ion-avatar class="profile" item-start>
-                <img src="../assets/icon/car.jpg">
-              </ion-avatar>
-         </div> 
-         <div>
-        <h3>{{subitem.from.address}}</h3>
-        <h3>to</h3>
-        <h3>{{subitem.to.address}}</h3>
-        <h3>{{subitem.date}}</h3>
-        <h3>{{subitem.seatsAvailable}} seats Avaialable</h3>
+        <div class="flex-row">
 
-         </div>
-         </div>
+          <div *ngIf="subitem.photo  && subitem.photo!==''">
+            <ion-avatar class="profile" item-start>
+              <img src="data:{{subitem.photo.contentType}};base64,{{subitem.photo.data}}">
+            </ion-avatar>
+          </div>
+
+          <div *ngIf="!subitem.photo">
+            <ion-avatar class="profile" item-start>
+              <img src="">
+            </ion-avatar>
+          </div>
+
+          <div>
+            <h3>{{subitem.from.address}}</h3>
+            <h3>to</h3>
+            <h3>{{subitem.to.address}}</h3>
+            <h3>{{subitem.date}}</h3>
+            <h3>{{subitem.seatsAvailable}} seats Avaialable</h3>
+
+          </div>
+
         </div>
-   
+      </div>
+
     </ion-item>
   </ion-list>
 
 
   <div *ngIf="isRideSelected">
-   
-     
-  
-            
-         <div class="text-center">
-              <ion-avatar class="profile" item-start>
-                  <img src="../assets/icon/car.jpg">
-                </ion-avatar>
-           
-          
-          
-           <div class="flex-row font"><label color="primary">From:</label>    <span>{{selectedRide.from.address}}</span></div>
-           <div class="flex-row font"><label color="primary">To:</label>    <span>{{selectedRide.to.address}}</span></div>
-           <div class="flex-row font"><label color="primary">Date:</label>    <span>{{selectedRide.date}}</span></div>
-           <div class="flex-row  font"><label color="primary">Time:</label>    <span>{{selectedRide.time}}</span></div>
-           <div class="flex-row font"><label color="primary">Distance(KM):</label>    <span>{{selectedRide.distance}} Km</span></div>
-           <div class="flex-row font"><label color="primary">seats</label>    <span>{{selectedRide.seatsAvailable}}</span></div>
-          
-             
-         </div>  
-    
-        <button ion-button block class="text-center" (click)="confirmRide(selectedRide)">Confirmride</button>
-   </div>
 
- 
+
+
+
+    <div class="text-center">
+      <div *ngIf="selectedRide.photo && selectedRide.photo!=='' ">
+        <ion-card class="profile" item-start>
+          <img src="data:{{selectedRide.photo.contentType}};base64,{{selectedRide.photo.data}}">
+        </ion-card>
+      </div>
+      <div *ngIf="!selectedRide.photo">
+        <ion-card class="profile" item-start>
+          <img src="">
+        </ion-card>
+      </div>
+
+      <div class="flex-row font">
+        <label color="primary">From:</label>
+        <span>{{selectedRide.from.address}}</span>
+      </div>
+      <div class="flex-row font">
+        <label color="primary">To:</label>
+        <span>{{selectedRide.to.address}}</span>
+      </div>
+      <div class="flex-row font">
+        <label color="primary">Date:</label>
+        <span>{{selectedRide.date}}</span>
+      </div>
+      <div class="flex-row  font">
+        <label color="primary">Time:</label>
+        <span>{{selectedRide.time}}</span>
+      </div>
+      <div class="flex-row font">
+        <label color="primary">Distance(KM):</label>
+        <span>{{selectedRide.distance}} Km</span>
+      </div>
+      <div class="flex-row font">
+        <label color="primary">seats</label>
+        <span>{{selectedRide.seatsAvailable}}</span>
+      </div>
+
+
+    </div>
+
+    <button ion-button block class="text-center" (click)="confirmRide(selectedRide)">Confirmride</button>
+  </div>
+
+
+
 
 
 </ion-content>
-
-
-
-  

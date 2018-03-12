@@ -31,13 +31,16 @@
     <ion-item-sliding *ngFor="let item of profile">
        
       <ion-item class="details" *ngFor="let subitem of item">
-          <div class="flex-row">
-         <div >
-            <ion-avatar class="profile" item-start>
-                <img src="../assets/icon/car.jpg">
-              </ion-avatar>
+        <div class="flex-row">
+         <div class="u--profile ">
+
+
+
+            <img  src="{{imageUrl}}">
+                <!-- <img class="profile" src="{{imageUrl}}"> -->
+            
          </div> 
-         <div>
+         <div class="flex-end"> 
         <h3>{{subitem.from.address}}</h3>
         <h3>to</h3>
         <h3>{{subitem.to.address}}</h3>

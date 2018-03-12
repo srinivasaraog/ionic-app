@@ -214,11 +214,15 @@ export class FindridePage {
       console.log("inside navigator")
       this.isRideAvailable=true;
       this.profile=[];
+      
       this.isValid = res.findride ? true : false;
       if (this.isValid) {
         this.data = res.findride;
 
         for (let i = 0; i < this.data.length; i++) {
+         // this.data[i].profile[0].photo.data=  "data:" +  this.data[i].profile[0].photo.contentType + ";base64," + new Buffer( this.data[i].profile[0].photo.data).toString('base64');
+                       
+
           this.profile.push(this.data[i].profile);
 
         }
