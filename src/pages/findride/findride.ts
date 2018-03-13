@@ -40,7 +40,9 @@ export class FindridePage {
   isRideSelected:boolean=false;
   selectedRide:any={};
   seatsRequired:any="";
+  courierAvailable:any="";
   isRideConfirmed:boolean=false;
+  costPerRide:number=0;
   constructor(private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone, public rest: Rest,public alertCtrl: AlertController,public navCtrl:NavController) {
 
@@ -270,6 +272,14 @@ export class FindridePage {
     if(this.isRideSelected){
        this.selectedRide= event
     }
+    if(this.seatsRequired==="1"){
+      this.costPerRide=(event.distance*this.seatsRequired)
+    }else if(this.seatsRequired==="2"){
+      this.costPerRide=(event.distance*this.seatsRequired-50);
+    }else if(this.seatsRequired >"2"){
+      this.costPerRide=(event.distance*this.seatsRequired-100);
+    }
+    
   }
 
  

@@ -33,8 +33,19 @@
       <ion-item class="details" *ngFor="let subitem of item">
         <div class="flex-row">
          <div class="u--profile ">
+<!-- 
 
-
+            <div *ngIf="subitem.photo  && subitem.photo !=='' ">
+                
+                <img src="imageUrl">
+                
+              </div>
+    
+              <div *ngIf="!subitem.photo">
+                
+                  <img src="">
+               
+              </div> -->
 
             <img  src="{{imageUrl}}">
                 <!-- <img class="profile" src="{{imageUrl}}"> -->

@@ -20,10 +20,25 @@
       <ion-label>Date</ion-label>
       <ion-datetime displayFormat="MM/DD/YYYY" [min]="minDate" [(ngModel)]="selectedDate">select Date</ion-datetime>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="!seatsRequired">
+
+      <ion-label>
+        <img width="40px" height="40px" src="../assets/icon/express.jpg" />
+      </ion-label>
+      <ion-select [(ngModel)]="courierAvailable" end>
+        <ion-label>weight </ion-label>
+        <ion-option value="1">10 KG</ion-option>
+        <ion-option value="2">20 KG</ion-option>
+        <ion-option value="3">50 KG</ion-option>
+        <ion-option value="4">5 KG</ion-option>
+
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="!courierAvailable">
       <ion-label>
         <img width="40px" height="40px" src="../assets/icon/seat.svg" />
       </ion-label>
+
 
       <ion-select [(ngModel)]="seatsRequired" end>
         <ion-label>Select Seats required</ion-label>
@@ -35,7 +50,7 @@
       </ion-select>
 
     </ion-item>
-    <button ion-button block (click)="findRide()" color="primary">Find Ride</button>
+    <button ion-button block (click)="findRide()" color="primary">Find Ride or Deliver Courier</button>
 
   </div>
   <div id="maps" #maps *ngIf="!isRideAvailable"></div>
@@ -79,45 +94,74 @@
 
 
 
-
     <div class="text-center">
-      <div *ngIf="selectedRide.photo && selectedRide.photo!=='' ">
-        <ion-card class="profile" item-start>
+
+
+      <ion-grid>
+
+        <ion-card *ngIf="selectedRide.photo && selectedRide.photo!=='' " item-start>
           <img src="data:{{selectedRide.photo.contentType}};base64,{{selectedRide.photo.data}}">
         </ion-card>
-      </div>
-      <div *ngIf="!selectedRide.photo">
-        <ion-card class="profile" item-start>
+        <ion-card *ngIf="!selectedRide.photo" item-start>
           <img src="">
         </ion-card>
-      </div>
+        <ion-row>
+          <ion-col>
+            From
+          </ion-col>
+          <ion-col>
+            {{selectedRide.from.address}}
+          </ion-col>
 
-      <div class="flex-row font">
-        <label color="primary">From:</label>
-        <span>{{selectedRide.from.address}}</span>
-      </div>
-      <div class="flex-row font">
-        <label color="primary">To:</label>
-        <span>{{selectedRide.to.address}}</span>
-      </div>
-      <div class="flex-row font">
-        <label color="primary">Date:</label>
-        <span>{{selectedRide.date}}</span>
-      </div>
-      <div class="flex-row  font">
-        <label color="primary">Time:</label>
-        <span>{{selectedRide.time}}</span>
-      </div>
-      <div class="flex-row font">
-        <label color="primary">Distance(KM):</label>
-        <span>{{selectedRide.distance}} Km</span>
-      </div>
-      <div class="flex-row font">
-        <label color="primary">seats</label>
-        <span>{{selectedRide.seatsAvailable}}</span>
-      </div>
+          <ion-col>
+              <ion-icon name="arrow-forward"></ion-icon>
+          </ion-col>
+          <ion-col>
+            {{selectedRide.to.address}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-icon name="calendar"></ion-icon>
+          </ion-col>
+          <ion-col>
+            {{selectedRide.date}}
+          </ion-col>
 
+          <ion-col>
+            <ion-icon ios="ios-alarm" md="md-alarm"></ion-icon>
+          </ion-col>
+          <ion-col>
+            {{selectedRide.time}}
+          </ion-col>
+        </ion-row>
 
+        <ion-row>
+          <ion-col>
+            D(KM):
+          </ion-col>
+          <ion-col>
+            {{selectedRide.distance}} Km
+          </ion-col>
+
+          <ion-col>
+            <img width="20px" height="20px" src="../assets/icon/seat.svg" />
+          </ion-col>
+          <ion-col>
+            {{seatsRequired}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-icon ios="ios-cash-outline" md="md-cash"></ion-icon>
+          </ion-col>
+          <ion-col>
+            Rs{{costPerRide}}
+          </ion-col>
+
+        </ion-row>
+        
+      </ion-grid>
     </div>
 
     <button ion-button block class="text-center" (click)="confirmRide(selectedRide)">Confirmride</button>

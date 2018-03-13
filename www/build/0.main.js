@@ -1,15 +1,15 @@
 webpackJsonp([0],{
 
-/***/ 317:
+/***/ 319:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__agm_core__ = __webpack_require__(346);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__findride__ = __webpack_require__(359);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(12);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FindridePageModule", function() { return FindridePageModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -48,14 +48,14 @@ FindridePageModule = __decorate([
 
 /***/ }),
 
-/***/ 325:
+/***/ 327:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__maps_api_loader_maps_api_loader__ = __webpack_require__(328);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__maps_api_loader_maps_api_loader__ = __webpack_require__(329);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GoogleMapsAPIWrapper; });
 
 
@@ -196,14 +196,14 @@ GoogleMapsAPIWrapper.ctorParameters = function () { return [
 
 /***/ }),
 
-/***/ 327:
+/***/ 328:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(325);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(327);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MarkerManager; });
 
 
@@ -295,7 +295,7 @@ MarkerManager.ctorParameters = function () { return [
 
 /***/ }),
 
-/***/ 328:
+/***/ 329:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -504,7 +504,7 @@ AgmPolylinePoint.propDecorators = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(325);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(327);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CircleManager; });
 
 
@@ -605,7 +605,7 @@ CircleManager.ctorParameters = function () { return [
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(325);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(327);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataLayerManager; });
 
 
@@ -720,8 +720,8 @@ DataLayerManager.ctorParameters = function () { return [
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_Observable__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_Observable__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(325);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__marker_manager__ = __webpack_require__(327);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(327);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__marker_manager__ = __webpack_require__(328);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InfoWindowManager; });
 
 
@@ -822,7 +822,7 @@ InfoWindowManager.ctorParameters = function () { return [
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(325);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(327);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return KmlLayerManager; });
 
 
@@ -896,7 +896,7 @@ KmlLayerManager.ctorParameters = function () { return [
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(325);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(327);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PolygonManager; });
 
 
@@ -978,7 +978,7 @@ PolygonManager.ctorParameters = function () { return [
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(325);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(327);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PolylineManager; });
 
 
@@ -1065,7 +1065,7 @@ PolylineManager.ctorParameters = function () { return [
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_browser_globals__ = __webpack_require__(347);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__maps_api_loader__ = __webpack_require__(328);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__maps_api_loader__ = __webpack_require__(329);
 /* unused harmony export GoogleMapsScriptProtocol */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return LAZY_MAPS_API_CONFIG; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LazyMapsAPILoader; });
@@ -1830,10 +1830,10 @@ AgmKmlLayer.propDecorators = {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_google_maps_api_wrapper__ = __webpack_require__(325);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_google_maps_api_wrapper__ = __webpack_require__(327);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_managers_circle_manager__ = __webpack_require__(332);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_managers_info_window_manager__ = __webpack_require__(334);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_managers_marker_manager__ = __webpack_require__(327);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_managers_marker_manager__ = __webpack_require__(328);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_managers_polygon_manager__ = __webpack_require__(336);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_managers_polyline_manager__ = __webpack_require__(337);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_managers_kml_layer_manager__ = __webpack_require__(335);
@@ -2267,7 +2267,7 @@ AgmMap.propDecorators = {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_managers_marker_manager__ = __webpack_require__(327);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_managers_marker_manager__ = __webpack_require__(328);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__info_window__ = __webpack_require__(330);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AgmMarker; });
 
@@ -2996,10 +2996,10 @@ var BROWSER_GLOBALS_PROVIDERS = [WindowRef, DocumentRef];
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_rest__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_rest__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shareride_shareride__ = __webpack_require__(349);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(326);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(247);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return YourridePage; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3098,9 +3098,9 @@ var YourridePage = (function () {
 YourridePage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({
-        selector: 'page-yourride',template:/*ion-inline-start:"C:\Users\Admin\Documents\Project-1\ionic-app\src\pages\yourride\yourride.html"*/'<!--\n  Generated template for the YourridePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n      <ion-icon id="menu" ios="ios-contact-outline" md="md-contact" menuToggle="left"></ion-icon>\n      <ion-title>yourride</ion-title>\n      <ion-icon  id="menu" ios="ios-notifications-outline" md="md-notifications" menuToggle="right" end></ion-icon>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content text-center class="vertical-align-content">\n  <div class= "align" *ngIf="!isValid">\n    \n      \n        <h4 text-uppercase no-padding no-margin>No Rides Availble please Schedule a Ride</h4>\n     \n     \n    </div>\n\n\n\n  \n  <ion-list >\n    <ion-item-sliding *ngFor="let item of profile">\n       \n      <ion-item class="details" *ngFor="let subitem of item">\n        <div class="flex-row">\n         <div class="u--profile ">\n\n\n\n            <img  src="{{imageUrl}}">\n                <!-- <img class="profile" src="{{imageUrl}}"> -->\n            \n         </div> \n         <div class="flex-end"> \n        <h3>{{subitem.from.address}}</h3>\n        <h3>to</h3>\n        <h3>{{subitem.to.address}}</h3>\n         </div>\n         </div>\n      </ion-item>\n   \n      <ion-item-options side="right">\n        <button ion-button color="primary" (click)="updateRide(item)">\n          <ion-icon name="car"></ion-icon>\n          Update Ride\n        </button>\n        <button ion-button color="danger" (click)="deleteRide(item)">\n          <ion-icon name="trash"></ion-icon>\n          Delete Ride\n        </button>\n       </ion-item-options>\n      \n   \n    </ion-item-sliding>\n  </ion-list>\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\Admin\Documents\Project-1\ionic-app\src\pages\yourride\yourride.html"*/,
+        selector: 'page-yourride',template:/*ion-inline-start:"C:\Users\Admin\Documents\Project-1\ionic-app\src\pages\yourride\yourride.html"*/'<!--\n  Generated template for the YourridePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n      <ion-icon id="menu" ios="ios-contact-outline" md="md-contact" menuToggle="left"></ion-icon>\n      <ion-title>yourride</ion-title>\n      <ion-icon  id="menu" ios="ios-notifications-outline" md="md-notifications" menuToggle="right" end></ion-icon>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content text-center class="vertical-align-content">\n  <div class= "align" *ngIf="!isValid">\n    \n      \n        <h4 text-uppercase no-padding no-margin>No Rides Availble please Schedule a Ride</h4>\n     \n     \n    </div>\n\n\n\n  \n  <ion-list >\n    <ion-item-sliding *ngFor="let item of profile">\n       \n      <ion-item class="details" *ngFor="let subitem of item">\n        <div class="flex-row">\n         <div class="u--profile ">\n<!-- \n\n            <div *ngIf="subitem.photo  && subitem.photo !==\'\' ">\n                \n                <img src="imageUrl">\n                \n              </div>\n    \n              <div *ngIf="!subitem.photo">\n                \n                  <img src="">\n               \n              </div> -->\n\n            <img  src="{{imageUrl}}">\n                <!-- <img class="profile" src="{{imageUrl}}"> -->\n            \n         </div> \n         <div class="flex-end"> \n        <h3>{{subitem.from.address}}</h3>\n        <h3>to</h3>\n        <h3>{{subitem.to.address}}</h3>\n         </div>\n         </div>\n      </ion-item>\n   \n      <ion-item-options side="right">\n        <button ion-button color="primary" (click)="updateRide(item)">\n          <ion-icon name="car"></ion-icon>\n          Update Ride\n        </button>\n        <button ion-button color="danger" (click)="deleteRide(item)">\n          <ion-icon name="trash"></ion-icon>\n          Delete Ride\n        </button>\n       </ion-item-options>\n      \n   \n    </ion-item-sliding>\n  </ion-list>\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\Admin\Documents\Project-1\ionic-app\src\pages\yourride\yourride.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_rest__["a" /* Rest */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Events */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_rest__["a" /* Rest */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Events */]])
 ], YourridePage);
 
 //# sourceMappingURL=yourride.js.map
@@ -3112,12 +3112,12 @@ YourridePage = __decorate([
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__agm_core__ = __webpack_require__(346);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_rest__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_rest__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__yourride_yourride__ = __webpack_require__(348);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__login_login__ = __webpack_require__(326);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__login_login__ = __webpack_require__(247);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShareridePage; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3365,7 +3365,7 @@ ShareridePage = __decorate([
         selector: 'page-shareride',template:/*ion-inline-start:"C:\Users\Admin\Documents\Project-1\ionic-app\src\pages\shareride\shareride.html"*/'<ion-header>\n    \n    <ion-navbar>\n        \n        <ion-icon id="menu" ios="ios-contact-outline" md="md-contact" menuToggle="left" start></ion-icon>\n        <ion-title class="text-center">offerRide</ion-title>\n        <ion-icon  id="menu" ios="ios-notifications-outline" md="md-notifications" menuToggle="right" end></ion-icon>\n        \n    </ion-navbar>\n  \n  </ion-header>\n  \n  <ion-content id="offerRide">\n  \n    <ion-searchbar  [(ngModel)]="fromAddress"    placeholder="From " autocorrect="off" autocapitalize="off"\n      spellcheck="off" type="text" class="fromAddress" #from ></ion-searchbar>\n  \n    <ion-searchbar [(ngModel)]="Destination"  placeholder="Destination" autocorrect="off" autocapitalize="off" spellcheck="off"\n      type="text" class="destinationaddress" #to></ion-searchbar>\n      <ion-item>\n      <ion-label>Date</ion-label>\n        <ion-datetime displayFormat="MM/DD/YYYY" [min]="minDate" [(ngModel)]="selectedDate">select Date</ion-datetime>\n       </ion-item>\n       <ion-item>\n        <ion-label>Time</ion-label>\n          <ion-datetime displayFormat="h:mm A"  [(ngModel)]="selectedTime">select time</ion-datetime>\n           \n         </ion-item>\n\n         <ion-item>\n            <ion-label><img width="40px" height="40px" src="../assets/icon/seat.svg"/></ion-label>\n            \n            <ion-select [(ngModel)]="seatsAvailable" end>\n                <ion-label>Select no of Seats Available</ion-label>\n                <ion-option value="1">1</ion-option>\n                <ion-option value="2">2</ion-option>\n                <ion-option value="3">3</ion-option>\n                <ion-option value="4">4</ion-option>\n              </ion-select>\n           \n         </ion-item>\n    <button ion-button block (click)="offerRide()" color="primary">Offer a Ride</button>\n    \n    <!-- <ion-img  src="../assets/icon/seat.svg"> seats available</ion-img> -->\n    <div id="map" #map></div>\n    \n  </ion-content>'/*ion-inline-end:"C:\Users\Admin\Documents\Project-1\ionic-app\src\pages\shareride\shareride.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__agm_core__["b" /* MapsAPILoader */],
-        __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */], __WEBPACK_IMPORTED_MODULE_4__providers_rest__["a" /* Rest */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Events */]])
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */], __WEBPACK_IMPORTED_MODULE_4__providers_rest__["a" /* Rest */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Events */]])
 ], ShareridePage);
 
 //# sourceMappingURL=shareride.js.map
@@ -3387,7 +3387,7 @@ ShareridePage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__directives_kml_layer__ = __webpack_require__(341);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__directives_data_layer__ = __webpack_require__(340);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_maps_api_loader_lazy_maps_api_loader__ = __webpack_require__(338);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_maps_api_loader_maps_api_loader__ = __webpack_require__(328);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_maps_api_loader_maps_api_loader__ = __webpack_require__(329);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__utils_browser_globals__ = __webpack_require__(347);
 /* unused harmony export coreDirectives */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AgmCoreModule; });
@@ -3485,13 +3485,13 @@ AgmCoreModule.ctorParameters = function () { return []; };
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_google_maps_api_wrapper__ = __webpack_require__(325);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_google_maps_api_wrapper__ = __webpack_require__(327);
 /* unused harmony reexport GoogleMapsAPIWrapper */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_managers_circle_manager__ = __webpack_require__(332);
 /* unused harmony reexport CircleManager */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_managers_info_window_manager__ = __webpack_require__(334);
 /* unused harmony reexport InfoWindowManager */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_managers_marker_manager__ = __webpack_require__(327);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_managers_marker_manager__ = __webpack_require__(328);
 /* unused harmony reexport MarkerManager */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_managers_polygon_manager__ = __webpack_require__(336);
 /* unused harmony reexport PolygonManager */
@@ -3505,7 +3505,7 @@ AgmCoreModule.ctorParameters = function () { return []; };
 /* unused harmony reexport GoogleMapsScriptProtocol */
 /* unused harmony reexport LAZY_MAPS_API_CONFIG */
 /* unused harmony reexport LazyMapsAPILoader */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_maps_api_loader_maps_api_loader__ = __webpack_require__(328);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_maps_api_loader_maps_api_loader__ = __webpack_require__(329);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_9__services_maps_api_loader_maps_api_loader__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_maps_api_loader_noop_maps_api_loader__ = __webpack_require__(353);
 /* unused harmony reexport NoOpMapsAPILoader */
@@ -3555,11 +3555,11 @@ var NoOpMapsAPILoader = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__agm_core__ = __webpack_require__(346);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_rest__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login__ = __webpack_require__(326);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_rest__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login__ = __webpack_require__(247);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__yourride_yourride__ = __webpack_require__(348);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FindridePage; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -3598,7 +3598,9 @@ var FindridePage = (function () {
         this.isRideSelected = false;
         this.selectedRide = {};
         this.seatsRequired = "";
+        this.courierAvailable = "";
         this.isRideConfirmed = false;
+        this.costPerRide = 0;
     }
     FindridePage.prototype.ngOnInit = function () {
         var _this = this;
@@ -3775,6 +3777,15 @@ var FindridePage = (function () {
         if (this.isRideSelected) {
             this.selectedRide = event;
         }
+        if (this.seatsRequired === "1") {
+            this.costPerRide = (event.distance * this.seatsRequired);
+        }
+        else if (this.seatsRequired === "2") {
+            this.costPerRide = (event.distance * this.seatsRequired - 50);
+        }
+        else if (this.seatsRequired > "2") {
+            this.costPerRide = (event.distance * this.seatsRequired - 100);
+        }
     };
     FindridePage.prototype.confirmRide = function (selectedRide) {
         var _this = this;
@@ -3815,10 +3826,10 @@ __decorate([
 FindridePage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Component */])({
-        selector: 'page-findride',template:/*ion-inline-start:"C:\Users\Admin\Documents\Project-1\ionic-app\src\pages\findride\findride.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-icon id="menu" ios="ios-contact-outline" md="md-contact" menuToggle="left"></ion-icon>\n    <ion-title>findRide</ion-title>\n    <ion-icon id="menu" ios="ios-notifications-outline" md="md-notifications" menuToggle="right" end></ion-icon>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n  <div *ngIf="!isRideAvailable">\n\n    <ion-searchbar [(ngModel)]="findfrom" placeholder="From" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"\n      class="from" #frindfrom></ion-searchbar>\n\n    <ion-searchbar [(ngModel)]="findto" placeholder="Destination" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"\n      class="toAddress" #destination></ion-searchbar>\n    <ion-item>\n      <ion-label>Date</ion-label>\n      <ion-datetime displayFormat="MM/DD/YYYY" [min]="minDate" [(ngModel)]="selectedDate">select Date</ion-datetime>\n    </ion-item>\n    <ion-item>\n      <ion-label>\n        <img width="40px" height="40px" src="../assets/icon/seat.svg" />\n      </ion-label>\n\n      <ion-select [(ngModel)]="seatsRequired" end>\n        <ion-label>Select Seats required</ion-label>\n        <ion-option value="1">1</ion-option>\n        <ion-option value="2">2</ion-option>\n        <ion-option value="3">3</ion-option>\n        <ion-option value="4">4</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n    <button ion-button block (click)="findRide()" color="primary">Find Ride</button>\n\n  </div>\n  <div id="maps" #maps *ngIf="!isRideAvailable"></div>\n\n  <ion-list *ngIf="isRideAvailable && !isRideSelected">\n    <ion-item *ngFor="let item of profile">\n\n      <div class="details" *ngFor="let subitem of item" (click)="rideSelcted(subitem)">\n\n        <div class="flex-row">\n\n          <div *ngIf="subitem.photo  && subitem.photo!==\'\'">\n            <ion-avatar class="profile" item-start>\n              <img src="data:{{subitem.photo.contentType}};base64,{{subitem.photo.data}}">\n            </ion-avatar>\n          </div>\n\n          <div *ngIf="!subitem.photo">\n            <ion-avatar class="profile" item-start>\n              <img src="">\n            </ion-avatar>\n          </div>\n\n          <div>\n            <h3>{{subitem.from.address}}</h3>\n            <h3>to</h3>\n            <h3>{{subitem.to.address}}</h3>\n            <h3>{{subitem.date}}</h3>\n            <h3>{{subitem.seatsAvailable}} seats Avaialable</h3>\n\n          </div>\n\n        </div>\n      </div>\n\n    </ion-item>\n  </ion-list>\n\n\n  <div *ngIf="isRideSelected">\n\n\n\n\n    <div class="text-center">\n      <div *ngIf="selectedRide.photo && selectedRide.photo!==\'\' ">\n        <ion-card class="profile" item-start>\n          <img src="data:{{selectedRide.photo.contentType}};base64,{{selectedRide.photo.data}}">\n        </ion-card>\n      </div>\n      <div *ngIf="!selectedRide.photo">\n        <ion-card class="profile" item-start>\n          <img src="">\n        </ion-card>\n      </div>\n\n      <div class="flex-row font">\n        <label color="primary">From:</label>\n        <span>{{selectedRide.from.address}}</span>\n      </div>\n      <div class="flex-row font">\n        <label color="primary">To:</label>\n        <span>{{selectedRide.to.address}}</span>\n      </div>\n      <div class="flex-row font">\n        <label color="primary">Date:</label>\n        <span>{{selectedRide.date}}</span>\n      </div>\n      <div class="flex-row  font">\n        <label color="primary">Time:</label>\n        <span>{{selectedRide.time}}</span>\n      </div>\n      <div class="flex-row font">\n        <label color="primary">Distance(KM):</label>\n        <span>{{selectedRide.distance}} Km</span>\n      </div>\n      <div class="flex-row font">\n        <label color="primary">seats</label>\n        <span>{{selectedRide.seatsAvailable}}</span>\n      </div>\n\n\n    </div>\n\n    <button ion-button block class="text-center" (click)="confirmRide(selectedRide)">Confirmride</button>\n  </div>\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\Admin\Documents\Project-1\ionic-app\src\pages\findride\findride.html"*/,
+        selector: 'page-findride',template:/*ion-inline-start:"C:\Users\Admin\Documents\Project-1\ionic-app\src\pages\findride\findride.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-icon id="menu" ios="ios-contact-outline" md="md-contact" menuToggle="left"></ion-icon>\n    <ion-title>findRide</ion-title>\n    <ion-icon id="menu" ios="ios-notifications-outline" md="md-notifications" menuToggle="right" end></ion-icon>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n  <div *ngIf="!isRideAvailable">\n\n    <ion-searchbar [(ngModel)]="findfrom" placeholder="From" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"\n      class="from" #frindfrom></ion-searchbar>\n\n    <ion-searchbar [(ngModel)]="findto" placeholder="Destination" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"\n      class="toAddress" #destination></ion-searchbar>\n    <ion-item>\n      <ion-label>Date</ion-label>\n      <ion-datetime displayFormat="MM/DD/YYYY" [min]="minDate" [(ngModel)]="selectedDate">select Date</ion-datetime>\n    </ion-item>\n    <ion-item *ngIf="!seatsRequired">\n\n      <ion-label>\n        <img width="40px" height="40px" src="../assets/icon/express.jpg" />\n      </ion-label>\n      <ion-select [(ngModel)]="courierAvailable" end>\n        <ion-label>weight </ion-label>\n        <ion-option value="1">10 KG</ion-option>\n        <ion-option value="2">20 KG</ion-option>\n        <ion-option value="3">50 KG</ion-option>\n        <ion-option value="4">5 KG</ion-option>\n\n      </ion-select>\n    </ion-item>\n    <ion-item *ngIf="!courierAvailable">\n      <ion-label>\n        <img width="40px" height="40px" src="../assets/icon/seat.svg" />\n      </ion-label>\n\n\n      <ion-select [(ngModel)]="seatsRequired" end>\n        <ion-label>Select Seats required</ion-label>\n        <ion-option value="1">1</ion-option>\n        <ion-option value="2">2</ion-option>\n        <ion-option value="3">3</ion-option>\n        <ion-option value="4">4</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n    <button ion-button block (click)="findRide()" color="primary">Find Ride or Deliver Courier</button>\n\n  </div>\n  <div id="maps" #maps *ngIf="!isRideAvailable"></div>\n\n  <ion-list *ngIf="isRideAvailable && !isRideSelected">\n    <ion-item *ngFor="let item of profile">\n\n      <div class="details" *ngFor="let subitem of item" (click)="rideSelcted(subitem)">\n\n        <div class="flex-row">\n\n          <div *ngIf="subitem.photo  && subitem.photo!==\'\'">\n            <ion-avatar class="profile" item-start>\n              <img src="data:{{subitem.photo.contentType}};base64,{{subitem.photo.data}}">\n            </ion-avatar>\n          </div>\n\n          <div *ngIf="!subitem.photo">\n            <ion-avatar class="profile" item-start>\n              <img src="">\n            </ion-avatar>\n          </div>\n\n          <div>\n            <h3>{{subitem.from.address}}</h3>\n            <h3>to</h3>\n            <h3>{{subitem.to.address}}</h3>\n            <h3>{{subitem.date}}</h3>\n            <h3>{{subitem.seatsAvailable}} seats Avaialable</h3>\n\n          </div>\n\n        </div>\n      </div>\n\n    </ion-item>\n  </ion-list>\n\n\n  <div *ngIf="isRideSelected">\n\n\n\n    <div class="text-center">\n\n\n      <ion-grid>\n\n        <ion-card *ngIf="selectedRide.photo && selectedRide.photo!==\'\' " item-start>\n          <img src="data:{{selectedRide.photo.contentType}};base64,{{selectedRide.photo.data}}">\n        </ion-card>\n        <ion-card *ngIf="!selectedRide.photo" item-start>\n          <img src="">\n        </ion-card>\n        <ion-row>\n          <ion-col>\n            From\n          </ion-col>\n          <ion-col>\n            {{selectedRide.from.address}}\n          </ion-col>\n\n          <ion-col>\n              <ion-icon name="arrow-forward"></ion-icon>\n          </ion-col>\n          <ion-col>\n            {{selectedRide.to.address}}\n          </ion-col>\n        </ion-row>\n        <ion-row>\n          <ion-col>\n            <ion-icon name="calendar"></ion-icon>\n          </ion-col>\n          <ion-col>\n            {{selectedRide.date}}\n          </ion-col>\n\n          <ion-col>\n            <ion-icon ios="ios-alarm" md="md-alarm"></ion-icon>\n          </ion-col>\n          <ion-col>\n            {{selectedRide.time}}\n          </ion-col>\n        </ion-row>\n\n        <ion-row>\n          <ion-col>\n            D(KM):\n          </ion-col>\n          <ion-col>\n            {{selectedRide.distance}} Km\n          </ion-col>\n\n          <ion-col>\n            <img width="20px" height="20px" src="../assets/icon/seat.svg" />\n          </ion-col>\n          <ion-col>\n            {{seatsRequired}}\n          </ion-col>\n        </ion-row>\n        <ion-row>\n          <ion-col>\n            <ion-icon ios="ios-cash-outline" md="md-cash"></ion-icon>\n          </ion-col>\n          <ion-col>\n            Rs{{costPerRide}}\n          </ion-col>\n\n        </ion-row>\n        \n      </ion-grid>\n    </div>\n\n    <button ion-button block class="text-center" (click)="confirmRide(selectedRide)">Confirmride</button>\n  </div>\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\Admin\Documents\Project-1\ionic-app\src\pages\findride\findride.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__agm_core__["b" /* MapsAPILoader */],
-        __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */], __WEBPACK_IMPORTED_MODULE_4__providers_rest__["a" /* Rest */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */], __WEBPACK_IMPORTED_MODULE_4__providers_rest__["a" /* Rest */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
 ], FindridePage);
 
 //# sourceMappingURL=findride.js.map

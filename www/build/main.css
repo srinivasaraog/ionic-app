@@ -35423,6 +35423,10 @@ page-findride #menu {
   cursor: pointer;
 }
 
+page-findride ion-col {
+  margin: 3% !important;
+}
+
 page-login #login {
   background-color: white;
 }

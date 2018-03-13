@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,Events } from 'ionic-angular';
 import { Rest } from '../../providers/rest';
 //import { OfferRidePage } from '../offerride/offerride';
 import { HomePage } from '../home/home';
@@ -21,7 +21,7 @@ export class LoginPage {
   authForm: FormGroup;
   userNotExists: boolean = false;
   isValid:boolean=false;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public rest: Rest, public formBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public events: Events, public rest: Rest, public formBuilder: FormBuilder) {
         this.authForm = formBuilder.group({
             email: ['', Validators.compose([Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'), Validators.minLength(8), Validators.maxLength(30)])],
             password: ['', Validators.compose([Validators.required, Validators.minLength(8)])]
@@ -34,7 +34,9 @@ export class LoginPage {
 
   }
 
-
+ngOnInIt(){
+  
+}
     
   
   onSubmit(value: any): void {
@@ -49,7 +51,9 @@ export class LoginPage {
   loginSucess(response) {
     if (response.sucess) {
       let userId = response.userId;
+      
       sessionStorage.setItem("userId", userId);
+      this.events.publish('loadProfile');
       this.navCtrl.push(HomePage);
     } else if (response.message.indexOf("user doesnot exist") >= 0){
       this.userNotExists = true;
