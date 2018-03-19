@@ -129,7 +129,7 @@
         </ion-row>
         
       </ion-grid> -->
-      <img src="{{imageUrl}}">
+      <img src="data:{{selectedRide.photo.contentType}};base64,{{selectedRide.photo.data}}">
 
       <h3>Passengers</h3>
       <ion-list *ngIf="ridesInQueue">

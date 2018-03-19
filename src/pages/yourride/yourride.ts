@@ -76,10 +76,10 @@ export class YourridePage {
     
     if (response.status === 200) {
       this.profile=[];
-      this.isValid = response.offerride ? true : false;
+      this.isValid = response.availableRides ? true : false;
       this.imageUrl=response.user?response.user:"";
       if (this.isValid) {
-        this.data = response.offerride;
+        this.data = response.availableRides;
 
         for (let i = 0; i < this.data.length; i++) {
           this.profile.push(this.data[i].profile);
@@ -121,7 +121,7 @@ export class YourridePage {
     this.selectedRide=item;
     if(item.confirmation.length>0){
       this.ridesInQueue=item.confirmation[0].ridesInQueue;    
-    }  console.log(this.ridesInQueue);
+    }  console.log(this.selectedRide);
     
   }
 
