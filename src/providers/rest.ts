@@ -35,7 +35,8 @@ export class Rest {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     let body = userId;
-   console.log(body)
+ 
+    
     return this.http.post(this.profileImage, body)
       .map(this.extractData)
       .catch(this.handleError);

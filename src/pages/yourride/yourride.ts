@@ -37,6 +37,9 @@ export class YourridePage {
     time:''
   }
   imageUrl:string="";
+  isViewRide:boolean=false;
+  selectedRide:any;
+  ridesInQueue:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public rest: Rest,private events: Events) {
   
   }
@@ -110,6 +113,16 @@ export class YourridePage {
       err => console.log(err)
 
     );
+  }
+
+  viewRideDetails(item){
+    console.log("item",item);
+    this.isViewRide=true;
+    this.selectedRide=item;
+    if(item.confirmation.length>0){
+      this.ridesInQueue=item.confirmation[0].ridesInQueue;    
+    }  console.log(this.ridesInQueue);
+    
   }
 
 

@@ -1,9 +1,10 @@
 import { Component, ViewChild, ElementRef, Renderer, OnInit } from '@angular/core';
-import { App, Platform, Nav, Events } from 'ionic-angular';
+import { App, Platform, Nav, Events,ToastController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Rest } from '../providers/rest';
 import { LoginPage } from '../pages/login/login';
+import { Socket } from 'ng-socket-io';
 
 
 
@@ -18,26 +19,51 @@ export class MyApp {
   isNotificationAvailable: boolean = false;
   imageUrl: any;
   files: any = [];
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public events: Events, private app: App, private ElementRef: ElementRef, private renderer: Renderer, public rest: Rest) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private toastCtrl: ToastController,private socket: Socket, public events: Events, private app: App, private ElementRef: ElementRef, private renderer: Renderer, public rest: Rest) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
     });
+
+    socket.on(sessionStorage.getItem('userId'), function(data){
+
+      console.log("check notification client....",data) ;
+     // this.presentToast();
+     let toast = toastCtrl.create({
+      message: "You got a request from the"+data.firstname+" Accept or reject",
+      duration: 30000,
+      cssClass: 'primary',
+      position: 'top'
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
+   });
   }
   @ViewChild('myNav') nav: Nav
-
+ 
 
   ngOnInit() {
     if (sessionStorage.getItem('userId') !== "") {
+     
       this.loadProfile();
-      this.events.subscribe('loadProfile', () => {
-        this.loadProfile();
-
-      });
-
+    
     }
+   
+    this.events.subscribe('loadProfile', () => {
+      console.log("hellooooooooooooo");
+     
+      this.loadProfile();
+      
+
+    });
+
+  
   }
 
   loadProfile() {
@@ -45,6 +71,7 @@ export class MyApp {
     let profileDetails = {
       userId: userId
     }
+    console.log("hiiii",userId);
     this.rest.getProfileimage(profileDetails).subscribe(
       response => (this.parse(response)),
       err => console.log(err)
@@ -56,13 +83,15 @@ export class MyApp {
   }
 
   rideHistory() {
-    console.log("ride history")
+ 
     this.isrideHistoryAvailable = true;
+    this.isNotificationAvailable = false;
 
   }
 
   notification() {
     this.isNotificationAvailable = true;
+    this.isrideHistoryAvailable = false;
   }
 
   @ViewChild("input")
@@ -113,6 +142,22 @@ export class MyApp {
     //this.nav.setRoot(LoginPage);
     this.app.getRootNav().setRoot(LoginPage);
   }
+
+
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'User was added successfully',
+      duration: 3000,
+      position: 'top'
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
+  }
+
 
   //  ribbonClicked(event){
   //   console.log("ribbonClicked",event);

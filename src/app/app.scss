@@ -95,6 +95,13 @@
   .profile--image-small:hover .profile--image-label {
     opacity: 1;
   }
+
+
+  .flex-bottom {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
   .cover {
 	box-sizing: border-box;
 	height: 100%;
@@ -103,6 +110,20 @@
 	position: absolute;
 	top: 0;
 	width: 100%;
+}
+
+.full-center {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+  width: 100%;
+}
+.t-white {
+  color: #fff;
+  letter-spacing: .04em;
+}
+.bg-darken, .modal--wrapper {
+  background-color: rgba(0,0,0,.5);
 }
 
 .flex-h,

@@ -7,13 +7,17 @@ page-yourride {
     }
     .flex-row{
         display: flex;
-        flex-direction: row;
+       
        
     }
-    .u--profile{
-        width: 100px;
-        padding-right:10px;
-        padding-left:10px;
+    .gap{
+        padding-right:20px;
+    }
+    .profile{
+        border-radius: 8px;       
+        font-size: 16px;
+        height: 60px;
+        width: 60px;
     }
     .flex-end{
         flex-wrap: wrap;

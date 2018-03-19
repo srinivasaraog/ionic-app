@@ -8,6 +8,7 @@ import { Rest } from '../../providers/rest';
 import { } from '@types/googlemaps';
 import { LoginPage } from '../login/login';
 import { YourridePage } from '../yourride/yourride';
+import { Socket } from 'ng-socket-io';
 
 declare var google;
 @IonicPage()
@@ -44,7 +45,7 @@ export class FindridePage {
   isRideConfirmed:boolean=false;
   costPerRide:number=0;
   constructor(private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone, public rest: Rest,public alertCtrl: AlertController,public navCtrl:NavController) {
+    private ngZone: NgZone, public rest: Rest,public alertCtrl: AlertController,public navCtrl:NavController,private socket: Socket) {
 
 
   }
@@ -273,11 +274,11 @@ export class FindridePage {
        this.selectedRide= event
     }
     if(this.seatsRequired==="1"){
-      this.costPerRide=(event.distance*this.seatsRequired)
+      this.costPerRide=(this.distance*this.seatsRequired)
     }else if(this.seatsRequired==="2"){
-      this.costPerRide=(event.distance*this.seatsRequired-50);
+      this.costPerRide=(this.distance*this.seatsRequired-50);
     }else if(this.seatsRequired >"2"){
-      this.costPerRide=(event.distance*this.seatsRequired-100);
+      this.costPerRide=(this.distance*this.seatsRequired-100);
     }
     
   }
@@ -289,18 +290,24 @@ export class FindridePage {
    this.rideDetails=selectedRide;
    this.rideDetails.userId=sessionStorage.getItem("userId");
    this.rideDetails.seatsRequired=this.seatsRequired;
+
+   this.socket.emit('create notification',this.rideDetails);
+
    this.rest.confirmRide(this.rideDetails).subscribe(
     response => this.confirmResponse(response),
     err => console.log(err)
 
   );
+  
+  
   }
   confirmResponse(res){
-
+    
     if(res.status===200 && res.offerride.nModified===1){
       this.presentAlert()
-
+     
     }
+   
     
   }
 
@@ -315,7 +322,7 @@ export class FindridePage {
           handler: () => {
             console.log('OK  clicked');
             this.navCtrl.push(YourridePage);
-
+ 
           }
         }
       ]

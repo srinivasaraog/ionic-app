@@ -24,32 +24,15 @@
      
     </div>
 
-
-
   
-  <ion-list >
+  <ion-list *ngIf="!isViewRide">
     <ion-item-sliding *ngFor="let item of profile">
        
-      <ion-item class="details" *ngFor="let subitem of item">
+      <ion-item class="details" *ngFor="let subitem of item" (click)="viewRideDetails(subitem)">
         <div class="flex-row">
-         <div class="u--profile ">
-<!-- 
-
-            <div *ngIf="subitem.photo  && subitem.photo !=='' ">
-                
-                <img src="imageUrl">
-                
-              </div>
-    
-              <div *ngIf="!subitem.photo">
-                
-                  <img src="">
-               
-              </div> -->
-
-            <img  src="{{imageUrl}}">
-                <!-- <img class="profile" src="{{imageUrl}}"> -->
-            
+         <div class="gap"> 
+            <img class="profile" src="{{imageUrl}}">
+                      
          </div> 
          <div class="flex-end"> 
         <h3>{{subitem.from.address}}</h3>
@@ -73,6 +56,133 @@
    
     </ion-item-sliding>
   </ion-list>
+
+  <div *ngIf="isViewRide">
+
+
+
+    <div class="text-center">
+
+     
+      <!-- <ion-grid>
+
+        <ion-card *ngIf="selectedRide.photo && selectedRide.photo!=='' " item-start>
+          <img src="data:{{selectedRide.photo.contentType}};base64,{{selectedRide.photo.data}}">
+        </ion-card>
+        <ion-card *ngIf="!selectedRide.photo" item-start>
+          <img src="">
+        </ion-card>
+        <ion-row>
+          <ion-col>
+            From
+          </ion-col>
+          <ion-col>
+            {{selectedRide.from.address}}
+          </ion-col>
+
+          <ion-col>
+              <ion-icon name="arrow-forward"></ion-icon>
+          </ion-col>
+          <ion-col>
+            {{selectedRide.to.address}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-icon name="calendar"></ion-icon>
+          </ion-col>
+          <ion-col>
+            {{selectedRide.date}}
+          </ion-col>
+
+          <ion-col>
+            <ion-icon ios="ios-alarm" md="md-alarm"></ion-icon>
+          </ion-col>
+          <ion-col>
+            {{selectedRide.time}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            D(KM):
+          </ion-col>
+          <ion-col>
+            {{selectedRide.distance}} Km
+          </ion-col>
+
+          <ion-col>
+            <img width="20px" height="20px" src="../assets/icon/seat.svg" />
+          </ion-col>
+          <ion-col>
+            {{seatsRequired}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-icon ios="ios-cash-outline" md="md-cash"></ion-icon>
+          </ion-col>
+          <ion-col>
+            Rs{{costPerRide}}
+          </ion-col>
+
+        </ion-row>
+        
+      </ion-grid> -->
+      <img src="{{imageUrl}}">
+
+      <h3>Passengers</h3>
+      <ion-list *ngIf="ridesInQueue">
+
+        <ion-item-sliding *ngFor="let ride of ridesInQueue">
+ 
+          <ion-item>
+            <div class="flex-row">
+              <div class="u--profile">
+                <ion-avatar item-start>
+                  <img src="data:{{ride.contentType}};base64,{{ride.image}}">
+                </ion-avatar>
+                <!-- <img  src="{{imageUrl}}"> -->
+                <!-- <img class="profile" src="{{imageUrl}}"> -->
+              </div>
+              <div>
+                <h3>{{ride.firstname}}</h3>
+                <h3>{{ride.from}}</h3>
+                <h3>to</h3>
+                <h3>{{ride.to}}</h3>
+                <h3>{{ride.seatsRequired}}</h3>
+              </div>
+            </div>
+          </ion-item>
+    
+          <ion-item-options side="right">
+            <button ion-button color="primary" (click)="acceptRide(item)">
+              <ion-icon name="thumbs-up"></ion-icon>
+              Accept Ride
+            </button>
+            <button ion-button color="danger" (click)="RejectRide(item)">
+              <ion-icon name="thumbs-down"></ion-icon>
+              Reject Ride
+            </button>
+          </ion-item-options>
+    
+    
+    
+        </ion-item-sliding>
+      </ion-list>
+      <div class= "align" *ngIf="!ridesInQueue">
+    
+      
+          <h4 text-uppercase no-padding no-margin>No Availble Passengers will get you notified once requested</h4>
+       
+       
+      </div>
+    </div>
+
+    
+  </div>
+
+
 
 
 </ion-content>
