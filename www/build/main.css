@@ -35109,14 +35109,6 @@ ion-navbar.toolbar {
   /* you change this to "contain" if you don't want the images to be cropped */
 }
 
-.uploadIcon {
-  position: relative;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-}
-
 .profile {
   font-size: xx-large;
   font-weight: bold;
@@ -35386,6 +35378,46 @@ ion-navbar.toolbar {
   align-items: flex-end;
 }
 
+.container {
+  position: relative;
+}
+
+/* Make the image responsive */
+.container img {
+  width: 100%;
+  height: auto;
+}
+
+.container .btn {
+  position: absolute;
+  top: 86%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.container .btn:hover {
+  background-color: black;
+}
+
+.bar-buttons-md {
+  -webkit-order: 3;
+  -ms-flex-order: 3;
+  order: 3;
+}
+
+.text-cemter {
+  text-align: center;
+}
+
 page-findride #maps {
   height: 70%;
 }
@@ -35551,9 +35583,8 @@ page-yourride .gap {
 
 page-yourride .profile {
   border-radius: 8px;
-  font-size: 16px;
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
 }
 
 page-yourride .flex-end {
@@ -35579,4 +35610,26 @@ page-yourride .align {
 page-yourride #menu {
   font-size: 2em;
   cursor: pointer;
+}
+
+page-yourride .font-xs {
+  font-size: x-small;
+  font-weight: 100;
+}
+
+page-yourride .font-m {
+  font-size: small;
+  font-weight: 400;
+}
+
+.list-md > .item-wrapper:last-child .item-inner {
+  border-bottom: 1px solid #dedede;
+}
+
+.list-ios {
+  margin-bottom: 5px;
+}
+
+.text-center {
+  text-align: center;
 }

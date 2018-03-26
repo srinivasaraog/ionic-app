@@ -41,7 +41,7 @@ export class FindridePage {
   isRideSelected:boolean=false;
   selectedRide:any={};
   seatsRequired:any="";
-  courierAvailable:any="";
+  courierWeight:any="";
   isRideConfirmed:boolean=false;
   costPerRide:number=0;
   constructor(private mapsAPILoader: MapsAPILoader,
@@ -256,6 +256,7 @@ export class FindridePage {
       this.rideDetails.to = this.to;
       this.rideDetails.date = this.selectedDate;
       this.rideDetails.distance=this.distance;
+      this.rideDetails.courierWeight=this.courierWeight;
       this.rideDetails.seatsRequired=this.seatsRequired;
     
       this.rest.findRide(this.rideDetails).subscribe(
@@ -274,22 +275,29 @@ export class FindridePage {
        this.selectedRide= event
     }
     if(this.seatsRequired==="1"){
-      this.costPerRide=(this.distance*this.seatsRequired)
+      this.costPerRide=(this.distance*2*this.seatsRequired)
     }else if(this.seatsRequired==="2"){
-      this.costPerRide=(this.distance*this.seatsRequired-50);
+      this.costPerRide=(this.distance*2*this.seatsRequired-50);
     }else if(this.seatsRequired >"2"){
-      this.costPerRide=(this.distance*this.seatsRequired-100);
+      this.costPerRide=(this.distance*2*this.seatsRequired-100);
     }
     
+    if(this.courierWeight !=="" && this.courierWeight<='10'){
+      this.costPerRide =this.distance/2
+    }else if(this.courierWeight !=="" && this.courierWeight <= '50' ){
+      this.costPerRide =this.distance/1.5
+    }
   }
 
  
   confirmRide(selectedRide){
-   console.log(selectedRide);
+   console.log(this.rideDetails);
   
-   this.rideDetails=selectedRide;
+   this.rideDetails.costPerRide= this.costPerRide;
+   this.rideDetails.user_id=this.selectedRide.user_id;
    this.rideDetails.userId=sessionStorage.getItem("userId");
-   this.rideDetails.seatsRequired=this.seatsRequired;
+   this.rideDetails.seatsAvailable=selectedRide.seatsAvailable;
+   
 
    this.socket.emit('create notification',this.rideDetails);
 

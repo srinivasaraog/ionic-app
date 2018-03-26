@@ -3,6 +3,7 @@ page-yourride {
     .details{
 
         width: 100%;
+      
         
     }
     .flex-row{
@@ -12,12 +13,12 @@ page-yourride {
     }
     .gap{
         padding-right:20px;
+       
     }
     .profile{
         border-radius: 8px;       
-        font-size: 16px;
-        height: 60px;
-        width: 60px;
+        height: 50px;
+        width: 50px;
     }
     .flex-end{
         flex-wrap: wrap;
@@ -34,4 +35,25 @@ page-yourride {
         font-size:2em;
         cursor: pointer;
       }
+      .font-xs{
+          font-size:x-small;
+          font-weight: 100;
+      }
+      .font-m{
+        font-size:small;
+        font-weight: 400;
+      }
+}
+
+
+.list-md > .item-wrapper:last-child .item-inner{
+    border-bottom: 1px solid #dedede;
+}
+
+.list-ios {
+    margin-bottom: 5px;
+}
+
+.text-center{
+    text-align: center;
 }

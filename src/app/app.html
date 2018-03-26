@@ -2,18 +2,8 @@
   <ion-header class="color">Ride share</ion-header>
   <ion-content>
 
-      <!-- <div class="profile--image">
-          <img class="square" src="{{imageUrl}}"  *ngIf="imageUrl">
-          
-          <div class="cover flex-v flex-bottom flex-center">
-            <div class="profile--image-label flex-item box full-center bg-darken t-white" role="button" tabindex="0" ng-click="setPopup(true)" >
-              <i aria-hidden="true" class="mdi mdi-camera"></i>
-              <p>Upload Profile Image</p>
-            </div>
-          </div> 
-         </div> -->
       
-      <div>
+      <div class="container">
 
              <input type="file" accept="image/*" (change)="filesAdded($event)" style="display: none"  #input/>
              <img class="square" src="{{imageUrl}}"  *ngIf="imageUrl">
@@ -21,22 +11,11 @@
                 <ion-icon class="profile" ios="ios-contact-outline" md="md-contact"></ion-icon>
              </div>
           
-             <button  ion-button block class="uploadIcon" (click)="callback($event)">upload proile photo</button>
+             <button  ion-button block class="uploadIcon btn" (click)="callback($event)">upload proile photo</button>
             
       </div>
 
-      <!-- <div class="profile--image">
-        
-          
-          <img src="{{imageUrl}}">
-          <div class="cover">
-            <div>
-                <input type="file" accept="image/*" (change)="filesAdded($event)" style="display: none"  #input/>
-              <i  class="profileimage-label flex-item box full-center bg-darken t-white" (click)="callback($event)">Upload Profile Image</i>               <i class="profile--image-label"  (click)="callback($event)"></i>
-              <p>Upload Profile Image</p>
-            </div>
-          </div> 
-         </div> -->
+ 
     <ion-list>
       
       <ion-item>

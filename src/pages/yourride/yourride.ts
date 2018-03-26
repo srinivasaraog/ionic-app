@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Events } from 'ionic-angular';
 import { Rest } from '../../providers/rest';
 import { ShareridePage } from '../shareride/shareride';
@@ -20,28 +20,37 @@ import { LoginPage } from '../login/login';
 
 })
 export class YourridePage {
- 
+
   data: any;
   isValid: boolean = false;
   ridesAvailable = [];
   profile: any = [];
-  rideDetails:any=[];
-  yourRideDetails={
-    userId:'',
-    date:''
-   
+  rideDetails: any = [];
+  yourRideDetails = {
+    userId: '',
+    date: ''
+
   }
-  deleterideDetails={
-    userId:'',
-    date:'',
-    time:''
+  deleterideDetails = {
+    userId: '',
+    date: '',
+    time: ''
   }
-  imageUrl:string="";
-  isViewRide:boolean=false;
-  selectedRide:any;
-  ridesInQueue:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public rest: Rest,private events: Events) {
-  
+  imageUrl: string = "";
+  isViewRide: boolean = false;
+  selectedRide: any;
+  ridesInQueue: any;
+  details: any;
+  driverDetails: any;
+  isPassenger: boolean = false;
+  isDriver: boolean = false;
+  uPaasengerList: any;
+  uDriverList: any;
+  userId: any;
+  coPassenegerDetails:any;
+  isViewRideInfo:boolean=false;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public rest: Rest, private events: Events) {
+
   }
 
   ionViewDidLoad() {
@@ -49,14 +58,14 @@ export class YourridePage {
   }
   ngOnInit() {
     console.log('ionViewDidLoad YourridePage');
-    
-    let userId = sessionStorage.getItem("userId");
+
+    this.userId = sessionStorage.getItem("userId");
     this.yourRideDetails = {
-      userId: userId,
-      date:new Date().toJSON().split('T')[0]
+      userId: this.userId,
+      date: new Date().toJSON().split('T')[0]
 
     }
-    if(!userId){
+    if (!this.userId) {
       this.navCtrl.push(LoginPage);
       return;
     }
@@ -65,67 +74,82 @@ export class YourridePage {
       err => console.log(err)
 
     );
-   
+
     // this.events.subscribe('yourideInfo',(rideDetails) => {
     //   console.log("youride page......",rideDetails)
     //        this.rideDetails= rideDetails;
     //   });
-      // this.parse(this.rideDetails);
+    // this.parse(this.rideDetails);
   }
   parse(response) {
-    
+
     if (response.status === 200) {
-      this.profile=[];
+      let profiles = [];
       this.isValid = response.availableRides ? true : false;
-      this.imageUrl=response.user?response.user:"";
+      this.imageUrl = response.user ? response.user : "";
       if (this.isValid) {
-        this.data = response.availableRides;
-
-        for (let i = 0; i < this.data.length; i++) {
-          this.profile.push(this.data[i].profile);
-
-        }
-        console.log("hello", this.profile)
+        this.profile = response.availableRides ? response.availableRides : '';
       }
+      console.log("this.userId;", this.userId)
+      this.uDriverList = this.profile.map(function (profile) {
+        return profile.filter(function (item) {
+          return item.user_id === sessionStorage.getItem("userId");
+        })
+      })
+      let list=[];
+      this.uPaasengerList = this.profile.map(function (profile) {
+        return profile.map(function (item) {
+          if (item.confirmation) {
+          return  item.confirmation.filter(function (subitem) {
+              return subitem.ride_id === sessionStorage.getItem("userId");
+            }).length > 0 ? item:list
+          }
+        })
+      })
+
+      console.log("uDriverList", this.uDriverList);
+      console.log("upassengersList", this.uPaasengerList);
 
     }
 
 
   }
 
-  updateRide(event){
-   console.log("inside update ride",event);
-   this.navCtrl.push(ShareridePage);
+  updateRide(event) {
+    console.log("inside update ride", event);
+    this.navCtrl.push(ShareridePage);
   }
 
-  deleteRide(event){
-   
-    let userId = sessionStorage.getItem("userId");
+  deleteRide(event) {
+
+    this.userId = sessionStorage.getItem("userId");
     //this.profile=[];
     this.deleterideDetails = {
-      userId: userId,
-      date:event[0].date,
-      time:event[0].time
+      userId: this.userId,
+      date: event[0].date,
+      time: event[0].time
 
     }
     this.rest.deleteRide(this.deleterideDetails).subscribe(
-      response => {this.parse(response)},
+      response => { this.parse(response) },
       err => console.log(err)
 
     );
   }
 
-  viewRideDetails(item){
-    console.log("item",item);
-    this.isViewRide=true;
-    this.selectedRide=item;
-    if(item.confirmation.length>0){
-      this.ridesInQueue=item.confirmation[0].ridesInQueue;    
-    }  console.log(this.selectedRide);
+  viewCopassengerDetails(item) {
+    console.log("item", item);
+    this.isViewRide = true;
+    this.coPassenegerDetails = item;
     
+
   }
 
+viewInfo(item){
 
-
+  this.isViewRideInfo=true;
+  this.isViewRide=true;
+  this.details=item
+}
 
 }

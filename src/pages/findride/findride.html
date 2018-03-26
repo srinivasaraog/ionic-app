@@ -2,8 +2,10 @@
 
   <ion-navbar>
     <ion-icon id="menu" ios="ios-contact-outline" md="md-contact" menuToggle="left"></ion-icon>
-    <ion-title>findRide</ion-title>
-    <ion-icon id="menu" ios="ios-notifications-outline" md="md-notifications" menuToggle="right" end><ion-badge>2</ion-badge></ion-icon>
+    <ion-title text-center>findRide</ion-title>
+    <ion-icon id="menu" ios="ios-notifications-outline" md="md-notifications" menuToggle="right" end>
+      <ion-badge>2</ion-badge>
+    </ion-icon>
   </ion-navbar>
 
 </ion-header>
@@ -23,20 +25,20 @@
     <ion-item *ngIf="!seatsRequired">
 
       <ion-label>
-        <img width="40px" height="40px" src="../assets/icon/express.jpg" />
+        <img width="30px" height="30px" src="../assets/icon/express.jpg" />
       </ion-label>
-      <ion-select [(ngModel)]="courierAvailable" end>
+      <ion-select [(ngModel)]="courierWeight" end>
         <ion-label>weight </ion-label>
-        <ion-option value="1">10 KG</ion-option>
-        <ion-option value="2">20 KG</ion-option>
-        <ion-option value="3">50 KG</ion-option>
-        <ion-option value="4">5 KG</ion-option>
+        <ion-option value="10"> < 10 KG</ion-option>
+        <ion-option value="20"> < 20 KG</ion-option>
+        <ion-option value="30"> < 50 KG</ion-option>
+        <ion-option value="5"> < 5 KG</ion-option>
 
       </ion-select>
     </ion-item>
-    <ion-item *ngIf="!courierAvailable">
+    <ion-item *ngIf="!courierWeight">
       <ion-label>
-        <img width="40px" height="40px" src="../assets/icon/seat.svg" />
+        <img width="30px" height="30px" src="../assets/icon/seat.svg" />
       </ion-label>
 
 
@@ -107,29 +109,34 @@
         </ion-card>
         <ion-row>
           <ion-col>
-            From
-          </ion-col>
-          <ion-col>
-            {{selectedRide.from.address}}
+              <ion-icon color="primary" name="pin">From</ion-icon>
+               {{selectedRide.from.address}}
           </ion-col>
 
           <ion-col>
-              <ion-icon name="arrow-forward"></ion-icon>
-          </ion-col>
-          <ion-col>
+              <ion-icon color="primary" name="pin">To</ion-icon>
+          
             {{selectedRide.to.address}}
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <ion-icon name="calendar"></ion-icon>
+              <ion-icon color="primary" name="pin"> Drop off</ion-icon>
+          </ion-col>
+          <ion-col>
+            {{rideDetails.to.address}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-icon color="primary" name="calendar"></ion-icon>
           </ion-col>
           <ion-col>
             {{selectedRide.date}}
           </ion-col>
 
           <ion-col>
-            <ion-icon ios="ios-alarm" md="md-alarm"></ion-icon>
+            <ion-icon color="primary" name="alarm"></ion-icon>
           </ion-col>
           <ion-col>
             {{selectedRide.time}}
@@ -144,23 +151,31 @@
             {{selectedRide.distance}} Km
           </ion-col>
 
-          <ion-col>
-            <img width="20px" height="20px" src="../assets/icon/seat.svg" />
+          <ion-col *ngIf="seatsAvailable">
+            <img width="20px" height="20px" src="../assets/icon/seat.svg" />   
           </ion-col>
-          <ion-col>
+          <ion-col *ngIf="courierWeight">
+               
+               <img width="30px" height="30px" src="../assets/icon/express.jpg" />
+          </ion-col>
+          <ion-col *ngIf="courierWeight">
+              {{courierWeight}}
+          </ion-col>
+          <ion-col *ngIf="seatsAvailable">
             {{seatsRequired}}
           </ion-col>
+          
         </ion-row>
         <ion-row>
           <ion-col>
-            <ion-icon ios="ios-cash-outline" md="md-cash"></ion-icon>
+            <ion-icon color="primary"  name="cash"></ion-icon>
           </ion-col>
           <ion-col>
             Rs{{costPerRide}}
           </ion-col>
 
         </ion-row>
-        
+
       </ion-grid>
     </div>
 
