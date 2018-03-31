@@ -121,6 +121,11 @@ export class FindridePage {
         });
       }
 
+      
+  this.socket.on('disconnect', function () {
+    console.log('user disconnected');
+});
+
 
     });
   }
@@ -300,6 +305,7 @@ export class FindridePage {
    
 
    this.socket.emit('create notification',this.rideDetails);
+   
 
    this.rest.confirmRide(this.rideDetails).subscribe(
     response => this.confirmResponse(response),
@@ -337,4 +343,7 @@ export class FindridePage {
     });
     alert.present();
   }
+  
+  
+
 }

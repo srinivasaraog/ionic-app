@@ -44,6 +44,9 @@ export class MyApp {
   
     toast.present();
    });
+   socket.on('disconnect', function () {
+    console.log('user disconnected');
+   });
   }
   @ViewChild('myNav') nav: Nav
  

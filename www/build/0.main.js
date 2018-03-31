@@ -3693,6 +3693,9 @@ var FindridePage = (function () {
                     return _this;
                 });
             };
+            _this.socket.on('disconnect', function () {
+                console.log('user disconnected');
+            });
         });
     };
     FindridePage.prototype.setCurrentPosition = function () {
