@@ -22,7 +22,7 @@
 
   <div *ngIf="!isViewRide">
 
-    <ion-list *ngFor="let item of uDriverList">
+    <ion-list class="selectride-list" *ngFor="let item of uDriverList">
       <ion-item-sliding *ngFor="let subitem of item">
         <ion-item class="details" (click)="viewCopassengerDetails(subitem)" *ngIf="subitem.user_id === userId" detail-push>
           <span item-right class="font-xs">{{subitem.date | date:"dd/MM"}}</span>
@@ -54,7 +54,7 @@
     </ion-list>
 
     <div *ngFor="let item of uPaasengerList">
-      <ion-list *ngFor="let subitem of item">
+      <ion-list class="selectride-list" *ngFor="let subitem of item">
         <ng-container *ngIf="subitem && subitem.confirmation">
           <ion-item-sliding *ngFor="let ride of subitem.confirmation">
             <ion-item class="details" *ngIf="ride.ride_id === userId" (click)="viewCopassengerDetails(subitem)" detail-push>
@@ -98,7 +98,7 @@
   </div>
 
   <div *ngIf="isViewRide && !isViewRideInfo">
-    <ion-list *ngIf="coPassenegerDetails.user_id !== userId">
+    <ion-list class="selectride-list" *ngIf="coPassenegerDetails.user_id !== userId">
       <ion-list-header color="primary">
         <ion-icon name="car">Driver</ion-icon>
       </ion-list-header>
@@ -138,8 +138,8 @@
         <ion-icon name="people"> Passengers</ion-icon>
       </ion-list-header>
 
-      <ion-item-sliding *ngFor="let ride of coPassenegerDetails.confirmation">
-        <ion-item *ngIf="ride.ride_id !== userId && ride.seatsRequired" class="details" (click)="viewInfo(ride)" detail-push>
+      <ion-item-sliding class="selectride-list" *ngFor="let ride of coPassenegerDetails.confirmation">
+        <ion-item  *ngIf="ride.ride_id !== userId && ride.seatsRequired" class="details" (click)="viewInfo(ride)" detail-push>
           <span item-right class="font-xs">{{ ride.date | date:"dd/MM"}}</span>
           <div class="flex-row item-icon-right">
             <div class="gap">
@@ -174,13 +174,13 @@
     <!-- courier -->
 
 
-    <ion-list *ngIf="coPassenegerDetails && coPassenegerDetails.confirmation">
+    <ion-list  *ngIf="coPassenegerDetails && coPassenegerDetails.confirmation">
       <ion-list-header color="primary">
         <img width="20px" height="20px" src="../assets/icon/express.jpg"> Courier
 
       </ion-list-header>
 
-      <ion-item-sliding *ngFor="let ride of coPassenegerDetails.confirmation">
+      <ion-item-sliding class="selectride-list" *ngFor="let ride of coPassenegerDetails.confirmation">
 
         <ion-item *ngIf="ride.ride_id !== userId && ride.courierWeight" class="details" (click)="viewInfo(ride)" detail-push>
           <span item-right class="font-xs">{{ ride.date | date:"dd/MM"}}</span>

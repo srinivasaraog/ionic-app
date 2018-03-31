@@ -35427,6 +35427,10 @@ page-findride .details {
   cursor: pointer;
 }
 
+page-findride .selectride-list :hover {
+  background-color: #b4b7b9;
+}
+
 page-findride .flex-row {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -35541,6 +35545,34 @@ page-notification ion-content .scroll-content {
   padding-top: 0px !important;
 }
 
+page-ridehistory .font-m {
+  font-size: small;
+  font-weight: 400;
+}
+
+page-ridehistory .details {
+  width: 100%;
+}
+
+page-ridehistory .flex-row {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+page-ridehistory .profile {
+  border-radius: 8px;
+  height: 50px;
+  width: 50px;
+}
+
+page-ridehistory .flex-end {
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
 page-shareride #map {
   height: 70%;
 }
@@ -35569,6 +35601,11 @@ page-welcome .marginTop {
 
 page-yourride .details {
   width: 100%;
+  cursor: pointer;
+}
+
+page-yourride .selectride-list :hover {
+  background-color: #b4b7b9;
 }
 
 page-yourride .flex-row {

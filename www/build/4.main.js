@@ -75,7 +75,7 @@ var TabsPage = (function () {
 TabsPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'page-tabs',template:/*ion-inline-start:"C:\Users\Admin\Documents\Project-1\ionic-app\src\pages\tabs\tabs.html"*/'<ion-tabs>\n    <ion-tab [root]="sharerideRoot" tabTitle="Shareride" tabIcon="search"></ion-tab>\n    <ion-tab [root]="yourrideRoot" tabTitle="Yourride" tabIcon="information-circle"></ion-tab>\n    <ion-tab [root]="findrideRoot" tabTitle="Findride" tabIcon="add-circle"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"C:\Users\Admin\Documents\Project-1\ionic-app\src\pages\tabs\tabs.html"*/
+        selector: 'page-tabs',template:/*ion-inline-start:"C:\Users\Admin\Documents\Project-1\ionic-app\src\pages\tabs\tabs.html"*/'<ion-tabs>\n\n    <ion-tab [root]="sharerideRoot" tabTitle="Shareride" tabIcon="search"></ion-tab>\n\n    <ion-tab [root]="yourrideRoot" tabTitle="Yourride" tabIcon="information-circle"></ion-tab>\n\n    <ion-tab [root]="findrideRoot" tabTitle="Findride" tabIcon="add-circle"></ion-tab>\n\n</ion-tabs>\n\n'/*ion-inline-end:"C:\Users\Admin\Documents\Project-1\ionic-app\src\pages\tabs\tabs.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
 ], TabsPage);

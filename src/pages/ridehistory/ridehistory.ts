@@ -22,7 +22,7 @@ export class RidehistoryPage {
   data: any;
   isValid: boolean = false;
   ridesAvailable = [];
-  profile: any = [];
+  profile: any;
   rideDetails:any=[];
   yourRideDetails={
     userId:'',
@@ -32,7 +32,8 @@ export class RidehistoryPage {
   deleterideDetails={
     userId:'',
     date:'',
-  }
+  };
+  userId:any;
 
   constructor( public rest: Rest,private events: Events) {
   }
@@ -43,9 +44,9 @@ export class RidehistoryPage {
 
 ngOnInit(){
   console.log(".....hiiiiii")
-  let userId = sessionStorage.getItem("userId");
+  this.userId = sessionStorage.getItem("userId");
   this.yourRideDetails = {
-    userId: userId,
+    userId: this.userId,
     date:new Date().toJSON().split('T')[0]
 
   }
@@ -62,19 +63,15 @@ parse(response) {
     
   if (response.status === 200) {
     this.profile=[];
-    this.isValid = response.offerride ? true : false;
+    this.isValid = response.ridehistory ? true : false;
     if (this.isValid) {
-      this.data = response.offerride;
+      this.profile = response.ridehistory;
 
-      for (let i = 0; i < this.data.length; i++) {
-        this.profile.push(this.data[i].profile);
-
-      }
       console.log("hello", this.profile)
     }
 
   }
-
+  console.log("hello", this.profile)
 
 }
 
