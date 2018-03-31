@@ -1,47 +1,65 @@
-<ion-menu   [content]="content" side="left" >
-    <ion-header class="color">Ride share</ion-header>
-    <ion-content>
-      <ion-list>
-         <ion-item> <ion-icon class="profile" ios="ios-contact-outline" md="md-contact"></ion-icon>profile</ion-item>
-         <ion-item><ion-icon class="icon--list" ios="ios-home-outline" md="md-home"></ion-icon>Address</ion-item>
-         <ion-item><ion-icon class="icon--list"  ios="ios-cash-outline" md="md-cash"></ion-icon>pricing & payments</ion-item>
-         <ion-item><ion-icon class="icon--list"  ios="ios-contact-outline" md="md-contact"></ion-icon> support</ion-item>
-         <ion-item> <ion-icon class="icon--list"  ios="ios-thumbs-up-outline" md="md-thumbs-up"></ion-icon>Feedback</ion-item>
-         <ion-item> <ion-icon  class="icon--list" ios="ios-log-out" md="md-log-out"></ion-icon> logout</ion-item>
+<ion-menu [content]="content" side="left">
+  <ion-header class="color">Ride share</ion-header>
+  <ion-content>
+
       
-      </ion-list>
+      <div class="container">
+
+             <input type="file" accept="image/*" (change)="filesAdded($event)" style="display: none"  #input/>
+             <img class="square" src="{{imageUrl}}"  *ngIf="imageUrl">
+             <div  *ngIf="!imageUrl">
+                <ion-icon class="profile" ios="ios-contact-outline" md="md-contact"></ion-icon>
+             </div>
+          
+             <button  ion-button block class="uploadIcon btn" (click)="callback($event)">upload proile photo</button>
+            
+      </div>
+
+ 
+    <ion-list>
       
-    </ion-content>
-  </ion-menu>
+      <ion-item>
+        <ion-icon class="icon--list" ios="ios-home-outline" md="md-home"></ion-icon>Address</ion-item>
+      <ion-item>
+        <ion-icon class="icon--list" ios="ios-cash-outline" md="md-cash"></ion-icon>pricing & payments</ion-item>
+      <ion-item>
+        <ion-icon class="icon--list" ios="ios-contact-outline" md="md-contact"></ion-icon> support</ion-item>
+      <ion-item>
+        <ion-icon class="icon--list" ios="ios-thumbs-up-outline" md="md-thumbs-up"></ion-icon>Feedback</ion-item>
+      <ion-item (click)="logout()">
+        <ion-icon class="icon--list" ios="ios-log-out" md="md-log-out"></ion-icon> logout</ion-item>
 
-  <ion-menu  side="right" [content]="content">
-     
-                    <ion-header class="color">Ride share</ion-header>
+    </ion-list>
 
-                      <ion-content>
-                            <div class="top">
-                        <!-- Segment in content -->
-                        <ion-segment [(ngModel)]="relationship" color="primary" (click)="notification()">
-                          <ion-segment-button value="friends">
-                            Notifications
-                          </ion-segment-button>
-                          
-                          <ion-segment-button value="enemies" (click)="rideHistory()">
-                            Rides History
-                          </ion-segment-button>
-                          
-                        </ion-segment>
-                        
-                        <page-ridehistory *ngIf="isrideHistoryAvailable"></page-ridehistory>
-                       </div>
-                       <page-notification *ngIf="isNotificationAvailable"></page-notification>
-                       
-                      </ion-content>
-                      
-     
-      </ion-menu>
+  </ion-content>
+</ion-menu>
 
-<ion-nav #content  [root]="rootPage"></ion-nav>
+<ion-menu side="right" [content]="content">
+
+  <ion-header class="color">Ride share</ion-header>
+
+  <ion-content>
+    <div class="top">
+      <!-- Segment in content -->
+      <ion-segment [(ngModel)]="relationship" color="primary" >
+        <ion-segment-button value="friends" (click)="notification()">
+          Notifications
+        </ion-segment-button>
+
+        <ion-segment-button value="enemies" (click)="rideHistory()">
+          Rides History
+        </ion-segment-button>
+
+      </ion-segment>
+
+      
+    </div>
+    <page-ridehistory *ngIf="isrideHistoryAvailable"></page-ridehistory>
+    <page-notification *ngIf="isNotificationAvailable"></page-notification>
+
+  </ion-content>
 
 
+</ion-menu>
 
+<ion-nav #myNav #content [root]="rootPage"></ion-nav>

@@ -26,12 +26,32 @@ export class Rest {
   private ridehistory = 'http://localhost:3000/api/ridehistory';
   private confirmRideUrl = 'http://localhost:3000/api/confirmride'
   private notificationsUrl = 'http://localhost:3000/api/notifications'
-
+  private profileUpdateUrl='http://localhost:3000/api/profileUpdate'
+  private profileImage='http://localhost:3000/api/profileImage'
 
 
   constructor(public http: Http) { }
-
-
+  getProfileimage(userId): Observable<string[]> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    let body = userId;
+ 
+    
+    return this.http.post(this.profileImage, body)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+  
+  profileUpdate(profileDetails): Observable<string[]> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    
+    let body = profileDetails;
+    let options = new RequestOptions({ headers: headers,body:body });
+    return this.http.post(this.profileUpdateUrl, body)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+  
   getNotifications(yourRideDetails): Observable<string[]> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
