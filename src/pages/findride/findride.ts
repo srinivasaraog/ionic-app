@@ -8,6 +8,7 @@ import { Rest } from '../../providers/rest';
 import { } from '@types/googlemaps';
 import { LoginPage } from '../login/login';
 import { YourridePage } from '../yourride/yourride';
+import { Socket } from 'ng-socket-io';
 
 declare var google;
 @IonicPage()
@@ -40,9 +41,11 @@ export class FindridePage {
   isRideSelected:boolean=false;
   selectedRide:any={};
   seatsRequired:any="";
+  courierWeight:any="";
   isRideConfirmed:boolean=false;
+  costPerRide:number=0;
   constructor(private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone, public rest: Rest,public alertCtrl: AlertController,public navCtrl:NavController) {
+    private ngZone: NgZone, public rest: Rest,public alertCtrl: AlertController,public navCtrl:NavController,private socket: Socket) {
 
 
   }
@@ -214,11 +217,15 @@ export class FindridePage {
       console.log("inside navigator")
       this.isRideAvailable=true;
       this.profile=[];
+      
       this.isValid = res.findride ? true : false;
       if (this.isValid) {
         this.data = res.findride;
 
         for (let i = 0; i < this.data.length; i++) {
+         // this.data[i].profile[0].photo.data=  "data:" +  this.data[i].profile[0].photo.contentType + ";base64," + new Buffer( this.data[i].profile[0].photo.data).toString('base64');
+                       
+
           this.profile.push(this.data[i].profile);
 
         }
@@ -249,6 +256,7 @@ export class FindridePage {
       this.rideDetails.to = this.to;
       this.rideDetails.date = this.selectedDate;
       this.rideDetails.distance=this.distance;
+      this.rideDetails.courierWeight=this.courierWeight;
       this.rideDetails.seatsRequired=this.seatsRequired;
     
       this.rest.findRide(this.rideDetails).subscribe(
@@ -266,27 +274,48 @@ export class FindridePage {
     if(this.isRideSelected){
        this.selectedRide= event
     }
+    if(this.seatsRequired==="1"){
+      this.costPerRide=(this.distance*2*this.seatsRequired)
+    }else if(this.seatsRequired==="2"){
+      this.costPerRide=(this.distance*2*this.seatsRequired-50);
+    }else if(this.seatsRequired >"2"){
+      this.costPerRide=(this.distance*2*this.seatsRequired-100);
+    }
+    
+    if(this.courierWeight !=="" && this.courierWeight<='10'){
+      this.costPerRide =this.distance/2
+    }else if(this.courierWeight !=="" && this.courierWeight <= '50' ){
+      this.costPerRide =this.distance/1.5
+    }
   }
 
  
   confirmRide(selectedRide){
-   console.log(selectedRide);
+   console.log(this.rideDetails);
   
-   this.rideDetails=selectedRide;
+   this.rideDetails.costPerRide= this.costPerRide;
+   this.rideDetails.user_id=this.selectedRide.user_id;
    this.rideDetails.userId=sessionStorage.getItem("userId");
-   this.rideDetails.seatsRequired=this.seatsRequired;
+   this.rideDetails.seatsAvailable=selectedRide.seatsAvailable;
+   
+
+   this.socket.emit('create notification',this.rideDetails);
+
    this.rest.confirmRide(this.rideDetails).subscribe(
     response => this.confirmResponse(response),
     err => console.log(err)
 
   );
+  
+  
   }
   confirmResponse(res){
-
+    
     if(res.status===200 && res.offerride.nModified===1){
       this.presentAlert()
-
+     
     }
+   
     
   }
 
@@ -301,7 +330,7 @@ export class FindridePage {
           handler: () => {
             console.log('OK  clicked');
             this.navCtrl.push(YourridePage);
-
+ 
           }
         }
       ]

@@ -7,58 +7,251 @@
 <ion-header>
 
   <ion-navbar>
-      <ion-icon id="menu" ios="ios-contact-outline" md="md-contact" menuToggle="left"></ion-icon>
-      <ion-title>yourride</ion-title>
-      <ion-icon  id="menu" ios="ios-notifications-outline" md="md-notifications" menuToggle="right" end></ion-icon>
-  </ion-navbar>
+    <ion-icon id="menu" ios="ios-contact-outline" md="md-contact" menuToggle="left"></ion-icon>
+    <ion-title text-center *ngIf="!isViewRide && !isViewRideInfo">yourride</ion-title>
 
+    <ion-title text-center *ngIf="isViewRide && !isViewRideInfo">Copassengers</ion-title>
+    <ion-icon id="menu" ios="ios-notifications-outline" md="md-notifications" menuToggle="right" end></ion-icon>
+  </ion-navbar>
 </ion-header>
 
-
 <ion-content text-center class="vertical-align-content">
-  <div class= "align" *ngIf="!isValid">
-    
-      
-        <h4 text-uppercase no-padding no-margin>No Rides Availble please Schedule a Ride</h4>
-     
-     
+  <div class="align" *ngIf="!isValid">
+    <h4 text-uppercase no-padding no-margin>No Rides Availble please Schedule a Ride</h4>
+  </div>
+
+  <div *ngIf="!isViewRide">
+
+    <ion-list *ngFor="let item of uDriverList">
+      <ion-item-sliding *ngFor="let subitem of item">
+        <ion-item class="details" (click)="viewCopassengerDetails(subitem)" *ngIf="subitem.user_id === userId" detail-push>
+          <span item-right class="font-xs">{{subitem.date | date:"dd/MM"}}</span>
+          <div class="flex-row item-icon-right">
+            <div class="gap">
+              <img class="profile" src="data:{{subitem.photo.contentType}};base64,{{subitem.photo.data}}">
+            </div>
+            <div class="flex-end font-m">
+              <div>{{subitem.from.address}}</div>
+              <div>to</div>
+              <div>{{subitem.to.address}}</div>
+              <div>
+                <img color="primary" width="10px" height="10px" src="../assets/icon/seat.svg" /> {{subitem.seatsAvailable}}
+              </div>
+            </div>
+          </div>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="primary" (click)="updateRide(item)">
+            <ion-icon name="car"></ion-icon>
+            Update Ride
+          </button>
+          <button ion-button color="danger" (click)="deleteRide(item)">
+            <ion-icon name="trash"></ion-icon>
+            Delete Ride
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+
+    <div *ngFor="let item of uPaasengerList">
+      <ion-list *ngFor="let subitem of item">
+        <ng-container *ngIf="subitem && subitem.confirmation">
+          <ion-item-sliding *ngFor="let ride of subitem.confirmation">
+            <ion-item class="details" *ngIf="ride.ride_id === userId" (click)="viewCopassengerDetails(subitem)" detail-push>
+
+              <span item-right class="font-xs">{{ride.date | date:"dd/MM"}}</span>
+              <div class="flex-row item-icon-right">
+
+                <div class="gap">
+                  <img class="profile" src="data:{{ride.contentType}};base64,{{ride.data}}">
+                </div>
+                <div class="flex-end font-m">
+                  <div>{{ride.firstname}}</div>
+                  <div>{{ride.from}}</div>
+                  <div>to</div>
+                  <div>{{ride.to}}</div>
+                  <div *ngIf="ride.seatsRequired">
+                    <img color="primary" width="10px" height="10px" src="../assets/icon/seat.svg" /> {{ride.seatsRequired}}
+                  </div>
+                  <div *ngIf="ride.courierWeight">
+                    <img width="10px" height="10px" src="../assets/icon/express.jpg" />{{ride.courierWeight}}
+                  </div>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item-options side="right" *ngIf="ride.ride_id === userId">
+              <button ion-button color="primary" (click)="updateRide(item)">
+                <ion-icon name="car"></ion-icon>
+                Update Ride
+              </button>
+              <button ion-button color="danger" (click)="deleteRide(item)">
+                <ion-icon name="trash"></ion-icon>
+                Delete Ride
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ng-container>
+      </ion-list>
+
     </div>
+  </div>
+
+  <div *ngIf="isViewRide && !isViewRideInfo">
+    <ion-list *ngIf="coPassenegerDetails.user_id !== userId">
+      <ion-list-header color="primary">
+        <ion-icon name="car">Driver</ion-icon>
+      </ion-list-header>
+      <ion-item-sliding>
+        <ion-item class="details" (click)="viewInfo(coPassenegerDetails)" detail-push>
+          <span item-right class="font-xs">{{coPassenegerDetails.date | date:"dd/MM"}}</span>
+          <div class="flex-row item-icon-right">
+            <div class="gap">
+              <img class="profile" src="data:{{coPassenegerDetails.photo.contentType}};base64,{{coPassenegerDetails.photo.data}}">
+            </div>
+            <div class="flex-end font-m">
+              <div>{{coPassenegerDetails.from.address}}</div>
+              <div>to</div>
+              <div>{{coPassenegerDetails.to.address}}</div>
+              <div>
+                <img color="primary" width="10px" height="10px" src="../assets/icon/seat.svg" /> {{coPassenegerDetails.seatsAvailable}}
+              </div>
+            </div>
+          </div>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="primary" (click)="acceptRide(coPassenegerDetails)">
+            <ion-icon name="car"></ion-icon>
+            Update Ride
+          </button>
+          <button ion-button color="danger" (click)="RejectRide(coPassenegerDetails)">
+            <ion-icon name="trash"></ion-icon>
+            Delete Ride
+          </button>
+        </ion-item-options>
+
+      </ion-item-sliding>
+    </ion-list>
+
+    <ion-list *ngIf="coPassenegerDetails && coPassenegerDetails.confirmation">
+      <ion-list-header color="primary">
+        <ion-icon name="people"> Passengers</ion-icon>
+      </ion-list-header>
+
+      <ion-item-sliding *ngFor="let ride of coPassenegerDetails.confirmation">
+        <ion-item *ngIf="ride.ride_id !== userId && ride.seatsRequired" class="details" (click)="viewInfo(ride)" detail-push>
+          <span item-right class="font-xs">{{ ride.date | date:"dd/MM"}}</span>
+          <div class="flex-row item-icon-right">
+            <div class="gap">
+              <img class="profile" src="data:{{ride.contentType}};base64,{{ride.data}}">
+            </div>
+            <div class="flex-end font-m">
+              <div>{{ride.firstname}}</div>
+              <div>{{ride.from}}</div>
+              <div>to</div>
+              <div>{{ride.to}}</div>
+              <div>
+                <img color="primary" width="10px" height="10px" src="../assets/icon/seat.svg" /> {{ride.seatsRequired}}
+              </div>
+            </div>
+          </div>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="primary" (click)="AcceptRide(item)">
+            <ion-icon name="thumbs-up"></ion-icon>
+            Accept Ride
+          </button>
+          <button ion-button color="danger" (click)="rejectRide(item)">
+            <ion-icon name="thumbs-down"></ion-icon>
+            Reject Ride
+          </button>
+        </ion-item-options>
 
 
+      </ion-item-sliding>
 
-  
-  <ion-list >
-    <ion-item-sliding *ngFor="let item of profile">
-       
-      <ion-item class="details" *ngFor="let subitem of item">
-          <div class="flex-row">
-         <div >
-            <ion-avatar class="profile" item-start>
-                <img src="../assets/icon/car.jpg">
-              </ion-avatar>
-         </div> 
-         <div>
-        <h3>{{subitem.from.address}}</h3>
-        <h3>to</h3>
-        <h3>{{subitem.to.address}}</h3>
-         </div>
-         </div>
+    </ion-list>
+    <!-- courier -->
+
+
+    <ion-list *ngIf="coPassenegerDetails && coPassenegerDetails.confirmation">
+      <ion-list-header color="primary">
+        <img width="20px" height="20px" src="../assets/icon/express.jpg"> Courier
+
+      </ion-list-header>
+
+      <ion-item-sliding *ngFor="let ride of coPassenegerDetails.confirmation">
+
+        <ion-item *ngIf="ride.ride_id !== userId && ride.courierWeight" class="details" (click)="viewInfo(ride)" detail-push>
+          <span item-right class="font-xs">{{ ride.date | date:"dd/MM"}}</span>
+          <div class="flex-row item-icon-right">
+            <div class="gap">
+              <img class="profile" src="data:{{ride.contentType}};base64,{{ride.data}}">
+            </div>
+            <div class="flex-end font-m">
+              <div>{{ride.firstname}}</div>
+              <div>{{ride.from}}</div>
+              <div>to</div>
+              <div>{{ride.to}}</div>
+              <div>
+                <img width="10px" height="10px" src="../assets/icon/express.jpg" /> {{ride.courierWeight}}
+              </div>
+            </div>
+          </div>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="primary" (click)="AcceptRide(item)">
+            <ion-icon name="thumbs-up"></ion-icon>
+            Accept Ride
+          </button>
+          <button ion-button color="danger" (click)="rejectRide(item)">
+            <ion-icon name="thumbs-down"></ion-icon>
+            Reject Ride
+          </button>
+        </ion-item-options>
+
+
+      </ion-item-sliding>
+
+    </ion-list>
+    <div class="align  vertical-align-content" text-center *ngIf="coPassenegerDetails && !coPassenegerDetails.confirmation">
+      <h4 text-uppercase no-padding no-margin>No Passengers Availble Please Schedule a Ride</h4>
+    </div>
+  </div>
+
+
+  <div *ngIf="isViewRide && isViewRideInfo">
+    <ion-list>
+      <ion-item>
+        <ion-card *ngIf="details.photo">
+          <img src="data:{{details.photo.contentType}};base64,{{details.photo.data}}">
+        </ion-card>
+        <ion-card *ngIf="!details.photo">
+          <img src="data:{{details.contentType}};base64,{{details.data}}">
+        </ion-card>
       </ion-item>
-   
-      <ion-item-options side="right">
-        <button ion-button color="primary" (click)="updateRide(item)">
-          <ion-icon name="car"></ion-icon>
-          Update Ride
-        </button>
-        <button ion-button color="danger" (click)="deleteRide(item)">
-          <ion-icon name="trash"></ion-icon>
-          Delete Ride
-        </button>
-       </ion-item-options>
-      
-   
-    </ion-item-sliding>
-  </ion-list>
-
+      <ion-item>
+        <ion-icon name="mail" color="primary"> {{details.emailId}}</ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="call" color="primary"> +1123456789</ion-icon>
+      </ion-item>
+      <ion-item>
+        <img color="primary" width="10px" height="10px" src="../assets/icon/seat.svg" /> {{details.seatsRequired}}
+      </ion-item>
+      <ion-item>
+        <img color="primary" width="10px" height="10px" src="../assets/icon/seat.svg" /> {{details.seatsRequired}}
+      </ion-item>
+      <ion-item>
+        <ion-icon color="primary" name="pin"> {{details.distance}} Km</ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-icon color="primary" name="alarm"> {{details.time}}</ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-icon color="primary" name="cash"> Rs {{details.cost}}</ion-icon>
+      </ion-item>
+    </ion-list>
+  </div>
 
 </ion-content>
