@@ -7,10 +7,10 @@
     <ion-item-sliding *ngFor="let item of profile">
 
       <ion-item class="details" *ngFor="let subitem of item">
-        <div class="flex-row">
+        <div class="flex-row" *ngIf="subitem.user_id === userId">
           <div>
-            <ion-avatar class="profile" item-start>
-              <img src="../assets/icon/car.jpg">
+            <ion-avatar class="profile" item-start *ngIf="subitem && subitem.photo">
+              <img src="data:{{subitem.photo.contentType}};base64,{{subitem.photo.data}}">
             </ion-avatar>
           </div>
           <div>
@@ -35,6 +35,44 @@
 
     </ion-item-sliding>
   </ion-list>
+
+
+  <div *ngFor="let item of profile">
+      <ion-list *ngFor="let subitem of item">
+        <div *ngIf="subitem && subitem.confirmation">
+          <ion-item-sliding *ngFor="let ride of subitem.confirmation">
+            <ion-item class="details" *ngIf="ride.ride_id === userId">
+              <div class="flex-row">
+             <div>
+                    <ion-avatar class="profile" item-start *ngIf="subitem && subitem.photo">
+                      <img src="data:{{ride.contentType}};base64,{{ride.data}}">
+                    </ion-avatar>
+                  </div>
+                  <div>
+                    <h3>{{ride.firstname}}</h3>
+                    <h3>{{ride.from}}</h3>
+                    <h3>to</h3>
+                    <h3>{{ride.to}}</h3>
+                  </div>
+                </div>
+              </ion-item>
+        
+              <ion-item-options side="right">
+                <button ion-button color="primary" (click)="updateRide(ride)">
+                  <ion-icon name="car"></ion-icon>
+                  Update Ride
+                </button>
+                <button ion-button color="danger" (click)="deleteRide(ride)">
+                  <ion-icon name="trash"></ion-icon>
+                  Delete Ride
+                </button>
+              </ion-item-options>
+          </ion-item-sliding>
+        </div>
+      
+      </ion-list>
+
+    </div>
 
 
 </ion-content>

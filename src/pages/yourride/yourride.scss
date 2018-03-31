@@ -1,15 +1,20 @@
 page-yourride {
  
     .details{
-
         width: 100%;
-      
-        
+        cursor: pointer;
+       
+          
+           
     }
+   .selectride-list :hover{
+   
+        background-color: #b4b7b9;//#00AFF5;
+        
+   }
     .flex-row{
         display: flex;
-       
-       
+   
     }
     .gap{
         padding-right:20px;

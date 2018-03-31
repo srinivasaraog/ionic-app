@@ -57,7 +57,7 @@
   </div>
   <div id="maps" #maps *ngIf="!isRideAvailable"></div>
 
-  <ion-list *ngIf="isRideAvailable && !isRideSelected">
+  <ion-list class="selectride-list" *ngIf="isRideAvailable && !isRideSelected">
     <ion-item *ngFor="let item of profile">
 
       <div class="details" *ngFor="let subitem of item" (click)="rideSelcted(subitem)">

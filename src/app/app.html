@@ -41,8 +41,8 @@
   <ion-content>
     <div class="top">
       <!-- Segment in content -->
-      <ion-segment [(ngModel)]="relationship" color="primary" (click)="notification()">
-        <ion-segment-button value="friends">
+      <ion-segment [(ngModel)]="relationship" color="primary" >
+        <ion-segment-button value="friends" (click)="notification()">
           Notifications
         </ion-segment-button>
 
@@ -52,8 +52,9 @@
 
       </ion-segment>
 
-      <page-ridehistory *ngIf="isrideHistoryAvailable"></page-ridehistory>
+      
     </div>
+    <page-ridehistory *ngIf="isrideHistoryAvailable"></page-ridehistory>
     <page-notification *ngIf="isNotificationAvailable"></page-notification>
 
   </ion-content>
