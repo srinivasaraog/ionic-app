@@ -15,6 +15,7 @@ const jsonwebtoken = require('jsonwebtoken');
 
 const bcrypt = require('bcrypt');
 var fs = require('fs');
+var checksum = require('../models/checksum');
 
 
 
@@ -558,16 +559,19 @@ module.exports = function (app, express, io) {
                         distance: req.body.distance,
                         date: req.body.date,
                         emailId: user.email,
-                        data: data,
                         cost: req.body.costPerRide,
-                        contentType: user.photo.contentType,
-                        name: user.photo.name,
                         time: req.body.time,
                         isRideAccepted: false
 
                     }
 
-                    
+                    if (user && user.photo) {
+                        data = new Buffer(user.photo.data).toString('base64');
+                        confirmation.contentType = user.photo.contentType;
+                        confirmation.name = user.photo.name;
+                        confirmation.data = data;
+
+                    }
 
                     offerRide.update(
                         {
@@ -602,7 +606,8 @@ module.exports = function (app, express, io) {
 
                 } else if (req.body.courierWeight) {
                     console.log(".......courierweight")
-                    data = new Buffer(user.photo.data).toString('base64')
+
+
                     let confirmation = {
                         ride_id: user._id,
                         firstname: user.firstname,
@@ -612,12 +617,18 @@ module.exports = function (app, express, io) {
                         distance: req.body.distance,
                         date: req.body.date,
                         emailId: user.email,
-                        data: data,
                         cost: req.body.costPerRide,
-                        contentType: user.photo.contentType,
-                        name: user.photo.name,
                         time: req.body.time,
                         isCourierAccepted: false
+
+                    }
+
+                    if (user && user.photo.data) {
+                        console.log("photo", user.photo)
+                        data = new Buffer(user.photo.data).toString('base64');
+                        confirmation.contentType = user.photo.contentType;
+                        confirmation.name = user.photo.name;
+                        confirmation.data = data;
 
                     }
 
@@ -769,6 +780,79 @@ module.exports = function (app, express, io) {
 
     });
     console.log("api......", api)
-    
+
+
+
+
+    // PaymentAddress
+    api.get('/testtxn', function (req, res) {
+        console.log("in restaurant");
+        console.log("--------testtxnjs----");
+        res.render('testtxn.ejs', { 'config': config });
+    });
+
+
+    api.post('/paytmtest', function (req, res) {
+        console.log("POST Order start");
+        //var paramlist = req.body;
+        var paramarray = new Array();
+
+        paramarray['MID'] = config.MID; //Provided by Paytm
+        paramarray['ORDER_ID'] = 'ORDER00001'; //unique OrderId for every request
+        paramarray['CUST_ID'] = 'CUST0001';  // unique customer identifier 
+        paramarray['INDUSTRY_TYPE_ID'] = config.INDUSTRY_TYPE_ID; //Provided by Paytm
+        paramarray['CHANNEL_ID'] = config.CHANNEL_ID;//'WAP'; //Provided by Paytm
+        paramarray['TXN_AMOUNT'] = '1.00'; // transaction amount
+        paramarray['WEBSITE'] = config.WEBSITE; //Provided by Paytm
+        paramarray['CALLBACK_URL'] = 'http://localhost:3000/api/paytmresponse';//Provided by Paytm
+        paramarray['EMAIL'] = 'abc@gmail.com'; // customer email id
+        paramarray['MOBILE_NO'] = '3015000199'; // customer 10 digit mobile no
+
+
+        // console.log(paramarray);
+        // for (name in paramarray) {
+        //     if (name == 'PAYTM_MERCHANT_KEY') {
+        //         var PAYTM_MERCHANT_KEY = paramlist[name];
+        //     } else {
+        //         paramarray[name] = paramlist[name];
+        //     }
+        // }
+        // // console.log(paramarray);
+        // // paramarray['CALLBACK_URL'] = 'http://localhost:3000/api/paytmresponse';  // in case if you want to send callback
+        // console.log(PAYTM_MERCHANT_KEY);
+        checksum.genchecksum(paramarray, config.PAYTM_MERCHANT_KEY, function (err, result) {
+            console.log(result);
+            res.send({ 'restdata': result });
+        });
+
+        console.log("POST Order end");
+
+    });
+
+    api.post('/paytmresponse', function (req, res) {
+        console.log("in response post");
+        var paramlist = req.body;
+        var paramarray = new Array();
+        console.log(paramlist);
+        if (checksum.verifychecksum(paramlist, config.PAYTM_MERCHANT_KEY)) {
+
+            console.log("true");
+            res.send({ 'restdata': "true", 'paramlist': paramlist });
+        } else {
+            console.log("false");
+            res.send({ 'restdata': "false", 'paramlist': paramlist });
+        };
+        //vidisha
+    });
+
+
+    api.get('/pgredirect', function (req, res) {
+        console.log("in pgdirect");
+        console.log("--------testtxnjs----");
+        res.render('pgredirect.ejs');
+    });
+
+
+
     return api
 }

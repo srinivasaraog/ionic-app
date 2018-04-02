@@ -35464,12 +35464,6 @@ page-findride .align {
   height: 100%;
 }
 
-page-findride .text-center {
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
 page-findride .font {
   font-weight: bold;
   padding: 10px;
@@ -35482,6 +35476,12 @@ page-findride #menu {
 
 page-findride ion-col {
   margin: 3% !important;
+  padding: 0px !important;
+  text-align: justify;
+}
+
+page-findride .border {
+  border-bottom: 1px solid black;
 }
 
 page-login #login {

@@ -28,9 +28,29 @@ export class Rest {
   private notificationsUrl = 'http://localhost:3000/api/notifications'
   private profileUpdateUrl='http://localhost:3000/api/profileUpdate'
   private profileImage='http://localhost:3000/api/profileImage'
-
+  private paytm='http://localhost:3000/api/paytmtest'
 
   constructor(public http: Http) { }
+
+  paymentmethodCreate(): Observable<string[]> {
+
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    let body = {
+      ORDER_ID :'vidisha123',
+      CUSTID : 'CUST001',
+      txnAmount :'1'
+
+    }
+      
+ 
+    
+    return this.http.post(this.paytm, body)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+
   getProfileimage(userId): Observable<string[]> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
