@@ -59,9 +59,10 @@ module.exports = function (app, express, io) {
         // Make sure this account doesn't already exist
         User.findOne({ email: req.body.email }, function (err, user) {
 
-            // Make sure user doesn't already exist
-            if (user) return res.status(400).send({ msg: 'The email address you have entered is already associated with another account.' });
-
+            // Check if user already signed up but not verified the Email
+            if (user && user._doc && user._doc.email && user._doc.email !== '' && !user._doc.isVerified) return res.status(200).send({ "error": { "errorCode": "userNotVerified","errorMessage": "The email address already exists but not verified, Please check your inbox for verify link !" } });
+            // Make sure user doesn't already exist, user already exits
+            else if (user) return res.status(200).send({ "error": { "errorCode": "userAlreadyExists","errorMessage": "The email address you have entered is already associated with another account." } });
             // Create and save the user
             user = new User({
                 firstname: req.body.firstname,
@@ -71,8 +72,7 @@ module.exports = function (app, express, io) {
                 confirmpassword: req.body.password
             });
 
-            user.save(function (err) {
-                if (err) { return res.status(500).send({ msg: err.message }); }
+              if (err) { return res.status(200).send({ "error": { "errorCode": "validationErrors", "errorMessage": "Please enter the required fields !" } }); }
 
                 // Create a verification token for this user
                 var token = new Tokens({ _userId: user._id, token: crypto.randomBytes(16).toString('hex') });
@@ -80,7 +80,7 @@ module.exports = function (app, express, io) {
                 // Save the verification token
                 token.save(function (err) {
                     if (err) { return res.status(500).send({ msg: err.message }); }
-                    console.log("save token")
+                    console.log("save token");
                     // Send the email
                     //var transporter = nodemailer.createTransport({ service: 'Gmail', auth: { user: "rideshareapp@gmail.com", pass: "sweety1234" } });
                     var options = {
@@ -105,8 +105,6 @@ module.exports = function (app, express, io) {
             });
         });
 
-
-    });
 
     //find a specific object using findOne
     //will check the db whether the user is existing or not
