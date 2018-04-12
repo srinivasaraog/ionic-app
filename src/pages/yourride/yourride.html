@@ -186,7 +186,8 @@
           <span item-right class="font-xs">{{ ride.date | date:"dd/MM"}}</span>
           <div class="flex-row item-icon-right">
             <div class="gap">
-              <img class="profile" src="data:{{ride.contentType}};base64,{{ride.data}}">
+              <img *ngIf="ride.data" class="profile" src="data:{{ride.contentType}};base64,{{ride.data}}">
+              <img *ngIf="!ride.data" class="profile" src="">          
             </div>
             <div class="flex-end font-m">
               <div>{{ride.firstname}}</div>

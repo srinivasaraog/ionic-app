@@ -29,10 +29,14 @@
       </ion-label>
       <ion-select [(ngModel)]="courierWeight" end>
         <ion-label>weight </ion-label>
-        <ion-option value="10"> < 10 KG</ion-option>
-        <ion-option value="20"> < 20 KG</ion-option>
-        <ion-option value="30"> < 50 KG</ion-option>
-        <ion-option value="5"> < 5 KG</ion-option>
+        <ion-option value="10">
+          < 10 KG</ion-option>
+            <ion-option value="20">
+              < 20 KG</ion-option>
+                <ion-option value="30">
+                  < 50 KG</ion-option>
+                    <ion-option value="5">
+                      < 5 KG</ion-option>
 
       </ion-select>
     </ion-item>
@@ -97,9 +101,7 @@
 
 
     <div class="text-center">
-
-
-      <ion-grid>
+      <ion-grid class="border">
 
         <ion-card *ngIf="selectedRide.photo && selectedRide.photo!=='' " item-start>
           <img src="data:{{selectedRide.photo.contentType}};base64,{{selectedRide.photo.data}}">
@@ -109,19 +111,25 @@
         </ion-card>
         <ion-row>
           <ion-col>
-              <ion-icon color="primary" name="pin">From</ion-icon>
-               {{selectedRide.from.address}}
+            <ion-icon color="primary" name="pin">From</ion-icon>
+          </ion-col>
+          <ion-col>
+            {{selectedRide.from.address}}
           </ion-col>
 
+
+        </ion-row>
+        <ion-row>
           <ion-col>
-              <ion-icon color="primary" name="pin">To</ion-icon>
-          
+            <ion-icon color="primary" name="pin">To</ion-icon>
+          </ion-col>
+          <ion-col>
             {{selectedRide.to.address}}
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-              <ion-icon color="primary" name="pin"> Drop off</ion-icon>
+            <ion-icon color="primary" name="pin"> Drop off</ion-icon>
           </ion-col>
           <ion-col>
             {{rideDetails.to.address}}
@@ -129,14 +137,15 @@
         </ion-row>
         <ion-row>
           <ion-col>
-            <ion-icon color="primary" name="calendar"></ion-icon>
+            <ion-icon color="primary" name="calendar">Date</ion-icon>
           </ion-col>
           <ion-col>
             {{selectedRide.date}}
           </ion-col>
-
+        </ion-row>
+        <ion-row>
           <ion-col>
-            <ion-icon color="primary" name="alarm"></ion-icon>
+            <ion-icon color="primary" name="alarm">Time</ion-icon>
           </ion-col>
           <ion-col>
             {{selectedRide.time}}
@@ -145,30 +154,31 @@
 
         <ion-row>
           <ion-col>
-            D(KM):
+            Distance(KM):
           </ion-col>
           <ion-col>
             {{selectedRide.distance}} Km
           </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col *ngIf="seatsRequired">
+            <img width="20px" height="20px" src="../assets/icon/seat.svg" />
+          </ion-col>
+          <ion-col *ngIf="courierWeight">
 
-          <ion-col *ngIf="seatsAvailable">
-            <img width="20px" height="20px" src="../assets/icon/seat.svg" />   
+            <img width="30px" height="30px" src="../assets/icon/express.jpg" />
           </ion-col>
           <ion-col *ngIf="courierWeight">
-               
-               <img width="30px" height="30px" src="../assets/icon/express.jpg" />
+            {{courierWeight}}
           </ion-col>
-          <ion-col *ngIf="courierWeight">
-              {{courierWeight}}
-          </ion-col>
-          <ion-col *ngIf="seatsAvailable">
+          <ion-col *ngIf="seatsRequired">
             {{seatsRequired}}
           </ion-col>
-          
+
         </ion-row>
         <ion-row>
           <ion-col>
-            <ion-icon color="primary"  name="cash"></ion-icon>
+            <ion-icon color="primary" name="cash">Totla Amount</ion-icon>
           </ion-col>
           <ion-col>
             Rs{{costPerRide}}
@@ -179,8 +189,47 @@
       </ion-grid>
     </div>
 
-    <button ion-button block class="text-center" (click)="confirmRide(selectedRide)">Confirmride</button>
-  </div>
+    <div>
+      <ion-row *ngIf="!cardPayment">
+          <ion-col>
+            <ion-checkbox [(ngModel)]="dropoff" (change)="onDropoff()"></ion-checkbox>
+          </ion-col>
+         <ion-col>
+            Cash on Drop off
+         </ion-col> 
+     
+    </ion-row>
+
+      <ion-row *ngIf="!dropoff">
+        <ion-col>
+            <ion-checkbox [(ngModel)]="cardPayment" (change)="showCardInfo()"></ion-checkbox>
+           
+        </ion-col> 
+        <ion-col>
+            <img width="50px" height="50px" src="../assets/icon/paytm.svg" />
+        </ion-col> 
+         
+      </ion-row>
+    </div>   
+    <div *ngIf="cardPayment">
+      <ion-item>
+        <ion-input ng-model="name" placeholder="Name of the  card holder"> </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input ng-model="number" placeholder="Card Number"> </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input ng-model="expiry" placeholder="Expiration"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input ng-model="cvc" placeholder="CVC"></ion-input>
+      </ion-item>
+    </div>
+
+      <button ion-button block class="text-center" (click)="confirmRide(selectedRide)" *ngIf="dropoff">Confirmride</button>
+      <button ion-button block class="text-center" (click)="paymentmethod()" *ngIf="cardPayment">make payment</button>
+    </div>
+  
 
 
 

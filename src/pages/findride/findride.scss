@@ -37,9 +37,7 @@ page-findride {
         align-items: center ;
         height: 100%;
     }
-    .text-center{
-        align-items: center
-    }
+    
     .font{
         font-weight: bold;
         padding: 10px;
@@ -52,5 +50,10 @@ page-findride {
 
     ion-col{
         margin:3%!important;
+        padding: 0px !important;
+        text-align: justify
+        }
+    .border{
+      border-bottom: 1px solid black;
         }
 }

@@ -20,6 +20,8 @@ export class LoginPage {
 
   authForm: FormGroup;
   userNotExists: boolean = false;
+  userNotVerified: boolean = false;
+  userLoginError: boolean = false;
   isValid:boolean=false;
   constructor(public navCtrl: NavController, public navParams: NavParams,public events: Events, public rest: Rest, public formBuilder: FormBuilder) {
         this.authForm = formBuilder.group({
@@ -46,20 +48,26 @@ ngOnInIt(){
             err => console.log(err)
           );
         }
-    }
+  }
 
   loginSucess(response) {
     if (response.sucess) {
       let userId = response.userId;
-      
+
       sessionStorage.setItem("userId", userId);
       this.events.publish('loadProfile');
       this.navCtrl.push(HomePage);
-    } else if (response.message.indexOf("user doesnot exist") >= 0){
+    } else if (response.message.indexOf("user doesnot exist") >= 0) {
       this.userNotExists = true;
       this.isValid = false;
-    }else if(response.message.indexOf("Invalid password") >= 0) {
+    } else if (response.message.indexOf("user is not verified") >= 0) {
+      this.userNotVerified = true;
+      this.isValid = false;
+    } else if (response.message.indexOf("Invalid password") >= 0) {
       this.isValid = true;
+    } else {
+      this.userLoginError = true;
+      this.isValid = false;
     }
   }
 

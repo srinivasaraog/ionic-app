@@ -44,6 +44,9 @@ export class FindridePage {
   courierWeight:any="";
   isRideConfirmed:boolean=false;
   costPerRide:number=0;
+  dropoff:boolean=false;
+  cardPayment:boolean=false;
+ 
   constructor(private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone, public rest: Rest,public alertCtrl: AlertController,public navCtrl:NavController,private socket: Socket) {
 
@@ -120,6 +123,11 @@ export class FindridePage {
           return this;
         });
       }
+
+      
+  this.socket.on('disconnect', function () {
+    console.log('user disconnected');
+});
 
 
     });
@@ -212,8 +220,10 @@ export class FindridePage {
   }
 
   navigator(res) {
-    
+    console.log(res);
     if (res.status === 200 && res.findride) {
+
+      
       console.log("inside navigator")
       this.isRideAvailable=true;
       this.profile=[];
@@ -300,6 +310,7 @@ export class FindridePage {
    
 
    this.socket.emit('create notification',this.rideDetails);
+   
 
    this.rest.confirmRide(this.rideDetails).subscribe(
     response => this.confirmResponse(response),
@@ -337,4 +348,24 @@ export class FindridePage {
     });
     alert.present();
   }
+  
+  paymentmethod(){
+    this.rest.paymentmethodCreate().subscribe(
+      response => this.navigator(response),
+      err => console.log(err)
+  
+    );
+  }
+
+  onDropoff(){
+    this.dropoff=!this.dropoff;
+    this.cardPayment= false;
+  }
+
+  showCardInfo(){
+    this.cardPayment= !this.cardPayment;
+    this.dropoff=false;
+    console.log("show",this.cardPayment,this.dropoff)
+  }
+
 }
