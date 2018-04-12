@@ -1,10 +1,15 @@
 page-signup {
 
-  #signup{
-    background-color:white;
+  #signup {
+    background-color: white;
   }
-  .page-signup{
+
+  .page-signup {
     border: 1px solid grey;
     border-radius: 5px;
+  }
+
+  .error {
+    color: red;
   }
 }

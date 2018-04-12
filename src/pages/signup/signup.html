@@ -8,32 +8,70 @@
 
 
 <ion-content padding id="signup">
+  <form [formGroup]="authForm" (ngSubmit)="signup(authForm.value)">
 
-   <ion-item >
-       <ion-input  type="text" value=""  [(ngModel)]="firstname" placeholder="Firstname"></ion-input>
-   </ion-item>
-   <ion-item>
-       <ion-input  type="text" value=""  [(ngModel)]="lastname" placeholder="Lastname"></ion-input>
-   </ion-item>
-     <ion-item>
-         <ion-input  type="email" value=""  [(ngModel)]="email"  placeholder="Email"></ion-input>
-     </ion-item>
-     <ion-item>
+    <ion-item [ngClass]="{'error-border':!authForm.controls.firstname.valid && authForm.controls.firstname.touched}">
+      <ion-input formControlName="firstname" type="text" value="" placeholder="Firstname"></ion-input>
+    </ion-item>
+    <p class="item-md" *ngIf="authForm.controls.firstname.hasError('required') && authForm.controls.firstname.touched">
+      <span class="error"> Sorry, field firstname is required!</span>
+    </p>
+    <p class="item-md" *ngIf="authForm.controls.firstname.hasError('minlength') && authForm.controls.firstname.touched">
+      <span class="error">Sorry, minimum firstname length is 4!</span>
+    </p>
 
-         <ion-input  type="password"  value=""  [(ngModel)]="password"  placeholder="password"></ion-input>
-     </ion-item>
-     <ion-item>
 
-         <ion-input  type="password"  value=""  [(ngModel)]="confirmpassword"  placeholder="Confirmpassword"></ion-input>
-     </ion-item>
-     <ion-item>
-            <ion-label>Gender</ion-label>
-            <ion-select [(ngModel)]="gender">
-              <ion-option value="f" selected="true">Female</ion-option>
-              <ion-option value="m">Male</ion-option>
-            </ion-select>
-      </ion-item>
-     <button ion-button block  (click)="signup(firstname,lastname,email,password,confirmpassword)"  color="primary">Signup</button>
+    <ion-item [ngClass]="{'error-border':!authForm.controls.lastname.valid && authForm.controls.lastname.touched}">
+      <ion-input formControlName="lastname" type="text" value="" placeholder="Lastname"></ion-input>
+    </ion-item>
+    <p class="item-md" *ngIf="authForm.controls.lastname.hasError('required') && authForm.controls.lastname.touched">
+      <span class="error"> Sorry, field lastname is required!</span>
+    </p>
+    <p class="item-md" *ngIf="authForm.controls.lastname.hasError('minlength') && authForm.controls.lastname.touched">
+      <span class="error">Sorry, minimum lastname length is 1!</span>
+    </p>
 
+    <ion-item [ngClass]="{'error-border':!authForm.controls.email.valid && authForm.controls.email.touched}">
+      <ion-input formControlName="email" type="email" value="" placeholder="Email"></ion-input>
+    </ion-item>
+    <p class="item-md" *ngIf="authForm.controls.email.hasError('required') && authForm.controls.email.touched">
+      <span class="error">Email field is required!</span>
+    </p>
+    <p class="item-md" *ngIf="authForm.controls.email.hasError('pattern') && authForm.controls.email.touched">
+      <span class="error">Enter a valid email address</span>
+    </p>
+
+    <ion-item [ngClass]="{'error-border':!authForm.controls.password.valid && authForm.controls.password.touched}">
+      <ion-input formControlName="password" type="password" value="" placeholder="password"></ion-input>
+    </ion-item>
+    <p class="item-md" *ngIf="authForm.controls.password.hasError('required') && authForm.controls.password.touched">
+      <span class="error"> Sorry, field password is required!</span>
+    </p>
+    <p class="item-md" *ngIf="authForm.controls.password.hasError('minlength') && authForm.controls.password.touched">
+      <span class="error">Sorry, minimum password length is 8!</span>
+    </p>
+
+    <ion-item [ngClass]="{'error-border':!authForm.controls.confirmpassword.valid && authForm.controls.confirmpassword.touched}">
+      <ion-input formControlName="confirmpassword" type="password" value="" placeholder="Confirmpassword"></ion-input>
+    </ion-item>
+    <p class="item-md" *ngIf="authForm.controls.confirmpassword.hasError('required') && authForm.controls.confirmpassword.touched">
+      <span class="error"> Sorry, field confirmpassword is required!</span>
+    </p>
+    <p class="item-md" *ngIf="authForm.controls.confirmpassword.hasError('minlength') && authForm.controls.confirmpassword.touched">
+      <span class="error">Sorry, minimum confirmpassword length is 8!</span>
+    </p>
+
+    <ion-item>
+      <ion-label>Gender</ion-label>
+      <ion-select>
+        <ion-option value="f" selected="true">Female</ion-option>
+        <ion-option value="m">Male</ion-option>
+      </ion-select>
+    </ion-item>
+    <p class="item-ios">
+      <span class="error">{{errorMessage}}</span>
+    </p>
+    <button ion-button full color="primary" [disabled]="!authForm.valid" style="margin-top: 20px;" type="submit">Signup</button>
+  </form>
 
 </ion-content>
