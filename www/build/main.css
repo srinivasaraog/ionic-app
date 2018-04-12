@@ -35595,6 +35595,10 @@ page-signup .page-signup {
   border-radius: 5px;
 }
 
+page-signup .error {
+  color: red;
+}
+
 page-welcome .marginTop {
   margin-top: 200px;
 }

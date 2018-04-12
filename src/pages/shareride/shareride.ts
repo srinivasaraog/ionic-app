@@ -8,6 +8,7 @@ import { Rest } from '../../providers/rest';
 import { } from '@types/googlemaps';
 import { YourridePage } from '../yourride/yourride';
 import { LoginPage } from '../login/login';
+import { NavbarPage } from '../navbar/navbar';
 
 
 
@@ -48,6 +49,7 @@ export class ShareridePage {
   yourideInfo: any;
   isRideAvailable: boolean = false;
   distance:any='';
+  badges:any;
 
 
   constructor(private mapsAPILoader: MapsAPILoader,
@@ -87,6 +89,7 @@ export class ShareridePage {
     this.minDate = '';
     this.selectedTime = '';
     this.selectedDate = '';
+    
 
 
 
@@ -144,6 +147,13 @@ export class ShareridePage {
           return this;
         });
       }
+      this.events.subscribe('badges', (badges) => {
+        console.log("hellooooooooooooo",badges);
+       
+        this.badges=badges;
+        
+  
+      });
 
 
     });
@@ -249,13 +259,29 @@ export class ShareridePage {
     this.clearInput();
 
     if (res.status === 200) {
-
-      this.navCtrl.push(YourridePage);
+       this.presentAlert();
+      
     }else if(res.status===409){
       //this.isRideAvailable=true;
       this.prompt();
     }
 
+  }
+
+  presentAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Ride created Sucessfully',
+      subTitle: 'check your trip details on the yourride tab',
+      buttons: [
+        { text:'Ok',
+          handler: () => {
+            this.navCtrl.push(YourridePage);
+        }
+    
+       }
+  ]
+    });
+    alert.present();
   }
 
   prompt() {

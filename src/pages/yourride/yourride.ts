@@ -69,17 +69,23 @@ export class YourridePage {
       this.navCtrl.push(LoginPage);
       return;
     }
-    this.rest.getYourRideDetails(this.yourRideDetails).subscribe(
-      response => this.parse(response),
-      err => console.log(err)
-
-    );
+    this.getRideInfo();
 
     // this.events.subscribe('yourideInfo',(rideDetails) => {
     //   console.log("youride page......",rideDetails)
     //        this.rideDetails= rideDetails;
     //   });
     // this.parse(this.rideDetails);
+  }
+
+  
+
+  getRideInfo(){
+    this.rest.getYourRideDetails(this.yourRideDetails).subscribe(
+      response => this.parse(response),
+      err => console.log(err)
+
+    );
   }
   parse(response) {
 
@@ -131,10 +137,12 @@ export class YourridePage {
 
     }
     this.rest.deleteRide(this.deleterideDetails).subscribe(
-      response => { this.parse(response) },
+      response => response ,
       err => console.log(err)
 
     );
+    this.getRideInfo();
+    
   }
 
   viewCopassengerDetails(item) {

@@ -133,12 +133,7 @@ export class FindridePage {
     });
   }
 
-
-
-
-
-
-  private setCurrentPosition() {
+private setCurrentPosition() {
     console.log("in current position")
     if ("geolocation" in navigator) {
       console.log("geolocation", navigator);

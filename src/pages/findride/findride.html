@@ -4,7 +4,7 @@
     <ion-icon id="menu" ios="ios-contact-outline" md="md-contact" menuToggle="left"></ion-icon>
     <ion-title text-center>findRide</ion-title>
     <ion-icon id="menu" ios="ios-notifications-outline" md="md-notifications" menuToggle="right" end>
-      <ion-badge>2</ion-badge>
+      <ion-badge>{{badges}}</ion-badge>
     </ion-icon>
   </ion-navbar>
 
@@ -178,7 +178,7 @@
         </ion-row>
         <ion-row>
           <ion-col>
-            <ion-icon color="primary" name="cash">Totla Amount</ion-icon>
+            <ion-icon color="primary" name="cash">Total Amount</ion-icon>
           </ion-col>
           <ion-col>
             Rs{{costPerRide}}

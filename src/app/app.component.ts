@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Rest } from '../providers/rest';
 import { LoginPage } from '../pages/login/login';
 import { Socket } from 'ng-socket-io';
-
+import {NavbarPage} from '../pages/navbar/navbar'
 
 
 
@@ -28,7 +28,7 @@ export class MyApp {
     });
 
     socket.on(sessionStorage.getItem('userId'), function(data){
-
+      // this.events.publish('badges',data.unread);
       console.log("check notification client....",data) ;
      // this.presentToast();
      let toast = toastCtrl.create({
@@ -59,9 +59,11 @@ export class MyApp {
     }
    
     this.events.subscribe('loadProfile', () => {
-      console.log("hellooooooooooooo");
-     
-      this.loadProfile();
+      console.log("loadprofile",sessionStorage.getItem('userId'))
+      if(sessionStorage.getItem('userId') !== ""){
+        this.loadProfile();
+      }
+      
       
 
     });
@@ -74,7 +76,7 @@ export class MyApp {
     let profileDetails = {
       userId: userId
     }
-    console.log("hiiii",userId);
+    console.log("hiiii loadprofile",userId);
     this.rest.getProfileimage(profileDetails).subscribe(
       response => (this.parse(response)),
       err => console.log(err)

@@ -12,6 +12,8 @@ import { Rest } from '../providers/rest';
 import { RidehistoryPageModule } from '../pages/ridehistory/ridehistory.module';
 import { NotificationPageModule } from '../pages/notification/notification.module';
 import {ProfilePageModule} from '../pages/profile/profile.module';
+import {NavbarPageModule} from '../pages/navbar/navbar.module';
+
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import {ProfilePageModule} from '../pages/profile/profile.module';
     HttpModule,
     RidehistoryPageModule,
     NotificationPageModule,
-    ProfilePageModule
+    ProfilePageModule,
+    NavbarPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

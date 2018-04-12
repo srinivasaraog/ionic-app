@@ -37,6 +37,7 @@ function createToken(user) {
 
 module.exports = function (app, express, io) {
 
+    
     const api = express.Router();
 
     api.post('/signup', function (req, res) {
@@ -275,13 +276,12 @@ module.exports = function (app, express, io) {
     });
 
 
-
     api.post('/yourride', function (req, res) {
         var ObjectId = require('mongodb').ObjectID;
 
         console.log("check the id", req.body.date)
         User.findById({ _id: req.body.userId }, function (err, user) {
-            console.log("....user photo", req.body.userId)
+            console.log("....user photo", req.body.userId);
 
 
             let availableRides = [];
@@ -345,7 +345,7 @@ module.exports = function (app, express, io) {
             if (offerride.length <= 0) {
 
             } else {
-                for (let i = 0; i < offerride.length; i++) {
+                for (let i = 0; ridehistory.length < 5 && i < offerride.length; i++) {
                     ridehistory.push(offerride[i].profile);
                 }
             }
@@ -358,7 +358,7 @@ module.exports = function (app, express, io) {
                     console.log("....find rid when offerride lenth 0", ridehistory)
                     return res.send({ status: 200, ridehistory: ridehistory })
                 } else {
-                    for (let i = 0; i < ride.length; i++) {
+                    for (let i = 0; i < ride.length && ridehistory.length < 5; i++) {
                         ridehistory.push(ride[i].profile);
                     }
 
@@ -559,7 +559,8 @@ module.exports = function (app, express, io) {
                         emailId: user.email,
                         cost: req.body.costPerRide,
                         time: req.body.time,
-                        isRideAccepted: false
+                        isRideAccepted: false,
+                        unread: "1"
 
                     }
 
@@ -568,7 +569,6 @@ module.exports = function (app, express, io) {
                         confirmation.contentType = user.photo.contentType;
                         confirmation.name = user.photo.name;
                         confirmation.data = data;
-
                     }
 
                     offerRide.update(
@@ -583,6 +583,7 @@ module.exports = function (app, express, io) {
                             },
                             "$set": {
                                 'profile.$.seatsAvailable': req.body.seatsAvailable - req.body.seatsRequired
+
                             }
                         }, function (err, offerride) {
 
@@ -617,7 +618,8 @@ module.exports = function (app, express, io) {
                         emailId: user.email,
                         cost: req.body.costPerRide,
                         time: req.body.time,
-                        isCourierAccepted: false
+                        isCourierAccepted: false,
+                        unread: 1
 
                     }
 
@@ -671,12 +673,6 @@ module.exports = function (app, express, io) {
 
                 // },
 
-
-
-
-
-
-
             });
         });
         // Create and save the user
@@ -687,17 +683,14 @@ module.exports = function (app, express, io) {
     });
 
     api.post('/notifications', function (req, res) {
-
-
-        offerRide.find({ user_id: req.body.userId }, function (err, offerride) {
-
-            if (offerride.length <= 0) {
+        console.log("req..........", req.body);
+        offerRide.findOne({ user_id: req.body.userId, 'profile.confirmation.unread': { $eq: "1" } }, function (err, offerride) {
+            console.log("hello", offerride)
+            if (err || !offerride) {
                 return res.send({ status: 200, offerride: "No rides" })
-
-            } else if (offerride.length > 0) {
-                //console.log(...offerride)
-
-                return res.send({ status: 200, confirmation: offerride[0].confirmation })
+            }
+            else if (offerride) {
+                return res.send({ status: 200, confirmation: offerride.profile[0].confirmation })
             }
         });
 
@@ -780,8 +773,6 @@ module.exports = function (app, express, io) {
     console.log("api......", api)
 
 
-
-
     // PaymentAddress
     api.get('/testtxn', function (req, res) {
         console.log("in restaurant");
@@ -796,13 +787,13 @@ module.exports = function (app, express, io) {
         var paramarray = new Array();
 
         paramarray['MID'] = config.MID; //Provided by Paytm
-        paramarray['ORDER_ID'] = 'ORDER00001'; //unique OrderId for every request
+        paramarray['ORDER_ID'] = 'ORDER00003'; //unique OrderId for every request
         paramarray['CUST_ID'] = 'CUST0001';  // unique customer identifier 
         paramarray['INDUSTRY_TYPE_ID'] = config.INDUSTRY_TYPE_ID; //Provided by Paytm
         paramarray['CHANNEL_ID'] = config.CHANNEL_ID;//'WAP'; //Provided by Paytm
         paramarray['TXN_AMOUNT'] = '1.00'; // transaction amount
         paramarray['WEBSITE'] = config.WEBSITE; //Provided by Paytm
-        paramarray['CALLBACK_URL'] = 'http://localhost:3000/api/paytmresponse';//Provided by Paytm
+        paramarray['CALLBACK_URL'] = 'https://pguat.paytm.com/paytmchecksum/paytmCallback.jsp';//Provided by Paytm
         paramarray['EMAIL'] = 'abc@gmail.com'; // customer email id
         paramarray['MOBILE_NO'] = '3015000199'; // customer 10 digit mobile no
 
@@ -810,7 +801,7 @@ module.exports = function (app, express, io) {
         // console.log(paramarray);
         // for (name in paramarray) {
         //     if (name == 'PAYTM_MERCHANT_KEY') {
-        //         var PAYTM_MERCHANT_KEY = paramlist[name];
+        //         var PAYTM_MERCHANT_KEY = param list[name];
         //     } else {
         //         paramarray[name] = paramlist[name];
         //     }

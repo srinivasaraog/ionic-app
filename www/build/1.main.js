@@ -1,17 +1,15 @@
 webpackJsonp([1],{
 
-/***/ 368:
+/***/ 374:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shareride__ = __webpack_require__(395);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__agm_core__ = __webpack_require__(392);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__alert_alert__ = __webpack_require__(403);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(13);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShareridePageModule", function() { return ShareridePageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__yourride__ = __webpack_require__(396);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_pipes_pipe__ = __webpack_require__(403);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "YourridePageModule", function() { return YourridePageModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -22,42 +20,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-
-var ShareridePageModule = (function () {
-    function ShareridePageModule() {
+var YourridePageModule = (function () {
+    function YourridePageModule() {
     }
-    return ShareridePageModule;
+    return YourridePageModule;
 }());
-ShareridePageModule = __decorate([
+YourridePageModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__shareride__["a" /* ShareridePage */],
-            __WEBPACK_IMPORTED_MODULE_4__alert_alert__["a" /* alertPage */]
+            __WEBPACK_IMPORTED_MODULE_2__yourride__["a" /* YourridePage */],
+            __WEBPACK_IMPORTED_MODULE_3__app_pipes_pipe__["a" /* KeysPipe */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__shareride__["a" /* ShareridePage */]),
-            __WEBPACK_IMPORTED_MODULE_3__agm_core__["a" /* AgmCoreModule */].forRoot({
-                libraries: ["places"]
-            }),
-            __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormsModule */],
-            __WEBPACK_IMPORTED_MODULE_5__angular_forms__["b" /* ReactiveFormsModule */]
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__yourride__["a" /* YourridePage */]),
         ],
     })
-], ShareridePageModule);
+], YourridePageModule);
 
-//# sourceMappingURL=shareride.module.js.map
+//# sourceMappingURL=yourride.module.js.map
 
 /***/ }),
 
-/***/ 373:
+/***/ 375:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__maps_api_loader_maps_api_loader__ = __webpack_require__(375);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__maps_api_loader_maps_api_loader__ = __webpack_require__(377);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GoogleMapsAPIWrapper; });
 
 
@@ -198,14 +189,14 @@ GoogleMapsAPIWrapper.ctorParameters = function () { return [
 
 /***/ }),
 
-/***/ 374:
+/***/ 376:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(373);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(375);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MarkerManager; });
 
 
@@ -297,7 +288,7 @@ MarkerManager.ctorParameters = function () { return [
 
 /***/ }),
 
-/***/ 375:
+/***/ 377:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -319,12 +310,12 @@ MapsAPILoader.ctorParameters = function () { return []; };
 
 /***/ }),
 
-/***/ 376:
+/***/ 378:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_managers_info_window_manager__ = __webpack_require__(380);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_managers_info_window_manager__ = __webpack_require__(382);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AgmInfoWindow; });
 
 
@@ -455,7 +446,7 @@ AgmInfoWindow.propDecorators = {
 
 /***/ }),
 
-/***/ 377:
+/***/ 379:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -499,14 +490,14 @@ AgmPolylinePoint.propDecorators = {
 
 /***/ }),
 
-/***/ 378:
+/***/ 380:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(373);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(375);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CircleManager; });
 
 
@@ -600,14 +591,14 @@ CircleManager.ctorParameters = function () { return [
 
 /***/ }),
 
-/***/ 379:
+/***/ 381:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(373);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(375);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataLayerManager; });
 
 
@@ -715,15 +706,15 @@ DataLayerManager.ctorParameters = function () { return [
 
 /***/ }),
 
-/***/ 380:
+/***/ 382:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_Observable__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_Observable__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(373);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__marker_manager__ = __webpack_require__(374);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(375);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__marker_manager__ = __webpack_require__(376);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InfoWindowManager; });
 
 
@@ -817,14 +808,14 @@ InfoWindowManager.ctorParameters = function () { return [
 
 /***/ }),
 
-/***/ 381:
+/***/ 383:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(373);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(375);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return KmlLayerManager; });
 
 
@@ -891,14 +882,14 @@ KmlLayerManager.ctorParameters = function () { return [
 
 /***/ }),
 
-/***/ 382:
+/***/ 384:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(373);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(375);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PolygonManager; });
 
 
@@ -973,14 +964,14 @@ PolygonManager.ctorParameters = function () { return [
 
 /***/ }),
 
-/***/ 383:
+/***/ 385:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(373);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__google_maps_api_wrapper__ = __webpack_require__(375);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PolylineManager; });
 
 
@@ -1061,13 +1052,13 @@ PolylineManager.ctorParameters = function () { return [
 
 /***/ }),
 
-/***/ 384:
+/***/ 386:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_browser_globals__ = __webpack_require__(393);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__maps_api_loader__ = __webpack_require__(375);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_browser_globals__ = __webpack_require__(395);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__maps_api_loader__ = __webpack_require__(377);
 /* unused harmony export GoogleMapsScriptProtocol */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return LAZY_MAPS_API_CONFIG; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LazyMapsAPILoader; });
@@ -1188,12 +1179,12 @@ LazyMapsAPILoader.ctorParameters = function () { return [
 
 /***/ }),
 
-/***/ 385:
+/***/ 387:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_managers_circle_manager__ = __webpack_require__(378);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_managers_circle_manager__ = __webpack_require__(380);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AgmCircle; });
 
 
@@ -1415,12 +1406,12 @@ AgmCircle.propDecorators = {
 
 /***/ }),
 
-/***/ 386:
+/***/ 388:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_managers_data_layer_manager__ = __webpack_require__(379);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_managers_data_layer_manager__ = __webpack_require__(381);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AgmDataLayer; });
 
 
@@ -1694,12 +1685,12 @@ AgmDataLayer.propDecorators = {
 
 /***/ }),
 
-/***/ 387:
+/***/ 389:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_managers_kml_layer_manager__ = __webpack_require__(381);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_managers_kml_layer_manager__ = __webpack_require__(383);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AgmKmlLayer; });
 
 
@@ -1827,19 +1818,19 @@ AgmKmlLayer.propDecorators = {
 
 /***/ }),
 
-/***/ 388:
+/***/ 390:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_google_maps_api_wrapper__ = __webpack_require__(373);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_managers_circle_manager__ = __webpack_require__(378);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_managers_info_window_manager__ = __webpack_require__(380);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_managers_marker_manager__ = __webpack_require__(374);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_managers_polygon_manager__ = __webpack_require__(382);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_managers_polyline_manager__ = __webpack_require__(383);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_managers_kml_layer_manager__ = __webpack_require__(381);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_managers_data_layer_manager__ = __webpack_require__(379);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_google_maps_api_wrapper__ = __webpack_require__(375);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_managers_circle_manager__ = __webpack_require__(380);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_managers_info_window_manager__ = __webpack_require__(382);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_managers_marker_manager__ = __webpack_require__(376);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_managers_polygon_manager__ = __webpack_require__(384);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_managers_polyline_manager__ = __webpack_require__(385);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_managers_kml_layer_manager__ = __webpack_require__(383);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_managers_data_layer_manager__ = __webpack_require__(381);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AgmMap; });
 
 
@@ -2264,13 +2255,13 @@ AgmMap.propDecorators = {
 
 /***/ }),
 
-/***/ 389:
+/***/ 391:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_managers_marker_manager__ = __webpack_require__(374);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__info_window__ = __webpack_require__(376);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_managers_marker_manager__ = __webpack_require__(376);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__info_window__ = __webpack_require__(378);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AgmMarker; });
 
 
@@ -2478,12 +2469,12 @@ AgmMarker.propDecorators = {
 
 /***/ }),
 
-/***/ 390:
+/***/ 392:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_managers_polygon_manager__ = __webpack_require__(382);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_managers_polygon_manager__ = __webpack_require__(384);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AgmPolygon; });
 
 
@@ -2721,13 +2712,13 @@ AgmPolygon.propDecorators = {
 
 /***/ }),
 
-/***/ 391:
+/***/ 393:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_managers_polyline_manager__ = __webpack_require__(383);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__polyline_point__ = __webpack_require__(377);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_managers_polyline_manager__ = __webpack_require__(385);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__polyline_point__ = __webpack_require__(379);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AgmPolyline; });
 
 
@@ -2946,15 +2937,15 @@ AgmPolyline.propDecorators = {
 
 /***/ }),
 
-/***/ 392:
+/***/ 394:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__directives__ = __webpack_require__(397);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__directives__ = __webpack_require__(399);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services__ = __webpack_require__(398);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services__ = __webpack_require__(400);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__services__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__core_module__ = __webpack_require__(396);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__core_module__ = __webpack_require__(398);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_2__core_module__["a"]; });
 // main modules
 
@@ -2967,7 +2958,7 @@ AgmPolyline.propDecorators = {
 
 /***/ }),
 
-/***/ 393:
+/***/ 395:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2993,15 +2984,15 @@ var BROWSER_GLOBALS_PROVIDERS = [WindowRef, DocumentRef];
 
 /***/ }),
 
-/***/ 394:
+/***/ 396:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_rest__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shareride_shareride__ = __webpack_require__(395);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_rest__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shareride_shareride__ = __webpack_require__(397);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(272);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return YourridePage; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3052,7 +3043,6 @@ var YourridePage = (function () {
     YourridePage.prototype.ionViewDidLoad = function () {
     };
     YourridePage.prototype.ngOnInit = function () {
-        var _this = this;
         console.log('ionViewDidLoad YourridePage');
         this.userId = sessionStorage.getItem("userId");
         this.yourRideDetails = {
@@ -3063,12 +3053,16 @@ var YourridePage = (function () {
             this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__login_login__["a" /* LoginPage */]);
             return;
         }
-        this.rest.getYourRideDetails(this.yourRideDetails).subscribe(function (response) { return _this.parse(response); }, function (err) { return console.log(err); });
+        this.getRideInfo();
         // this.events.subscribe('yourideInfo',(rideDetails) => {
         //   console.log("youride page......",rideDetails)
         //        this.rideDetails= rideDetails;
         //   });
         // this.parse(this.rideDetails);
+    };
+    YourridePage.prototype.getRideInfo = function () {
+        var _this = this;
+        this.rest.getYourRideDetails(this.yourRideDetails).subscribe(function (response) { return _this.parse(response); }, function (err) { return console.log(err); });
     };
     YourridePage.prototype.parse = function (response) {
         if (response.status === 200) {
@@ -3103,7 +3097,6 @@ var YourridePage = (function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__shareride_shareride__["a" /* ShareridePage */]);
     };
     YourridePage.prototype.deleteRide = function (event) {
-        var _this = this;
         this.userId = sessionStorage.getItem("userId");
         //this.profile=[];
         this.deleterideDetails = {
@@ -3111,7 +3104,8 @@ var YourridePage = (function () {
             date: event[0].date,
             time: event[0].time
         };
-        this.rest.deleteRide(this.deleterideDetails).subscribe(function (response) { _this.parse(response); }, function (err) { return console.log(err); });
+        this.rest.deleteRide(this.deleterideDetails).subscribe(function (response) { return response; }, function (err) { return console.log(err); });
+        this.getRideInfo();
     };
     YourridePage.prototype.viewCopassengerDetails = function (item) {
         console.log("item", item);
@@ -3128,7 +3122,7 @@ var YourridePage = (function () {
 YourridePage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'page-yourride',template:/*ion-inline-start:"C:\Users\Admin\Documents\Project-1\ionic-app\src\pages\yourride\yourride.html"*/'<!--\n\n  Generated template for the YourridePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-icon id="menu" ios="ios-contact-outline" md="md-contact" menuToggle="left"></ion-icon>\n\n    <ion-title text-center *ngIf="!isViewRide && !isViewRideInfo">yourride</ion-title>\n\n\n\n    <ion-title text-center *ngIf="isViewRide && !isViewRideInfo">Copassengers</ion-title>\n\n    <ion-icon id="menu" ios="ios-notifications-outline" md="md-notifications" menuToggle="right" end></ion-icon>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content text-center class="vertical-align-content">\n\n  <div class="align" *ngIf="!isValid">\n\n    <h4 text-uppercase no-padding no-margin>No Rides Availble please Schedule a Ride</h4>\n\n  </div>\n\n\n\n  <div *ngIf="!isViewRide">\n\n\n\n    <ion-list class="selectride-list" *ngFor="let item of uDriverList">\n\n      <ion-item-sliding *ngFor="let subitem of item">\n\n        <ion-item class="details" (click)="viewCopassengerDetails(subitem)" *ngIf="subitem.user_id === userId" detail-push>\n\n          <span item-right class="font-xs">{{subitem.date | date:"dd/MM"}}</span>\n\n          <div class="flex-row item-icon-right">\n\n            <div class="gap">\n\n              <img class="profile" src="data:{{subitem.photo.contentType}};base64,{{subitem.photo.data}}">\n\n            </div>\n\n            <div class="flex-end font-m">\n\n              <div>{{subitem.from.address}}</div>\n\n              <div>to</div>\n\n              <div>{{subitem.to.address}}</div>\n\n              <div>\n\n                <img color="primary" width="10px" height="10px" src="../assets/icon/seat.svg" /> {{subitem.seatsAvailable}}\n\n              </div>\n\n            </div>\n\n          </div>\n\n        </ion-item>\n\n        <ion-item-options side="right">\n\n          <button ion-button color="primary" (click)="updateRide(item)">\n\n            <ion-icon name="car"></ion-icon>\n\n            Update Ride\n\n          </button>\n\n          <button ion-button color="danger" (click)="deleteRide(item)">\n\n            <ion-icon name="trash"></ion-icon>\n\n            Delete Ride\n\n          </button>\n\n        </ion-item-options>\n\n      </ion-item-sliding>\n\n    </ion-list>\n\n\n\n    <div *ngFor="let item of uPaasengerList">\n\n      <ion-list class="selectride-list" *ngFor="let subitem of item">\n\n        <ng-container *ngIf="subitem && subitem.confirmation">\n\n          <ion-item-sliding *ngFor="let ride of subitem.confirmation">\n\n            <ion-item class="details" *ngIf="ride.ride_id === userId" (click)="viewCopassengerDetails(subitem)" detail-push>\n\n\n\n              <span item-right class="font-xs">{{ride.date | date:"dd/MM"}}</span>\n\n              <div class="flex-row item-icon-right">\n\n\n\n                <div class="gap">\n\n                  <img class="profile" src="data:{{ride.contentType}};base64,{{ride.data}}">\n\n                </div>\n\n                <div class="flex-end font-m">\n\n                  <div>{{ride.firstname}}</div>\n\n                  <div>{{ride.from}}</div>\n\n                  <div>to</div>\n\n                  <div>{{ride.to}}</div>\n\n                  <div *ngIf="ride.seatsRequired">\n\n                    <img color="primary" width="10px" height="10px" src="../assets/icon/seat.svg" /> {{ride.seatsRequired}}\n\n                  </div>\n\n                  <div *ngIf="ride.courierWeight">\n\n                    <img width="10px" height="10px" src="../assets/icon/express.jpg" />{{ride.courierWeight}}\n\n                  </div>\n\n                </div>\n\n              </div>\n\n            </ion-item>\n\n\n\n            <ion-item-options side="right" *ngIf="ride.ride_id === userId">\n\n              <button ion-button color="primary" (click)="updateRide(item)">\n\n                <ion-icon name="car"></ion-icon>\n\n                Update Ride\n\n              </button>\n\n              <button ion-button color="danger" (click)="deleteRide(item)">\n\n                <ion-icon name="trash"></ion-icon>\n\n                Delete Ride\n\n              </button>\n\n            </ion-item-options>\n\n          </ion-item-sliding>\n\n        </ng-container>\n\n      </ion-list>\n\n\n\n    </div>\n\n  </div>\n\n\n\n  <div *ngIf="isViewRide && !isViewRideInfo">\n\n    <ion-list class="selectride-list" *ngIf="coPassenegerDetails.user_id !== userId">\n\n      <ion-list-header color="primary">\n\n        <ion-icon name="car">Driver</ion-icon>\n\n      </ion-list-header>\n\n      <ion-item-sliding>\n\n        <ion-item class="details" (click)="viewInfo(coPassenegerDetails)" detail-push>\n\n          <span item-right class="font-xs">{{coPassenegerDetails.date | date:"dd/MM"}}</span>\n\n          <div class="flex-row item-icon-right">\n\n            <div class="gap">\n\n              <img class="profile" src="data:{{coPassenegerDetails.photo.contentType}};base64,{{coPassenegerDetails.photo.data}}">\n\n            </div>\n\n            <div class="flex-end font-m">\n\n              <div>{{coPassenegerDetails.from.address}}</div>\n\n              <div>to</div>\n\n              <div>{{coPassenegerDetails.to.address}}</div>\n\n              <div>\n\n                <img color="primary" width="10px" height="10px" src="../assets/icon/seat.svg" /> {{coPassenegerDetails.seatsAvailable}}\n\n              </div>\n\n            </div>\n\n          </div>\n\n        </ion-item>\n\n        <ion-item-options side="right">\n\n          <button ion-button color="primary" (click)="acceptRide(coPassenegerDetails)">\n\n            <ion-icon name="car"></ion-icon>\n\n            Update Ride\n\n          </button>\n\n          <button ion-button color="danger" (click)="RejectRide(coPassenegerDetails)">\n\n            <ion-icon name="trash"></ion-icon>\n\n            Delete Ride\n\n          </button>\n\n        </ion-item-options>\n\n\n\n      </ion-item-sliding>\n\n    </ion-list>\n\n\n\n    <ion-list *ngIf="coPassenegerDetails && coPassenegerDetails.confirmation">\n\n      <ion-list-header color="primary">\n\n        <ion-icon name="people"> Passengers</ion-icon>\n\n      </ion-list-header>\n\n\n\n      <ion-item-sliding class="selectride-list" *ngFor="let ride of coPassenegerDetails.confirmation">\n\n        <ion-item  *ngIf="ride.ride_id !== userId && ride.seatsRequired" class="details" (click)="viewInfo(ride)" detail-push>\n\n          <span item-right class="font-xs">{{ ride.date | date:"dd/MM"}}</span>\n\n          <div class="flex-row item-icon-right">\n\n            <div class="gap">\n\n              <img class="profile" src="data:{{ride.contentType}};base64,{{ride.data}}">\n\n            </div>\n\n            <div class="flex-end font-m">\n\n              <div>{{ride.firstname}}</div>\n\n              <div>{{ride.from}}</div>\n\n              <div>to</div>\n\n              <div>{{ride.to}}</div>\n\n              <div>\n\n                <img color="primary" width="10px" height="10px" src="../assets/icon/seat.svg" /> {{ride.seatsRequired}}\n\n              </div>\n\n            </div>\n\n          </div>\n\n        </ion-item>\n\n        <ion-item-options side="right">\n\n          <button ion-button color="primary" (click)="AcceptRide(item)">\n\n            <ion-icon name="thumbs-up"></ion-icon>\n\n            Accept Ride\n\n          </button>\n\n          <button ion-button color="danger" (click)="rejectRide(item)">\n\n            <ion-icon name="thumbs-down"></ion-icon>\n\n            Reject Ride\n\n          </button>\n\n        </ion-item-options>\n\n\n\n\n\n      </ion-item-sliding>\n\n\n\n    </ion-list>\n\n    <!-- courier -->\n\n\n\n\n\n    <ion-list  *ngIf="coPassenegerDetails && coPassenegerDetails.confirmation">\n\n      <ion-list-header color="primary">\n\n        <img width="20px" height="20px" src="../assets/icon/express.jpg"> Courier\n\n\n\n      </ion-list-header>\n\n\n\n      <ion-item-sliding class="selectride-list" *ngFor="let ride of coPassenegerDetails.confirmation">\n\n\n\n        <ion-item *ngIf="ride.ride_id !== userId && ride.courierWeight" class="details" (click)="viewInfo(ride)" detail-push>\n\n          <span item-right class="font-xs">{{ ride.date | date:"dd/MM"}}</span>\n\n          <div class="flex-row item-icon-right">\n\n            <div class="gap">\n\n              <img *ngIf="ride.data" class="profile" src="data:{{ride.contentType}};base64,{{ride.data}}">\n\n              <img *ngIf="!ride.data" class="profile" src="">          \n\n            </div>\n\n            <div class="flex-end font-m">\n\n              <div>{{ride.firstname}}</div>\n\n              <div>{{ride.from}}</div>\n\n              <div>to</div>\n\n              <div>{{ride.to}}</div>\n\n              <div>\n\n                <img width="10px" height="10px" src="../assets/icon/express.jpg" /> {{ride.courierWeight}}\n\n              </div>\n\n            </div>\n\n          </div>\n\n        </ion-item>\n\n        <ion-item-options side="right">\n\n          <button ion-button color="primary" (click)="AcceptRide(item)">\n\n            <ion-icon name="thumbs-up"></ion-icon>\n\n            Accept Ride\n\n          </button>\n\n          <button ion-button color="danger" (click)="rejectRide(item)">\n\n            <ion-icon name="thumbs-down"></ion-icon>\n\n            Reject Ride\n\n          </button>\n\n        </ion-item-options>\n\n\n\n\n\n      </ion-item-sliding>\n\n\n\n    </ion-list>\n\n    <div class="align  vertical-align-content" text-center *ngIf="coPassenegerDetails && !coPassenegerDetails.confirmation">\n\n      <h4 text-uppercase no-padding no-margin>No Passengers Availble Please Schedule a Ride</h4>\n\n    </div>\n\n  </div>\n\n\n\n\n\n  <div *ngIf="isViewRide && isViewRideInfo">\n\n    <ion-list>\n\n      <ion-item>\n\n        <ion-card *ngIf="details.photo">\n\n          <img src="data:{{details.photo.contentType}};base64,{{details.photo.data}}">\n\n        </ion-card>\n\n        <ion-card *ngIf="!details.photo">\n\n          <img src="data:{{details.contentType}};base64,{{details.data}}">\n\n        </ion-card>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-icon name="mail" color="primary"> {{details.emailId}}</ion-icon>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-icon name="call" color="primary"> +1123456789</ion-icon>\n\n      </ion-item>\n\n      <ion-item>\n\n        <img color="primary" width="10px" height="10px" src="../assets/icon/seat.svg" /> {{details.seatsRequired}}\n\n      </ion-item>\n\n      <ion-item>\n\n        <img color="primary" width="10px" height="10px" src="../assets/icon/seat.svg" /> {{details.seatsRequired}}\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-icon color="primary" name="pin"> {{details.distance}} Km</ion-icon>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-icon color="primary" name="alarm"> {{details.time}}</ion-icon>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-icon color="primary" name="cash"> Rs {{details.cost}}</ion-icon>\n\n      </ion-item>\n\n    </ion-list>\n\n  </div>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\Admin\Documents\Project-1\ionic-app\src\pages\yourride\yourride.html"*/,
+        selector: 'page-yourride',template:/*ion-inline-start:"C:\Users\Admin\Documents\Project-1\ionic-app\src\pages\yourride\yourride.html"*/'<!--\n\n  Generated template for the YourridePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-icon id="menu" ios="ios-contact-outline" md="md-contact" menuToggle="left"></ion-icon>\n\n    <ion-title text-center *ngIf="!isViewRide && !isViewRideInfo">yourride</ion-title>\n\n\n\n    <ion-title text-center *ngIf="isViewRide && !isViewRideInfo">Copassengers</ion-title>\n\n    <ion-icon id="menu" ios="ios-notifications-outline" md="md-notifications" menuToggle="right" end></ion-icon>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content text-center class="vertical-align-content">\n\n  <div class="align" *ngIf="!isValid">\n\n    <h4 text-uppercase no-padding no-margin>No Rides Availble please Schedule a Ride</h4>\n\n  </div>\n\n\n\n  <div *ngIf="!isViewRide">\n\n\n\n    <ion-list class="selectride-list" *ngFor="let item of uDriverList">\n\n      <ion-item-sliding *ngFor="let subitem of item">\n\n        <ion-item class="details" (click)="viewCopassengerDetails(subitem)" *ngIf="subitem.user_id === userId" detail-push>\n\n          <span item-right class="font-xs">{{subitem.date | date:"dd/MM"}}</span>\n\n          <div class="flex-row item-icon-right">\n\n            <div class="gap">\n\n              <img class="profile" src="data:{{subitem.photo.contentType}};base64,{{subitem.photo.data}}">\n\n            </div>\n\n            <div class="flex-end font-m">\n\n              <div>{{subitem.from.address}}</div>\n\n              <div>to</div>\n\n              <div>{{subitem.to.address}}</div>\n\n              <div>\n\n                <img color="primary" width="10px" height="10px" src="../assets/icon/seat.svg" /> {{subitem.seatsAvailable}}\n\n              </div>\n\n            </div>\n\n          </div>\n\n        </ion-item>\n\n        <ion-item-options side="right">\n\n          <button ion-button color="primary" (click)="updateRide(item)">\n\n            <ion-icon name="car"></ion-icon>\n\n            Update Ride\n\n          </button>\n\n          <button ion-button color="danger" (click)="deleteRide(item)">\n\n            <ion-icon name="trash"></ion-icon>\n\n            Delete Ride\n\n          </button>\n\n        </ion-item-options>\n\n      </ion-item-sliding>\n\n    </ion-list>\n\n\n\n    <div *ngFor="let item of uPaasengerList">\n\n      <ion-list class="selectride-list" *ngFor="let subitem of item">\n\n        <ng-container *ngIf="subitem && subitem.confirmation">\n\n          <ion-item-sliding *ngFor="let ride of subitem.confirmation">\n\n            <ion-item class="details" *ngIf="ride.ride_id === userId" (click)="viewCopassengerDetails(subitem)" detail-push>\n\n\n\n              <span item-right class="font-xs">{{ride.date | date:"dd/MM"}}</span>\n\n              <div class="flex-row item-icon-right">\n\n\n\n                <div class="gap">\n\n                  <img class="profile" src="data:{{ride.contentType}};base64,{{ride.data}}">\n\n                </div>\n\n                <div class="flex-end font-m">\n\n                  <div>{{ride.firstname}}</div>\n\n                  <div>{{ride.from}}</div>\n\n                  <div>to</div>\n\n                  <div>{{ride.to}}</div>\n\n                  <div *ngIf="ride.seatsRequired">\n\n                    <img color="primary" width="10px" height="10px" src="../assets/icon/seat.svg" /> {{ride.seatsRequired}}\n\n                  </div>\n\n                  <div *ngIf="ride.courierWeight">\n\n                    <img width="10px" height="10px" src="../assets/icon/express.jpg" />{{ride.courierWeight}}\n\n                  </div>\n\n                </div>\n\n              </div>\n\n            </ion-item>\n\n\n\n            <ion-item-options side="right" *ngIf="ride.ride_id === userId">\n\n              <button ion-button color="primary" (click)="updateRide(item)">\n\n                <ion-icon name="car"></ion-icon>\n\n                Update Ride\n\n              </button>\n\n              <button ion-button color="danger" (click)="deleteRide(item)">\n\n                <ion-icon name="trash"></ion-icon>\n\n                Delete Ride\n\n              </button>\n\n            </ion-item-options>\n\n          </ion-item-sliding>\n\n        </ng-container>\n\n      </ion-list>\n\n\n\n    </div>\n\n  </div>\n\n\n\n  <div *ngIf="isViewRide && !isViewRideInfo">\n\n    <ion-list class="selectride-list" *ngIf="coPassenegerDetails.user_id !== userId">\n\n      <ion-list-header color="primary">\n\n        <ion-icon name="car">Driver</ion-icon>\n\n      </ion-list-header>\n\n      <ion-item-sliding>\n\n        <ion-item class="details" (click)="viewInfo(coPassenegerDetails)" detail-push>\n\n          <span item-right class="font-xs">{{coPassenegerDetails.date | date:"dd/MM"}}</span>\n\n          <div class="flex-row item-icon-right">\n\n            <div class="gap">\n\n              <img class="profile" src="data:{{coPassenegerDetails.photo.contentType}};base64,{{coPassenegerDetails.photo.data}}">\n\n            </div>\n\n            <div class="flex-end font-m">\n\n              <div>{{coPassenegerDetails.from.address}}</div>\n\n              <div>to</div>\n\n              <div>{{coPassenegerDetails.to.address}}</div>\n\n              <div>\n\n                <img color="primary" width="10px" height="10px" src="../assets/icon/seat.svg" /> {{coPassenegerDetails.seatsAvailable}}\n\n              </div>\n\n            </div>\n\n          </div>\n\n        </ion-item>\n\n        <ion-item-options side="right">\n\n          <button ion-button color="primary" (click)="acceptRide(coPassenegerDetails)">\n\n            <ion-icon name="car"></ion-icon>\n\n            Update Ride\n\n          </button>\n\n          <button ion-button color="danger" (click)="RejectRide(coPassenegerDetails)">\n\n            <ion-icon name="trash"></ion-icon>\n\n            Delete Ride\n\n          </button>\n\n        </ion-item-options>\n\n\n\n      </ion-item-sliding>\n\n    </ion-list>\n\n\n\n    <ion-list *ngIf="coPassenegerDetails && coPassenegerDetails.confirmation">\n\n      <ion-list-header color="primary">\n\n        <ion-icon name="people"> Passengers</ion-icon>\n\n      </ion-list-header>\n\n\n\n      <ion-item-sliding class="selectride-list" *ngFor="let ride of coPassenegerDetails.confirmation">\n\n        <ion-item  *ngIf="ride.ride_id !== userId && ride.seatsRequired" class="details" (click)="viewInfo(ride)" detail-push>\n\n          <span item-right class="font-xs">{{ ride.date | date:"dd/MM"}}</span>\n\n          <div class="flex-row item-icon-right">\n\n            <div class="gap">\n\n              <img class="profile" src="data:{{ride.contentType}};base64,{{ride.data}}">\n\n            </div>\n\n            <div class="flex-end font-m">\n\n              <div>{{ride.firstname}}</div>\n\n              <div>{{ride.from}}</div>\n\n              <div>to</div>\n\n              <div>{{ride.to}}</div>\n\n              <div>\n\n                <img color="primary" width="10px" height="10px" src="../assets/icon/seat.svg" /> {{ride.seatsRequired}}\n\n              </div>\n\n            </div>\n\n          </div>\n\n        </ion-item>\n\n        <ion-item-options side="right">\n\n          <button ion-button color="primary" (click)="AcceptRide(item)">\n\n            <ion-icon name="thumbs-up"></ion-icon>\n\n            Accept Ride\n\n          </button>\n\n          <button ion-button color="danger" (click)="rejectRide(item)">\n\n            <ion-icon name="thumbs-down"></ion-icon>\n\n            Reject Ride\n\n          </button>\n\n        </ion-item-options>\n\n\n\n\n\n      </ion-item-sliding>\n\n\n\n    </ion-list>\n\n    <!-- courier -->\n\n\n\n\n\n    <ion-list  *ngIf="coPassenegerDetails && coPassenegerDetails.confirmation">\n\n      <ion-list-header color="primary">\n\n        <img width="20px" height="20px" src="../assets/icon/express.jpg"> Courier\n\n\n\n      </ion-list-header>\n\n\n\n      <ion-item-sliding class="selectride-list" *ngFor="let ride of coPassenegerDetails.confirmation">\n\n\n\n        <ion-item *ngIf="ride.ride_id !== userId && ride.courierWeight" class="details" (click)="viewInfo(ride)" detail-push>\n\n          <span item-right class="font-xs">{{ ride.date | date:"dd/MM"}}</span>\n\n          <div class="flex-row item-icon-right">\n\n            <div class="gap">\n\n              <img *ngIf="ride.data"  class="profile" src="data:{{ride.contentType}};base64,{{ride.data}}">\n\n              <img *ngIf="!ride.data" class="profile" src="">          \n\n            </div>\n\n            <div class="flex-end font-m">\n\n              <div>{{ride.firstname}}</div>\n\n              <div>{{ride.from}}</div>\n\n              <div>to</div>\n\n              <div>{{ride.to}}</div>\n\n              <div>\n\n                <img width="10px" height="10px" src="../assets/icon/express.jpg" /> {{ride.courierWeight}}\n\n              </div>\n\n            </div>\n\n          </div>\n\n        </ion-item>\n\n        <ion-item-options side="right">\n\n          <button ion-button color="primary" (click)="AcceptRide(item)">\n\n            <ion-icon name="thumbs-up"></ion-icon>\n\n            Accept Ride\n\n          </button>\n\n          <button ion-button color="danger" (click)="rejectRide(item)">\n\n            <ion-icon name="thumbs-down"></ion-icon>\n\n            Reject Ride\n\n          </button>\n\n        </ion-item-options>\n\n\n\n\n\n      </ion-item-sliding>\n\n\n\n    </ion-list>\n\n    <div class="align  vertical-align-content" text-center *ngIf="coPassenegerDetails && !coPassenegerDetails.confirmation">\n\n      <h4 text-uppercase no-padding no-margin>No Passengers Availble Please Schedule a Ride</h4>\n\n    </div>\n\n  </div>\n\n\n\n\n\n  <div *ngIf="isViewRide && isViewRideInfo">\n\n    <ion-list>\n\n      <ion-item>\n\n        <ion-card *ngIf="details.photo">\n\n          <img src="data:{{details.photo.contentType}};base64,{{details.photo.data}}">\n\n        </ion-card>\n\n        <ion-card *ngIf="!details.photo">\n\n          <img src="data:{{details.contentType}};base64,{{details.data}}">\n\n        </ion-card>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-icon name="mail" color="primary"> {{details.emailId}}</ion-icon>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-icon name="call" color="primary"> +1123456789</ion-icon>\n\n      </ion-item>\n\n      <ion-item>\n\n        <img color="primary" width="10px" height="10px" src="../assets/icon/seat.svg" /> {{details.seatsRequired}}\n\n      </ion-item>\n\n      <ion-item>\n\n        <img color="primary" width="10px" height="10px" src="../assets/icon/seat.svg" /> {{details.seatsRequired}}\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-icon color="primary" name="pin"> {{details.distance}} Km</ion-icon>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-icon color="primary" name="alarm"> {{details.time}}</ion-icon>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-icon color="primary" name="cash"> Rs {{details.cost}}</ion-icon>\n\n      </ion-item>\n\n    </ion-list>\n\n  </div>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\Admin\Documents\Project-1\ionic-app\src\pages\yourride\yourride.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_rest__["a" /* Rest */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Events */]])
 ], YourridePage);
@@ -3137,17 +3131,17 @@ YourridePage = __decorate([
 
 /***/ }),
 
-/***/ 395:
+/***/ 397:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__agm_core__ = __webpack_require__(392);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_rest__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__yourride_yourride__ = __webpack_require__(394);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__login_login__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__agm_core__ = __webpack_require__(394);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_rest__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__yourride_yourride__ = __webpack_require__(396);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__login_login__ = __webpack_require__(272);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShareridePage; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3261,6 +3255,10 @@ var ShareridePage = (function () {
                     return _this;
                 });
             };
+            _this.events.subscribe('badges', function (badges) {
+                console.log("hellooooooooooooo", badges);
+                _this.badges = badges;
+            });
         });
         console.log('ionViewDidLoad YourridePage');
         var userId = sessionStorage.getItem("userId");
@@ -3344,12 +3342,27 @@ var ShareridePage = (function () {
     ShareridePage.prototype.navigator = function (res) {
         this.clearInput();
         if (res.status === 200) {
-            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__yourride_yourride__["a" /* YourridePage */]);
+            this.presentAlert();
         }
         else if (res.status === 409) {
             //this.isRideAvailable=true;
             this.prompt();
         }
+    };
+    ShareridePage.prototype.presentAlert = function () {
+        var _this = this;
+        var alert = this.alertCtrl.create({
+            title: 'Ride created Sucessfully',
+            subTitle: 'check your trip details on the yourride tab',
+            buttons: [
+                { text: 'Ok',
+                    handler: function () {
+                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__yourride_yourride__["a" /* YourridePage */]);
+                    }
+                }
+            ]
+        });
+        alert.present();
     };
     ShareridePage.prototype.prompt = function () {
         var _this = this;
@@ -3392,7 +3405,7 @@ __decorate([
 ShareridePage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'page-shareride',template:/*ion-inline-start:"C:\Users\Admin\Documents\Project-1\ionic-app\src\pages\shareride\shareride.html"*/'<ion-header>\n\n    \n\n    <ion-navbar>\n\n        \n\n        <ion-icon id="menu" ios="ios-contact-outline" md="md-contact" menuToggle="left" start></ion-icon>\n\n        <ion-title class="text-center">offerRide</ion-title>\n\n        <ion-icon  id="menu" ios="ios-notifications-outline" md="md-notifications" menuToggle="right" end></ion-icon>\n\n        \n\n    </ion-navbar>\n\n  \n\n  </ion-header>\n\n  \n\n  <ion-content id="offerRide">\n\n  \n\n    <ion-searchbar  [(ngModel)]="fromAddress"    placeholder="From " autocorrect="off" autocapitalize="off"\n\n      spellcheck="off" type="text" class="fromAddress" #from ></ion-searchbar>\n\n  \n\n    <ion-searchbar [(ngModel)]="Destination"  placeholder="Destination" autocorrect="off" autocapitalize="off" spellcheck="off"\n\n      type="text" class="destinationaddress" #to></ion-searchbar>\n\n      <ion-item>\n\n      <ion-label>Date</ion-label>\n\n        <ion-datetime displayFormat="MM/DD/YYYY" [min]="minDate" [(ngModel)]="selectedDate">select Date</ion-datetime>\n\n       </ion-item>\n\n       <ion-item>\n\n        <ion-label>Time</ion-label>\n\n          <ion-datetime displayFormat="h:mm A"  [(ngModel)]="selectedTime">select time</ion-datetime>\n\n           \n\n         </ion-item>\n\n\n\n         <ion-item>\n\n            <ion-label><img width="30px" height="30px" src="../assets/icon/seat.svg"/></ion-label>\n\n            \n\n            <ion-select [(ngModel)]="seatsAvailable" end>\n\n                <ion-label>Select no of Seats Available</ion-label>\n\n                <ion-option value="1">1</ion-option>\n\n                <ion-option value="2">2</ion-option>\n\n                <ion-option value="3">3</ion-option>\n\n                <ion-option value="4">4</ion-option>\n\n              </ion-select>\n\n           \n\n         </ion-item>\n\n    <button ion-button block (click)="offerRide()" color="primary">Offer a Ride</button>\n\n    \n\n    <!-- <ion-img  src="../assets/icon/seat.svg"> seats available</ion-img> -->\n\n    <div id="map" #map></div>\n\n    \n\n  </ion-content>'/*ion-inline-end:"C:\Users\Admin\Documents\Project-1\ionic-app\src\pages\shareride\shareride.html"*/,
+        selector: 'page-shareride',template:/*ion-inline-start:"C:\Users\Admin\Documents\Project-1\ionic-app\src\pages\shareride\shareride.html"*/'<ion-header>\n\n    \n\n    <ion-navbar>\n\n        \n\n        <ion-icon id="menu" ios="ios-contact-outline" md="md-contact" menuToggle="left" start></ion-icon>\n\n        <ion-title class="text-center">offerRide</ion-title>\n\n        <ion-icon  id="menu" ios="ios-notifications-outline" md="md-notifications" menuToggle="right" end>\n\n            <ion-badge>{{badges}}</ion-badge>\n\n        </ion-icon>\n\n        <!-- <page-navbar></page-navbar> -->\n\n    </ion-navbar>\n\n  \n\n  </ion-header>\n\n  \n\n  <ion-content id="offerRide">\n\n  \n\n    <ion-searchbar  [(ngModel)]="fromAddress"    placeholder="From " autocorrect="off" autocapitalize="off"\n\n      spellcheck="off" type="text" class="fromAddress" #from ></ion-searchbar>\n\n  \n\n    <ion-searchbar [(ngModel)]="Destination"  placeholder="Destination" autocorrect="off" autocapitalize="off" spellcheck="off"\n\n      type="text" class="destinationaddress" #to></ion-searchbar>\n\n      <ion-item>\n\n      <ion-label>Date</ion-label>\n\n        <ion-datetime displayFormat="MM/DD/YYYY" [min]="minDate" [(ngModel)]="selectedDate">select Date</ion-datetime>\n\n       </ion-item>\n\n       <ion-item>\n\n        <ion-label>Time</ion-label>\n\n          <ion-datetime displayFormat="h:mm A"  [(ngModel)]="selectedTime">select time</ion-datetime>\n\n           \n\n         </ion-item>\n\n\n\n         <ion-item>\n\n            <ion-label><img width="30px" height="30px" src="../assets/icon/seat.svg"/></ion-label>\n\n            \n\n            <ion-select [(ngModel)]="seatsAvailable" end>\n\n                <ion-label>Select no of Seats Available</ion-label>\n\n                <ion-option value="1">1</ion-option>\n\n                <ion-option value="2">2</ion-option>\n\n                <ion-option value="3">3</ion-option>\n\n                <ion-option value="4">4</ion-option>\n\n              </ion-select>\n\n           \n\n         </ion-item>\n\n    <button ion-button block (click)="offerRide()" color="primary">Offer a Ride</button>\n\n    \n\n    <!-- <ion-img  src="../assets/icon/seat.svg"> seats available</ion-img> -->\n\n    <div id="map" #map></div>\n\n    \n\n  </ion-content>'/*ion-inline-end:"C:\Users\Admin\Documents\Project-1\ionic-app\src\pages\shareride\shareride.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__agm_core__["b" /* MapsAPILoader */],
         __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"], __WEBPACK_IMPORTED_MODULE_4__providers_rest__["a" /* Rest */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Events */]])
@@ -3402,23 +3415,23 @@ ShareridePage = __decorate([
 
 /***/ }),
 
-/***/ 396:
+/***/ 398:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__directives_map__ = __webpack_require__(388);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__directives_circle__ = __webpack_require__(385);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__directives_info_window__ = __webpack_require__(376);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_marker__ = __webpack_require__(389);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_polygon__ = __webpack_require__(390);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__directives_polyline__ = __webpack_require__(391);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__directives_polyline_point__ = __webpack_require__(377);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__directives_kml_layer__ = __webpack_require__(387);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__directives_data_layer__ = __webpack_require__(386);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_maps_api_loader_lazy_maps_api_loader__ = __webpack_require__(384);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_maps_api_loader_maps_api_loader__ = __webpack_require__(375);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__utils_browser_globals__ = __webpack_require__(393);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__directives_map__ = __webpack_require__(390);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__directives_circle__ = __webpack_require__(387);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__directives_info_window__ = __webpack_require__(378);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_marker__ = __webpack_require__(391);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_polygon__ = __webpack_require__(392);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__directives_polyline__ = __webpack_require__(393);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__directives_polyline_point__ = __webpack_require__(379);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__directives_kml_layer__ = __webpack_require__(389);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__directives_data_layer__ = __webpack_require__(388);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_maps_api_loader_lazy_maps_api_loader__ = __webpack_require__(386);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_maps_api_loader_maps_api_loader__ = __webpack_require__(377);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__utils_browser_globals__ = __webpack_require__(395);
 /* unused harmony export coreDirectives */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AgmCoreModule; });
 
@@ -3476,27 +3489,27 @@ AgmCoreModule.ctorParameters = function () { return []; };
 
 /***/ }),
 
-/***/ 397:
+/***/ 399:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__directives_map__ = __webpack_require__(388);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__directives_map__ = __webpack_require__(390);
 /* unused harmony reexport AgmMap */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__directives_circle__ = __webpack_require__(385);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__directives_circle__ = __webpack_require__(387);
 /* unused harmony reexport AgmCircle */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__directives_info_window__ = __webpack_require__(376);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__directives_info_window__ = __webpack_require__(378);
 /* unused harmony reexport AgmInfoWindow */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__directives_kml_layer__ = __webpack_require__(387);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__directives_kml_layer__ = __webpack_require__(389);
 /* unused harmony reexport AgmKmlLayer */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_data_layer__ = __webpack_require__(386);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__directives_data_layer__ = __webpack_require__(388);
 /* unused harmony reexport AgmDataLayer */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_marker__ = __webpack_require__(389);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__directives_marker__ = __webpack_require__(391);
 /* unused harmony reexport AgmMarker */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__directives_polygon__ = __webpack_require__(390);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__directives_polygon__ = __webpack_require__(392);
 /* unused harmony reexport AgmPolygon */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__directives_polyline__ = __webpack_require__(391);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__directives_polyline__ = __webpack_require__(393);
 /* unused harmony reexport AgmPolyline */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__directives_polyline_point__ = __webpack_require__(377);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__directives_polyline_point__ = __webpack_require__(379);
 /* unused harmony reexport AgmPolylinePoint */
 
 
@@ -3511,33 +3524,33 @@ AgmCoreModule.ctorParameters = function () { return []; };
 
 /***/ }),
 
-/***/ 398:
+/***/ 400:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_google_maps_api_wrapper__ = __webpack_require__(373);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_google_maps_api_wrapper__ = __webpack_require__(375);
 /* unused harmony reexport GoogleMapsAPIWrapper */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_managers_circle_manager__ = __webpack_require__(378);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_managers_circle_manager__ = __webpack_require__(380);
 /* unused harmony reexport CircleManager */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_managers_info_window_manager__ = __webpack_require__(380);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_managers_info_window_manager__ = __webpack_require__(382);
 /* unused harmony reexport InfoWindowManager */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_managers_marker_manager__ = __webpack_require__(374);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_managers_marker_manager__ = __webpack_require__(376);
 /* unused harmony reexport MarkerManager */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_managers_polygon_manager__ = __webpack_require__(382);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_managers_polygon_manager__ = __webpack_require__(384);
 /* unused harmony reexport PolygonManager */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_managers_polyline_manager__ = __webpack_require__(383);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_managers_polyline_manager__ = __webpack_require__(385);
 /* unused harmony reexport PolylineManager */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_managers_kml_layer_manager__ = __webpack_require__(381);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_managers_kml_layer_manager__ = __webpack_require__(383);
 /* unused harmony reexport KmlLayerManager */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_managers_data_layer_manager__ = __webpack_require__(379);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_managers_data_layer_manager__ = __webpack_require__(381);
 /* unused harmony reexport DataLayerManager */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_maps_api_loader_lazy_maps_api_loader__ = __webpack_require__(384);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_maps_api_loader_lazy_maps_api_loader__ = __webpack_require__(386);
 /* unused harmony reexport GoogleMapsScriptProtocol */
 /* unused harmony reexport LAZY_MAPS_API_CONFIG */
 /* unused harmony reexport LazyMapsAPILoader */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_maps_api_loader_maps_api_loader__ = __webpack_require__(375);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_maps_api_loader_maps_api_loader__ = __webpack_require__(377);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_9__services_maps_api_loader_maps_api_loader__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_maps_api_loader_noop_maps_api_loader__ = __webpack_require__(399);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_maps_api_loader_noop_maps_api_loader__ = __webpack_require__(401);
 /* unused harmony reexport NoOpMapsAPILoader */
 
 
@@ -3554,7 +3567,7 @@ AgmCoreModule.ctorParameters = function () { return []; };
 
 /***/ }),
 
-/***/ 399:
+/***/ 401:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3585,63 +3598,31 @@ var NoOpMapsAPILoader = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return alertPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return KeysPipe; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 
-
-var alertPage = (function () {
-    function alertPage(alertCtrl) {
-        this.alertCtrl = alertCtrl;
+var KeysPipe = (function () {
+    function KeysPipe() {
     }
-    //   doAlert() {
-    //   }
-    alertPage.prototype.doConfirm = function () {
-        var alert = this.alertCtrl.create({
-            title: 'Confirm purchase',
-            message: 'Do you want to buy this book?',
-            buttons: [
-                {
-                    text: 'Cancel',
-                    role: 'cancel',
-                    handler: function () {
-                        console.log('Cancel clicked');
-                    }
-                },
-                {
-                    text: 'Buy',
-                    handler: function () {
-                        console.log('Buy clicked');
-                    }
-                }
-            ]
-        });
-        alert.present();
+    KeysPipe.prototype.transform = function (value, args) {
+        if (args === void 0) { args = null; }
+        return Object.keys(value);
+        //.map(key => value[key]);
     };
-    return alertPage;
+    return KeysPipe;
 }());
-alertPage = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'alert-page',template:/*ion-inline-start:"C:\Users\Admin\Documents\Project-1\ionic-app\src\pages\alert\alert.html"*/'<ion-header>\n\n<ion-navbar>\n\n        <ion-title>Alert</ion-title>\n\n      </ion-navbar>\n\n    </ion-header>\n\n     \n\n    <ion-content padding>\n\n      <button ion-button block (click)="doAlert()">Basic Alert</button>\n\n      <button ion-button color="light" block (click)="doConfirm()">Confirm Alert</button>\n\n      <button ion-button color="secondary" block (click)="doPrompt()">Prompt Alert</button>\n\n      <button ion-button color="danger" block (click)="doRadio()">Radio Alert</button>\n\n      <button ion-button color="dark" block (click)="doCheckbox()">Checkbox Alert</button>\n\n    </ion-content>'/*ion-inline-end:"C:\Users\Admin\Documents\Project-1\ionic-app\src\pages\alert\alert.html"*/
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* AlertController */]])
-], alertPage);
+KeysPipe = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
+        name: 'keys'
+    })
+], KeysPipe);
 
-//   doPrompt() {
-//   }
-//   doRadio() {
-//   }
-//   doCheckbox() {
-//   }
-//# sourceMappingURL=alert.js.map
+//# sourceMappingURL=pipe.js.map
 
 /***/ })
 

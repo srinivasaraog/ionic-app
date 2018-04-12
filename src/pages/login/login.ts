@@ -23,6 +23,10 @@ export class LoginPage {
   userNotVerified: boolean = false;
   userLoginError: boolean = false;
   isValid:boolean=false;
+  confirmation:any;
+  badge:any;
+  notificationReq:any;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams,public events: Events, public rest: Rest, public formBuilder: FormBuilder) {
         this.authForm = formBuilder.group({
             email: ['', Validators.compose([Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'), Validators.minLength(8), Validators.maxLength(30)])],
@@ -48,14 +52,37 @@ ngOnInIt(){
             err => console.log(err)
           );
         }
-  }
-
+    }
+   navigator(response){
+      console.log("......",response);
+       this.confirmation=response.confirmation ? response.confirmation:"";
+       if(this.confirmation && this.confirmation!=="undefined"){
+        console.log("......",this.confirmation);
+          this.badge = this.confirmation.filter(function(item){
+           
+             return  item.unread === '1'
+           });
+       }
+       console.log(this.badge);
+       if(this.badge){
+        this.events.publish('badges',this.badge.length);
+       }
+       
+    }
+    
   loginSucess(response) {
     if (response.sucess) {
       let userId = response.userId;
-
-      sessionStorage.setItem("userId", userId);
-      this.events.publish('loadProfile');
+      sessionStorage.setItem("userId",userId)
+      this.notificationReq={
+      userId:userId
+      }
+      this.rest.getNotifications(this.notificationReq).subscribe(
+      response => this.navigator(response),
+      err => console.log(err)
+  
+     );
+     this.events.publish('loadProfile'); 
       this.navCtrl.push(HomePage);
     } else if (response.message.indexOf("user doesnot exist") >= 0) {
       this.userNotExists = true;

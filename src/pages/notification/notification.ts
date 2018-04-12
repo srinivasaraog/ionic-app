@@ -30,10 +30,7 @@ export class NotificationPage {
 
     
   }
-  ngOnInit(){
-
-
-    
+  ngOnInit(){    
     this.rideDetails={
       userId:sessionStorage.getItem("userId")
     }
@@ -47,8 +44,8 @@ export class NotificationPage {
   navigator(response){
     console.log("......",response);
      this.confirmation=response.confirmation ? response.confirmation:"";
-     if(this.confirmation && this.confirmation[0].ridesInQueue!=="undefined"){
-      this.notifications=this.confirmation[0].ridesInQueue;
+     if(this.confirmation && this.confirmation!=="undefined"){
+      this.notifications=this.confirmation;
      }
 
      
